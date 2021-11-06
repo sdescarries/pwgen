@@ -1,0 +1,20 @@
+.App {
+  header {
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .Controls {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+    }
+  }
+
+  main {
+    height: calc(100vh - 5rem);
+    overflow-y: auto;
+  }
+}

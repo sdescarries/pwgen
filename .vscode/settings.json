@@ -9,7 +9,11 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "cSpell.words": [
-    "pwgen"
+    "Descarries",
+    "prebuild",
+    "pwgen",
+    "sdescarries",
+    "vitejs"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
