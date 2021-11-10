@@ -1,0 +1,39 @@
+{
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "cSpell.words": [
+    "pwgen"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.detectIndentation": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "json"
+  ],
+  "git.allowForcePush": true,
+  "git.autoStash": true,
+  "git.autofetch": "all",
+  "git.branchSortOrder": "alphabetically",
+  "git.fetchOnPull": true,
+  "git.pruneOnFetch": true,
+  "git.pullTags": false,
+  "git.rebaseWhenSync": true,
+  "html.format.enable": false,
+  "sortLines.filterBlankLines": true
+}
