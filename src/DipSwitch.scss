@@ -1,0 +1,63 @@
+.DipSwitch {
+  margin-right: 0.5rem;
+
+  .checkbox {
+    display: none;
+  }
+
+  & * {
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    user-select: none;
+  }
+
+  .frame {
+    align-items: center;
+    background-color: $l1;
+    border-radius: 1.1rem;
+    border: 0.2rem solid $l2;
+    display: flex;
+    flex-direction: row;
+    height: 2rem;
+    overflow: hidden;
+
+    .toggleWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+
+      .toggle {
+        background-color: transparent;
+        border-radius: 50%;
+        border: 0.2rem solid $l2;
+        height: 0.4rem;
+        width: 0.4rem;
+      }
+    }
+
+    .label {
+      color: $l2;
+      padding-right: 1rem;
+    }
+  }
+
+  .checkbox:checked {
+    & + .frame {
+      background-color: $l4;
+
+      .toggle {
+        background-color: $l2;
+        border-color: transparent;
+        border-radius: 0.6rem;
+        width: 0;
+      }
+
+      .label {
+        color: $l2;
+      }
+    }
+  }
+}

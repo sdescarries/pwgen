@@ -1,0 +1,31 @@
+$l1: hsl(200, 15%, 10%);
+$l2: hsl(200, 15%, 25%);
+$l3: hsl(200, 15%, 50%);
+$l4: hsl(200, 15%, 70%);
+$l5: hsl(200, 15%, 90%);
+
+@media (prefers-color-scheme: light) {
+  $l1: hsl(200, 15%, 90%);
+  $l2: hsl(200, 15%, 70%);
+  $l3: hsl(200, 15%, 50%);
+  $l4: hsl(200, 15%, 25%);
+  $l5: hsl(200, 15%, 10%);
+}
+
+$normalFonts: "Fira Sans", "Droid Sans", "Helvetica Neue", "Roboto", "Oxygen", sans-serif;
+$codeFonts: "Fira Code", "Menlo", "Monaco", "Consolas", monospace;
+
+body {
+  background-color: $l1;
+  color: $l5;
+  font-family: $normalFonts;
+  margin: 0;
+}
+
+code {
+  font-family: $codeFonts;
+}
+
+@import "./App.scss";
+@import "./DipSwitch.scss";
+@import "./Length.scss";
