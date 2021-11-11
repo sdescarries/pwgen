@@ -4,15 +4,34 @@ import {
   useDipSwitchStorage,
 } from '@/useDipSwitchStorage';
 
-export function DipSwitch(props: DipSwitchProps): JSX.Element {
+interface LabelProps {
+  charset: string;
+  checked: boolean;
+  id: string,
+}
 
-  const [checked, toggle] = useDipSwitchStorage(props);
-
-  const id = `dipSwitch-${props.charset}`;
-  const label = charsetLabels[props.charset];
-  const short = charsetShorts[props.charset];
+export function Label({ id, charset, checked }: LabelProps): JSX.Element {
   const hint = `${checked ? 'disable' : 'enable'} ${label} characters`.toLocaleLowerCase();
+  const label = charsetLabels[charset];
+  const short = charsetShorts[charset];
+  return (
+    <label className={'Frame Flame'} htmlFor={id} title={hint}>
+      <div className={'Large'}>
+        <label className='toggleWrapper' htmlFor={id} >
+          <div className='toggle' />
+        </label>
+        <p className='label'>{label}</p>
+      </div>
+      <div className={'Small'}>
+        <p className='label'>{short}</p>
+      </div>
+    </label>
+  );
+}
 
+export function DipSwitch(props: DipSwitchProps): JSX.Element {
+  const [checked, toggle] = useDipSwitchStorage(props);
+  const id = `dipSwitch-${props.charset}`;
   return (
     <div className={'DipSwitch'} data-testid={id}>
       <input
@@ -22,17 +41,11 @@ export function DipSwitch(props: DipSwitchProps): JSX.Element {
         onChange={() => toggle(!checked)}
         type={'checkbox'}
       />
-      <label className={'Frame Flame'} htmlFor={id} title={hint}>
-        <div className={'Large'}>
-          <label className='toggleWrapper' htmlFor={id} >
-            <div className='toggle' />
-          </label>
-          <p className='label'>{label}</p>
-        </div>
-        <div className={'Small'}>
-          <p className='label'>{short}</p>
-        </div>
-      </label>
+      <Label 
+        id={id} 
+        charset={props.charset} 
+        checked={checked} 
+      />
     </div>
   );
 }
