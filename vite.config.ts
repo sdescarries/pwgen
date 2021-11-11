@@ -5,6 +5,7 @@ import reactRefresh from "@vitejs/plugin-react-refresh";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/pwgen/',
   plugins: [legacy(), reactRefresh()],
   esbuild: {
     jsxInject: `import React from 'react'`, // automatically import React in jsx files
