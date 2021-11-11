@@ -1,8 +1,9 @@
-import { charsetLabels, charsetShorts } from '@/charset';
+import { charsetLabels, charsetShorts } from '@/Password/';
+
 import { 
   DipSwitchProps,
   useDipSwitchStorage,
-} from '@/useDipSwitchStorage';
+} from './useDipSwitchStorage';
 
 interface LabelProps {
   charset: string;
@@ -11,9 +12,9 @@ interface LabelProps {
 }
 
 export function Label({ id, charset, checked }: LabelProps): JSX.Element {
-  const hint = `${checked ? 'disable' : 'enable'} ${label} characters`.toLocaleLowerCase();
   const label = charsetLabels[charset];
   const short = charsetShorts[charset];
+  const hint = `${checked ? 'disable' : 'enable'} ${label} characters`.toLocaleLowerCase();
   return (
     <label className={'Frame Flame'} htmlFor={id} title={hint}>
       <div className={'Large'}>

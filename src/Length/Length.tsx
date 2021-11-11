@@ -1,4 +1,4 @@
-import { LengthProps, useLengthStorage } from '@/useLengthStorage';
+import { LengthProps, useLengthStorage } from './useLengthStorage';
 
 export function Length(props: LengthProps): JSX.Element {
 

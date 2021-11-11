@@ -1,12 +1,11 @@
-import { CharsetState } from '@/charset';
-import { DipSwitch } from '@/DipSwitch';
-import { InfiniScroll } from '@/InfiniScroll';
-import {
+import { DipSwitch } from '@/DipSwitch/';
+import { InfiniScroll } from '@/InfiniScroll/';
+import { Length } from '@/Length/';
+import { 
+  CharsetState,
   UpdatePasswordOptions,
   usePasswordGenerator,
-} from '@/usePasswordGenerator';
-
-import { Length } from './Length';
+} from '@/Password/';
 
 export interface ControlProps {
   update: UpdatePasswordOptions;

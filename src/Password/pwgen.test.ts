@@ -1,4 +1,4 @@
-import { getCharset } from '@/charset';
+import { getCharset } from '@/Password/';
 
 describe('pwgen', () => {
   describe('getCharset', () => {

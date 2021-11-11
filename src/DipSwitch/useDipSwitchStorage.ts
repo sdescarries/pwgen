@@ -1,6 +1,6 @@
 import { Dispatch, useEffect, useState } from 'react';
 
-import { CharsetState } from '@/charset';
+import { CharsetState } from '@/Password/';
 
 export type UpdateCharsetState = (state: CharsetState) => void;
 export interface DipSwitchProps {

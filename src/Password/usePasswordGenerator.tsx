@@ -6,8 +6,7 @@ import {
   alphaLower,
   CharsetState,
   toRealSet,
-} from '@/charset';
-
+} from './charset';
 import { Password } from './Password';
 import { pwgenFactory } from './pwgenFactory';
 

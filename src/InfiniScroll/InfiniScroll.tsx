@@ -1,4 +1,4 @@
-import { InfiniScrollProps, useInfiniScroll } from '@/useInfiniScroll';
+import { InfiniScrollProps, useInfiniScroll } from './useInfiniScroll';
 
 export function InfiniScroll({ render }: InfiniScrollProps): JSX.Element {
   const { list, loader } = useInfiniScroll();
