@@ -1,4 +1,4 @@
-import { charsetLabels } from '@/charset';
+import { charsetLabels, charsetShorts } from '@/charset';
 import { 
   DipSwitchProps,
   useDipSwitchStorage,
@@ -10,6 +10,7 @@ export function DipSwitch(props: DipSwitchProps): JSX.Element {
 
   const id = `dipSwitch-${props.charset}`;
   const label = charsetLabels[props.charset];
+  const short = charsetShorts[props.charset];
   const hint = `${checked ? 'disable' : 'enable'} ${label} characters`.toLocaleLowerCase();
 
   return (
@@ -21,11 +22,16 @@ export function DipSwitch(props: DipSwitchProps): JSX.Element {
         onChange={() => toggle(!checked)}
         type={'checkbox'}
       />
-      <label className={'frame'} htmlFor={id} title={hint}>
-        <label className='toggleWrapper' htmlFor={id} >
-          <div className='toggle' />
-        </label>
-        <p className='label'>{label}</p>
+      <label className={'Frame Flame'} htmlFor={id} title={hint}>
+        <div className={'Large'}>
+          <label className='toggleWrapper' htmlFor={id} >
+            <div className='toggle' />
+          </label>
+          <p className='label'>{label}</p>
+        </div>
+        <div className={'Small'}>
+          <p className='label'>{short}</p>
+        </div>
       </label>
     </div>
   );

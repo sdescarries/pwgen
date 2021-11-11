@@ -12,6 +12,12 @@ export const charsetLabels: CharsetLabels = {
   ['SM']: 'Symbol',
 };
 
+export const charsetShorts: CharsetLabels = {
+  ['09']: '9',
+  ['AZ']: 'Z',
+  ['SM']: '#',
+};
+
 export const alphaLower = 'abcdefghijklmnopqrstuvwxyz';
 export const alphaUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 export const numerical = '0123456789';
