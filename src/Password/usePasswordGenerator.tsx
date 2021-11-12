@@ -1,4 +1,5 @@
 import {
+  useRef,
   useState,
 } from 'react';
 
@@ -18,21 +19,32 @@ export interface PasswordOptions {
 export type PasswordRenderer = (key: number) => JSX.Element;
 export type UpdatePasswordOptions = (options: PasswordOptions) => void;
 
+interface Debounce {
+  timeout?: NodeJS.Timeout;
+}
+
 export function usePasswordGenerator(): [PasswordRenderer, UpdatePasswordOptions] {
-  const [activeSets, setCharset] = useState<CharsetState>({});
-  const [activeLength, setLength] = useState<number>(8);
+  const [{charset = {}, length = 8}, setOptions] = useState<PasswordOptions>({});
+  const debounce = useRef<Debounce>({});
 
-  const realSets = Object.entries<boolean>(activeSets).map(toRealSet);
-  const generator = pwgenFactory(activeLength, alphaLower, ...realSets);
+  const realSets = Object.entries<boolean>(charset).map(toRealSet);
+  const generator = pwgenFactory(length, alphaLower, ...realSets);
   const renderer: PasswordRenderer = (key: number) => <Password key={key} {...{generator}} />;
+  const update: UpdatePasswordOptions = (options: PasswordOptions) => {
 
-  const update: UpdatePasswordOptions = ({ charset, length }: PasswordOptions) => {
-    if (charset !== undefined) {
-      setCharset({...activeSets, ...charset});
+    if (debounce.current.timeout) {
+      clearTimeout(debounce.current.timeout);
     }
-    if (length !== undefined && length >= 4) {
-      setLength(length);
-    }
+
+    debounce.current.timeout = setTimeout(() => {
+      setOptions({ 
+        charset: {...charset, ...options.charset},
+        length: options.length ?? length,
+      });
+    }, 500);
   };
+
+  console.log('render');
+
   return [renderer, update];
 }

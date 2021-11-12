@@ -5,11 +5,17 @@ export interface FieldProps {
   word: string;
 }
 
-export const Field = ({ word }: FieldProps) => 
-  (
-    <pre>{word}</pre>
-  );
+export function Field({ word }: FieldProps): JSX.Element {
 
+  const ready = word ? ' Ready' : '';
+
+  return (
+    <div className={'Field'}>
+      <p className={`Password${ready}`}>{word}</p>
+    </div>
+  );
+}
+    
 export interface PasswordProps {
   generator?: pwgen;
 }

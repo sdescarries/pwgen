@@ -8,6 +8,7 @@ import {
 export type renderInfiniScroll = (key: number) => JSX.Element;
 
 export interface InfiniScrollProps {
+  length: number;
   render: renderInfiniScroll;
 }
 

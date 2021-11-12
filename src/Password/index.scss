@@ -1,0 +1,27 @@
+@keyframes cardEntrance {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.Field {
+  display: flex;
+  justify-content: center;
+  background-color: $l3;
+  height: 2rem;
+
+  .Password {
+    font-family: $codeFonts;
+    font-size: 1rem;
+    margin: 0;
+    background-color: $l2;
+
+    &.Ready {
+      animation: cardEntrance 2000ms ease-out backwards;
+    }
+  }
+}

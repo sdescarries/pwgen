@@ -1,11 +1,18 @@
 import { InfiniScrollProps, useInfiniScroll } from './useInfiniScroll';
 
-export function InfiniScroll({ render }: InfiniScrollProps): JSX.Element {
+export function InfiniScroll({ length, render }: InfiniScrollProps): JSX.Element {
   const { list, loader } = useInfiniScroll();
+
+  const style = {
+    '--length': `${length}rem`
+  };
+
   return (
     <section className={'InfiniScroll'}>
-      {list.map(render)}
-      <nav ref={loader} />
+      <div className={'Grid'} style={style}>
+        {list.map(render)}
+        <nav ref={loader} />
+      </div>
     </section>
   );
 }

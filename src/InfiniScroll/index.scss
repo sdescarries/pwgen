@@ -1,0 +1,18 @@
+.InfiniScroll {
+  padding: 0 2rem;
+  background-color: $l4;
+
+  .Grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--length), 1fr));
+    gap: 0.5rem;
+
+    nav {
+      height: 2rem;
+      background-color: $l2;
+
+      grid-column-start: 1;
+      grid-column-end: -1;
+    }
+  }
+}
