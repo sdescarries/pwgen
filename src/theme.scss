@@ -30,8 +30,10 @@ code {
   font-family: $codeFonts;
 }
 
-.Flame:hover {
-  box-shadow: #ff8000 0 0 calc($size/4), red 0 0 calc($size/2), 0 0 $size rgba(0, 0, 0, 0);
+@media (hover: hover) {
+  .Flame:hover {
+    box-shadow: #ff8000 0 0 calc($size/4), red 0 0 calc($size/2), 0 0 $size rgba(0, 0, 0, 0);
+  }
 }
 
 .Frame {
