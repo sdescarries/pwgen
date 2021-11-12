@@ -33,10 +33,5 @@ export function pwgenFactory(length: number, ...args: string[]): pwgen {
   const random = new Random(charset.length);
 
   return (): Promise<string> =>
-    limit(
-      () =>
-        Promise
-          .resolve({ length, charset, random })
-          .then(sleep(10))
-          .then(pwgenImpl));
+    Promise.resolve({ length, charset, random }).then(pwgenImpl);
 }

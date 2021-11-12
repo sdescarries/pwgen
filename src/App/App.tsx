@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { DipSwitch } from '@/DipSwitch/';
 import { InfiniScroll } from '@/InfiniScroll/';
 import { Length } from '@/Length/';
@@ -11,16 +9,11 @@ import {
 
 export interface ControlProps {
   update: UpdatePasswordOptions;
-  setLength: (length: number) => void;
 }
 
-export function Control({ setLength, update }: ControlProps): JSX.Element {
+export function Control({ update }: ControlProps): JSX.Element {
   const updateCharset = (charset: CharsetState) => update({ charset });
-  const updateLength = (length: number) => {
-    setLength(length);
-    update({length});
-  };
-
+  const updateLength = (length: number) => update({length});
   return (
     <div className={'Controls'}>
       <DipSwitch charset={'AZ'} update={updateCharset} />
@@ -33,14 +26,13 @@ export function Control({ setLength, update }: ControlProps): JSX.Element {
 
 export function App(): JSX.Element {
   const [password, updatePasswordOptions] = usePasswordGenerator();
-  const [length, setLength] = useState<number>(8);
   return (
     <div className="App">
       <header>
-        <Control setLength={setLength} update={updatePasswordOptions} />
+        <Control update={updatePasswordOptions} />
       </header>
       <main>
-        <InfiniScroll render={password} length={length} />
+        <InfiniScroll render={password} />
       </main>
     </div>
   );

@@ -5,7 +5,7 @@ import {
   useDipSwitchStorage,
 } from './useDipSwitchStorage';
 
-interface LabelProps {
+export interface LabelProps {
   charset: string;
   checked: boolean;
   id: string,

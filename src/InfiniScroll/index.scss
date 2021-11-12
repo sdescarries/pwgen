@@ -3,16 +3,16 @@
   background-color: $l4;
 
   .Grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--length), 1fr));
+    display: inline-flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
     gap: 0.5rem;
 
     nav {
       height: 2rem;
       background-color: $l2;
 
-      grid-column-start: 1;
-      grid-column-end: -1;
+      width: 100%;
     }
   }
 }
