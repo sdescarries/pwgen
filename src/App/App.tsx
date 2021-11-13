@@ -28,12 +28,12 @@ export function App(): JSX.Element {
   const [password, updatePasswordOptions] = usePasswordGenerator();
   return (
     <div className="App">
-      <header>
-        <Control update={updatePasswordOptions} />
-      </header>
       <main>
         <InfiniScroll render={password} />
       </main>
+      <header>
+        <Control update={updatePasswordOptions} />
+      </header>
     </div>
   );
 }
