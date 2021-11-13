@@ -1,7 +1,4 @@
-import {
-  useRef,
-  useState,
-} from 'react';
+import { useRef, useState } from 'react';
 
 import {
   alphaLower,
@@ -10,38 +7,55 @@ import {
 } from './charset';
 import { Password } from './Password';
 import { pwgenFactory } from './pwgenFactory';
+import { useDebounce } from './useDebounce';
 
 export interface PasswordOptions {
-  charset?: CharsetState;
-  length?: number;
+  charset: CharsetState;
+  length: number;
 }
+
+export type PasswordUserOptions = Partial<PasswordOptions>;
 
 export type PasswordRenderer = (key: number) => JSX.Element;
-export type UpdatePasswordOptions = (options: PasswordOptions) => void;
+export type UpdatePasswordOptions = (options: PasswordUserOptions) => void;
 
-interface Debounce {
-  timeout?: NodeJS.Timeout;
-}
+export const combinePasswordOptions = (
+  oldOptions?: PasswordUserOptions, 
+  newOptions?: PasswordUserOptions
+): PasswordOptions => ({
+  charset: {
+    ...oldOptions?.charset,
+    ...newOptions?.charset,
+  },
+  length: newOptions?.length ?? oldOptions?.length ?? 8,
+});
 
-export function usePasswordGenerator(): [PasswordRenderer, UpdatePasswordOptions] {
-  const [{charset = {}, length = 8}, setOptions] = useState<PasswordOptions>({});
-  const debounce = useRef<Debounce>({});
+export const deepEqual = (left: object, right: object): boolean => {
+  const leftStr = JSON.stringify(left);
+  const rightStr = JSON.stringify(right);
+  return leftStr === rightStr;
+};
 
+export function getPasswordRenderer({ length, charset }: PasswordOptions): PasswordRenderer {
   const realSets = Object.entries<boolean>(charset).map(toRealSet);
   const generator = pwgenFactory(length, alphaLower, ...realSets);
   const renderer: PasswordRenderer = (key: number) => <Password key={key} {...{generator}} />;
-  const update: UpdatePasswordOptions = (options: PasswordOptions) => {
+  return renderer;
+}
 
-    if (debounce.current.timeout) {
-      clearTimeout(debounce.current.timeout);
-    }
+export function usePasswordGenerator(): [PasswordRenderer, UpdatePasswordOptions] {
+  const pending = useRef<PasswordOptions>({ charset: {}, length: 0 });
+  const [current, setOptions] = useState<PasswordOptions>(pending.current);
+  const debounce = useDebounce(100);
+  const renderer = getPasswordRenderer(current);
 
-    debounce.current.timeout = setTimeout(() => {
-      setOptions({ 
-        charset: {...charset, ...options.charset},
-        length: options.length ?? length,
-      });
-    }, 500);
+  const update: UpdatePasswordOptions = (options: PasswordUserOptions) => {
+    pending.current = combinePasswordOptions(pending.current, options);
+    debounce(() => {
+      if (!deepEqual(current, pending.current)) {
+        setOptions(pending.current);
+      }
+    });
   };
 
   console.log('render');

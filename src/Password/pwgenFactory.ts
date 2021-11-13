@@ -1,11 +1,12 @@
-import pLimit from 'p-limit';
+//import pLimit from 'p-limit';
 
 import { getCharset } from './charset';
-import { pwgenImpl, PwgenProps } from './pwgenImpl';
+import { pwgenImpl } from './pwgenImpl';
 import { Random } from './Random';
 
 export type pwgen = () => Promise<string>;
 
+/*
 const limit = pLimit(1);
 
 const sleep = 
@@ -14,9 +15,14 @@ const sleep =
       new Promise(resolve => 
         setTimeout(resolve, timeout))
         .then(() => args);
-
+*/
 export function pwgenFactory(length: number, ...args: string[]): pwgen {
-  if (length < 1) {
+
+  if (length === 0) {
+    return (): Promise<string> => Promise.resolve('');
+  }
+
+  if (length < 4) {
     throw new Error(`length too short ${length}`);
   }
 

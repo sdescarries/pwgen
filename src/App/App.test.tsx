@@ -4,7 +4,7 @@ import { charsetLabels } from '@/Password/';
 
 import { App } from './App';
 
-describe.skip('App', () => {
+describe('App', () => {
 
   for (const [key, label] of Object.entries(charsetLabels)) {
     it(`should have dipSwith for ${key}:${label}`, () => {
