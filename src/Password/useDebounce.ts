@@ -1,20 +1,20 @@
-import { useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 export interface DebounceContext {
-  timeout?: NodeJS.Timeout;
+  timeout?: number;
 }
 
 export type DebounceCallback = () => void;
 export type Debounce = (callback: DebounceCallback) => void;
 export function useDebounce(delay: number): Debounce {
-  const context = useRef<DebounceContext>({});
+  const context = useRef<DebounceContext>({ });
 
-  const debounce: Debounce = (callback: DebounceCallback): void => {
-    if (context.current?.timeout != null) {
-      clearTimeout(context.current.timeout);
-    }
-    context.current.timeout = setTimeout(callback, delay);
-  };
+  const debounce = useCallback<Debounce>((callback: DebounceCallback): void => {
+    clearTimeout(context.current.timeout);
+    context.current.timeout = setTimeout(callback, delay) as unknown as number;
+  }, [delay]);
+
+  useEffect(() => () => clearTimeout(context.current.timeout), [delay]);
 
   return debounce;
 }

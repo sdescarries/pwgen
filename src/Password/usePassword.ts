@@ -1,42 +1,46 @@
+import pLimit from 'p-limit';
 import { useEffect, useState } from 'react';
 
 import { pwgen } from './pwgenFactory';
 
-export function usePassword(generator?: pwgen): string {
+const limit = pLimit(1);
+const sleep = (delay: number) => new Promise(resolve => setTimeout(resolve, delay));
+
+interface PasswordProps {
+  seed: number,
+  generator?: pwgen,
+}
+
+export function usePassword({ generator, seed }: PasswordProps): string {
   const [value, set] = useState<string>('');
 
   useEffect(() => {
-    let live = true;
-
-    const unmount = () => {
-      live = false;
-    };
 
     if (generator == null) {
       return;
     }
 
+    let live = true;
     const setIfAlive = (pw: string) => {
-      if (!live) {
-        return;
+      if (live) {
+        set(pw);
       }
-      set(pw);
     };
 
-    Promise
-      .resolve()
+    set('');
+    limit(() => Promise
+      .resolve(50)
+      .then(sleep)
       .then(generator)
-      .then(setIfAlive)
+      .then(setIfAlive))
       .catch(console.warn);
 
-    if (value) {
-      set('');
-    }
+    return () => {
+      live = false;
+      limit.clearQueue();
+    };
 
-    return unmount;
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [generator]);
+  }, [generator, seed]);
 
   return value;
 }

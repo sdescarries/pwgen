@@ -36,18 +36,18 @@ export const deepEqual = (left: object, right: object): boolean => {
   return leftStr === rightStr;
 };
 
-export function getPasswordRenderer({ length, charset }: PasswordOptions): PasswordRenderer {
+export function usePasswordRenderer({ length, charset }: PasswordOptions): PasswordRenderer {
   const realSets = Object.entries<boolean>(charset).map(toRealSet);
   const generator = pwgenFactory(length, alphaLower, ...realSets);
-  const renderer: PasswordRenderer = (key: number) => <Password key={key} {...{generator}} />;
+  const renderer: PasswordRenderer = (seed: number) => <Password key={seed} {...{generator, seed}} />;
   return renderer;
 }
 
 export function usePasswordGenerator(): [PasswordRenderer, UpdatePasswordOptions] {
   const pending = useRef<PasswordOptions>({ charset: {}, length: 0 });
   const [current, setOptions] = useState<PasswordOptions>(pending.current);
-  const debounce = useDebounce(100);
-  const renderer = getPasswordRenderer(current);
+  const debounce = useDebounce(200);
+  const renderer = usePasswordRenderer(current);
 
   const update: UpdatePasswordOptions = (options: PasswordUserOptions) => {
     pending.current = combinePasswordOptions(pending.current, options);
