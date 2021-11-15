@@ -3,8 +3,9 @@ import { InfiniScroll } from '@/InfiniScroll/';
 import { Length } from '@/Length/';
 import { 
   CharsetState,
+  Password,
   UpdatePasswordOptions,
-  usePasswordGenerator,
+  usePasswordContext,
 } from '@/Password/';
 
 export interface ControlProps {
@@ -25,14 +26,14 @@ export function Control({ update }: ControlProps): JSX.Element {
 }
 
 export function App(): JSX.Element {
-  const [password, updatePasswordOptions] = usePasswordGenerator();
+  const context = usePasswordContext();
   return (
     <div className="App">
       <main>
-        <InfiniScroll render={password} />
+        <InfiniScroll {...context} Component={Password} />
       </main>
       <header>
-        <Control update={updatePasswordOptions} />
+        <Control {...context} />
       </header>
     </div>
   );

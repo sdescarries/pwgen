@@ -1,10 +1,5 @@
-export interface CharsetState {
-  [key: string]: boolean,
-}
+import { CharsetLabels } from './types';
 
-export interface CharsetLabels {
-  [key: string]: string;
-}
 
 export const charsetLabels: CharsetLabels = {
   ['09']: 'Number',

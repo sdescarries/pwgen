@@ -1,15 +1,10 @@
 import pLimit from 'p-limit';
 import { useEffect, useState } from 'react';
 
-import { pwgen } from './pwgenFactory';
+import { PasswordProps } from './types';
 
 const limit = pLimit(1);
 const sleep = (delay: number) => new Promise(resolve => setTimeout(resolve, delay));
-
-interface PasswordProps {
-  seed: number,
-  generator?: pwgen,
-}
 
 export function usePassword({ generator, seed }: PasswordProps): string {
   const [value, set] = useState<string>('');
@@ -29,7 +24,7 @@ export function usePassword({ generator, seed }: PasswordProps): string {
 
     set('');
     limit(() => Promise
-      .resolve(50)
+      .resolve(10)
       .then(sleep)
       .then(generator)
       .then(setIfAlive))

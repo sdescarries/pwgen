@@ -1,23 +1,15 @@
 import { useRef, useState } from 'react';
 
+import { InfiniCell, InfiniGenerator } from '@/InfiniScroll/useInfiniScroll';
+
 import {
   alphaLower,
-  CharsetState,
   toRealSet,
 } from './charset';
 import { Password } from './Password';
 import { pwgenFactory } from './pwgenFactory';
+import { PasswordOptions, PasswordRenderer, PasswordUserOptions, pwgen, UpdatePasswordOptions } from './types';
 import { useDebounce } from './useDebounce';
-
-export interface PasswordOptions {
-  charset: CharsetState;
-  length: number;
-}
-
-export type PasswordUserOptions = Partial<PasswordOptions>;
-
-export type PasswordRenderer = (key: number) => JSX.Element;
-export type UpdatePasswordOptions = (options: PasswordUserOptions) => void;
 
 export const combinePasswordOptions = (
   oldOptions?: PasswordUserOptions, 
@@ -43,11 +35,46 @@ export function usePasswordRenderer({ length, charset }: PasswordOptions): Passw
   return renderer;
 }
 
-export function usePasswordGenerator(): [PasswordRenderer, UpdatePasswordOptions] {
+export function usePasswordGenerator({ length, charset }: PasswordOptions): pwgen {
+  const realSets = Object.entries<boolean>(charset).map(toRealSet);
+  return pwgenFactory(length, alphaLower, ...realSets);
+}
+
+interface PasswordContext {
+  generator: InfiniGenerator;
+  options: PasswordOptions;
+  update: UpdatePasswordOptions;
+}
+
+export function usePasswordContext(): PasswordContext {
   const pending = useRef<PasswordOptions>({ charset: {}, length: 0 });
   const [current, setOptions] = useState<PasswordOptions>(pending.current);
   const debounce = useDebounce(200);
-  const renderer = usePasswordRenderer(current);
+  const pwgen = usePasswordGenerator(current);
+
+  const generator: InfiniGenerator = (id: number): InfiniCell => {
+
+    const infiniCell: InfiniCell = {
+      id,
+      value: ''.padEnd(current?.length, ' '),
+      ready: false,
+
+    };
+
+    infiniCell.promise = pwgen().then(word => {
+
+      infiniCell.value = word;
+      infiniCell.ready = true;
+
+      delete infiniCell.promise;
+      delete infiniCell.cancel;
+
+      return word;
+
+    });
+
+    return infiniCell;
+  };
 
   const update: UpdatePasswordOptions = (options: PasswordUserOptions) => {
     pending.current = combinePasswordOptions(pending.current, options);
@@ -60,5 +87,9 @@ export function usePasswordGenerator(): [PasswordRenderer, UpdatePasswordOptions
 
   console.log('render');
 
-  return [renderer, update];
+  return ({
+    generator,
+    options: current,
+    update,
+  });
 }

@@ -1,55 +1,93 @@
 import {
   MutableRefObject,
+  useCallback,
   useEffect,
   useRef,
   useState,
 } from 'react';
 
-export type renderInfiniScroll = (key: number) => JSX.Element;
-
-export interface InfiniScrollProps {
-  render: renderInfiniScroll;
-}
-
 export interface InfiniScrollState {
-  list: number[],
+  list: InfiniCell[],
   loader: MutableRefObject<null>;
   grid: MutableRefObject<null>;
+  standard: MutableRefObject<null>;
+  rotate: () => void;
 }
 
-export const extendList = (size: number) => (old: number[]): number[] => {
 
-  const threeFourths = Math.ceil(size * 3 / 4);
-  const newList = old.slice(old.length - threeFourths);
-  let lastIndex = (newList[newList.length - 1] ?? -1) + 1;
+export interface InfiniCell {
 
-  while (newList.length < size) {
-    newList.push(lastIndex++);
+  // unique identifier for the cell
+  id: number;
+
+  // cell content promise
+  promise?: Promise<string>;
+
+  // content promise cancelation
+  cancel?: () => void;
+
+  // actual value
+  value: string;
+
+  // promise resolution
+  ready: boolean;
+}
+
+export type InfiniGenerator = (id: number) => InfiniCell;
+
+
+export const extendList = (targetSize: number, generator: InfiniGenerator) => (old: InfiniCell[]): InfiniCell[] => {
+
+  const threeFourths = old.length - Math.round(targetSize * 3 / 4);
+
+  old.slice(0, threeFourths).forEach(({ cancel }) => cancel?.());
+
+
+  const newList = old.slice(threeFourths);
+  let lastIndex = (newList[newList.length - 1]?.id ?? -1) + 1;
+
+  while (newList.length < targetSize) {
+    newList.push(generator(lastIndex++));
   }
 
   return newList;
 };
 
-export function useInfiniScroll(): InfiniScrollState {
+export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
 
-  const [list, listUpdate] = useState<number[]>([]);
+  const [list, listUpdate] = useState<InfiniCell[]>([]);
   const loader = useRef(null);
   const grid = useRef(null);
+  const standard = useRef(null);
   const size = useRef<number>(0);
 
   useEffect(() => {
 
-    if (!grid.current || !loader.current) {
-      console.warn('useInfiniScroll not ready');
+    if (!loader.current) {
+      console.warn('useInfiniScroll IntersectionObserver not ready');
       return;
     }
 
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       if (entries[0]?.isIntersecting) {
-        listUpdate(extendList(size.current));
+        listUpdate(extendList(size.current, generator));
       }
     };
+
+    const intersectionObserver = new IntersectionObserver(handleIntersection);
+    intersectionObserver.observe(loader.current);
+
+    return () => intersectionObserver.disconnect();
+
+  }, [generator]);
+
+  useEffect(() => {
+
+    if (!grid.current || !standard.current) {
+      console.warn('useInfiniScroll ResizeObserver not ready');
+      return;
+    }
 
     const context = {
       cw: 0,
@@ -76,25 +114,23 @@ export function useInfiniScroll(): InfiniScrollState {
         const count = Math.ceil(rows * cols) * 2;
           
         if (count > 0 && size.current <= count) {
-          listUpdate(extendList(count));
+          listUpdate(extendList(count, generator));
           size.current = count;
         }
       }
     };
 
-    const intersectionObserver = new IntersectionObserver(handleIntersection);
-    intersectionObserver.observe(loader.current);
-
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(grid.current);
-    resizeObserver.observe(loader.current);
+    resizeObserver.observe(standard.current);
 
-    return () => {
-      intersectionObserver.disconnect();
-      resizeObserver.disconnect();
-    };
+    return () => resizeObserver.disconnect();
 
-  }, []);
+  }, [generator]);
 
-  return { grid, list, loader };
+  const rotate = useCallback(() => {
+    listUpdate(extendList(4, generator));
+  }, [generator]);
+
+  return { grid, list, standard, loader, rotate };
 }

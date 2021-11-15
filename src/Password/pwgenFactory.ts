@@ -1,21 +1,9 @@
-//import pLimit from 'p-limit';
-
 import { getCharset } from './charset';
 import { pwgenImpl } from './pwgenImpl';
 import { Random } from './Random';
+import { pwgen } from './types';
 
-export type pwgen = () => Promise<string>;
 
-/*
-const limit = pLimit(1);
-
-const sleep = 
-  (timeout?: number) => 
-    (args: PwgenProps): Promise<PwgenProps> => 
-      new Promise(resolve => 
-        setTimeout(resolve, timeout))
-        .then(() => args);
-*/
 export function pwgenFactory(length: number, ...args: string[]): pwgen {
 
   if (length === 0) {
