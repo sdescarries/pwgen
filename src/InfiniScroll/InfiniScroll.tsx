@@ -37,7 +37,7 @@ export function TestCell({ id, value, promise, cancel }: InfiniCell): JSX.Elemen
 
   }, [promise, cancel]);
 
-  return (<button className={'Password'} id={`${id}`}>{word.replace(/ /g, '&nbsp;')}</button>);
+  return (<button className={'Password'} id={`${id}`}>{word}</button>);
 }
 
 

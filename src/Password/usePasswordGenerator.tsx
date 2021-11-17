@@ -1,3 +1,4 @@
+import pLimit from 'p-limit';
 import { useRef, useState } from 'react';
 
 import { InfiniCell, InfiniGenerator } from '@/InfiniScroll/useInfiniScroll';
@@ -10,6 +11,8 @@ import { Password } from './Password';
 import { pwgenFactory } from './pwgenFactory';
 import { PasswordOptions, PasswordRenderer, PasswordUserOptions, pwgen, UpdatePasswordOptions } from './types';
 import { useDebounce } from './useDebounce';
+
+const limit = pLimit(1);
 
 export const combinePasswordOptions = (
   oldOptions?: PasswordUserOptions, 
@@ -46,6 +49,8 @@ interface PasswordContext {
   update: UpdatePasswordOptions;
 }
 
+const sleep = () => new Promise(resolve => setTimeout(resolve, 100));
+
 export function usePasswordContext(): PasswordContext {
   const pending = useRef<PasswordOptions>({ charset: {}, length: 0 });
   const [current, setOptions] = useState<PasswordOptions>(pending.current);
@@ -54,24 +59,43 @@ export function usePasswordContext(): PasswordContext {
 
   const generator: InfiniGenerator = (id: number): InfiniCell => {
 
-    const infiniCell: InfiniCell = {
-      id,
-      value: ''.padEnd(current?.length, ' '),
-      ready: false,
-
+    const cancelation = {
+      live: true
     };
 
-    infiniCell.promise = pwgen().then(word => {
+    const value = ''.padEnd(current?.length, '_');
 
-      infiniCell.value = word;
-      infiniCell.ready = true;
+    const cancel = () => {
+      cancelation.live = false;
+    };
 
-      delete infiniCell.promise;
-      delete infiniCell.cancel;
+    const infiniCell: InfiniCell = {
+      id,
+      value,
+      ready: false,
+      cancel,
+    };
 
-      return word;
+    infiniCell.promise = limit(() => 
+      sleep()
+        .then(() => {
 
-    });
+          if (!cancelation.live) {
+            return infiniCell.value;
+          }
+
+          return pwgen();
+        })
+        .then(word => {
+          infiniCell.value = word;
+          infiniCell.ready = true;
+
+          delete infiniCell.promise;
+          delete infiniCell.cancel;
+
+          return word;
+        })
+    );
 
     return infiniCell;
   };
