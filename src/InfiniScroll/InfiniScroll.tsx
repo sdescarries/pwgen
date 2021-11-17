@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { PasswordOptions } from '@/Password';
 
@@ -34,38 +34,34 @@ export function TestCell({ id, value, promise, cancel }: InfiniCell): JSX.Elemen
         .catch(console.warn);
     }
     return cancel;
+
   }, [promise, cancel]);
 
-  return (<p className={'Password'} id={`${id}`}>{word}</p>);
+  return (<button className={'Password'} id={`${id}`}>{word.replace(/ /g, '&nbsp;')}</button>);
 }
 
 
-export function InfiniScroll({ generator, options: {length} }: InfiniScrollProps): JSX.Element {
-  const { grid, standard, list, loader, rotate } = useInfiniScroll(generator);
+export function InfiniScroll({ generator, options: { length } }: InfiniScrollProps): JSX.Element {
+  const { 
+    grid, 
+    list, 
+    loader,
+    standard, 
+  } = useInfiniScroll(generator);
 
-  const count = list.length;
-  const fourFifths = Math.floor(count * 4 / 5);
-
-  const render = (cell: InfiniCell) => <TestCell key={cell.id} {...cell} {...{length}} />;
+  const render = useCallback((cell: InfiniCell) => (
+    <TestCell key={cell.id} {...cell} {...{ length }} />
+  ), [length]);
 
   return (
     <section className={'InfiniScroll'} ref={grid}>
-      <div className={'Standard'} ref={standard}><TestCell {...generator(-1)} /></div>
-      <button onClick={rotate} style={{ position: 'absolute'}}>rotate</button>
+      <div className={'Standard'} ref={standard}>
+        <TestCell {...generator(-1)} />
+      </div>
       <div className={'Grid'}>
-        {list.slice(0, fourFifths).map(render)}
-        <nav key={-1} ref={loader}/>
-        {list.slice(fourFifths).map(render)}
+        {list.map(render)}
+        <nav ref={loader} />
       </div>
     </section>
   );
 }
-
-/*
-        {list.map(render)}
-
-        {list.slice(0, fourFifths).map((id) => render(id))}
-        {render(list[fourFifths], { loader })}
-        {list.slice(fourFifths + 1).map((id) => render(id))}
-
-*/

@@ -1,5 +1,5 @@
 import {
-  MutableRefObject,
+  RefObject,
   useCallback,
   useEffect,
   useRef,
@@ -8,10 +8,9 @@ import {
 
 export interface InfiniScrollState {
   list: InfiniCell[],
-  loader: MutableRefObject<null>;
-  grid: MutableRefObject<null>;
-  standard: MutableRefObject<null>;
-  rotate: () => void;
+  loader: RefObject<HTMLDivElement>;
+  grid: RefObject<HTMLElement>;
+  standard: RefObject<HTMLDivElement>;
 }
 
 
@@ -36,6 +35,45 @@ export interface InfiniCell {
 export type InfiniGenerator = (id: number) => InfiniCell;
 
 
+
+interface ListModifiers {
+  size: number, 
+  slice?: boolean, 
+  generator: InfiniGenerator,
+}
+
+
+const extendListToSize = (list: InfiniCell[], { generator, size }: ListModifiers): InfiniCell[] => {
+
+  if (list.length > size) {
+    return list;
+  }
+
+  list = [...list];
+
+  let lastIndex = (list[list.length - 1]?.id ?? -1) + 1;
+  while (list.length < size) {
+    list.push(generator(lastIndex++));
+  }
+
+  return list;
+};
+
+export const refreshList = ({ size, slice, generator }: ListModifiers) => (list: InfiniCell[]): InfiniCell[] => {
+
+  if (!slice && list.length > size) {
+    return list;
+  }
+
+  if (slice) {
+    const twoThirds = Math.ceil(size * 2 / 3);
+    list = list.slice(list.length - twoThirds);
+  }
+
+  return extendListToSize(list, {size, generator});
+};
+
+
 export const extendList = (targetSize: number, generator: InfiniGenerator) => (old: InfiniCell[]): InfiniCell[] => {
 
   const threeFourths = old.length - Math.round(targetSize * 3 / 4);
@@ -53,13 +91,20 @@ export const extendList = (targetSize: number, generator: InfiniGenerator) => (o
   return newList;
 };
 
+interface Refresh {
+  slice?: boolean,
+}
+
 export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
 
+  const [needRefresh, setRefresh] = useState<Refresh>({ slice: false });
   const [list, listUpdate] = useState<InfiniCell[]>([]);
-  const loader = useRef(null);
-  const grid = useRef(null);
-  const standard = useRef(null);
+  const loader = useRef<HTMLDivElement>(null);
+  const grid = useRef<HTMLElement>(null);
+  const standard = useRef<HTMLDivElement>(null);
   const size = useRef<number>(0);
+
+  const refresh = useCallback((options?: Refresh) => setRefresh(() => ({ ...options })), []);
 
   useEffect(() => {
 
@@ -68,10 +113,10 @@ export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
       return;
     }
 
-
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      if (entries[0]?.isIntersecting) {
-        listUpdate(extendList(size.current, generator));
+    const handleIntersection = ([{ isIntersecting }]: IntersectionObserverEntry[]) => {
+      if (isIntersecting) {
+        //grid.current?.scrollTo(0, 0);
+        refresh({ slice: true });
       }
     };
 
@@ -80,7 +125,7 @@ export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
 
     return () => intersectionObserver.disconnect();
 
-  }, [generator]);
+  }, [refresh]);
 
   useEffect(() => {
 
@@ -96,27 +141,32 @@ export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
       ih: 0,
     };
 
-    const handleResize = ([{ contentRect, target }]: ResizeObserverEntry[]) => {
+    const handleResize = (entries: ResizeObserverEntry[]) => {
 
-      if (target === loader.current) {
-        context.iw = contentRect.width;
-        context.ih = contentRect.height;
-      }
+      for (const { contentRect, target } of entries) {
+        if (target === standard.current) {
+          context.iw = contentRect.width + 8;
+          context.ih = contentRect.height + 8;
+        }
 
-      if (target === grid.current) {
-        context.cw = contentRect.width;
-        context.ch = contentRect.height;
+        if (target === grid.current) {
+          context.cw = contentRect.width;
+          context.ch = contentRect.height;
+        }
       }
 
       if (context.iw && context.ih) {
-        const rows = context.ch / context.ih;
-        const cols = context.cw / context.iw;
-        const count = Math.ceil(rows * cols) * 2;
-          
+        const rows = Math.floor(context.ch / context.ih);
+        const cols = Math.floor(context.cw / context.iw);
+        const count = Math.floor(rows * cols) * 2;
+
         if (count > 0 && size.current <= count) {
-          listUpdate(extendList(count, generator));
-          size.current = count;
+          refresh();
+          //listUpdate(refreshList({ size: count, generator }));
         }
+
+        size.current = count;
+        console.log(context, count);
       }
     };
 
@@ -126,11 +176,23 @@ export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
 
     return () => resizeObserver.disconnect();
 
-  }, [generator]);
+  }, [refresh]);
 
-  const rotate = useCallback(() => {
-    listUpdate(extendList(4, generator));
-  }, [generator]);
+  useEffect(refresh, [generator, refresh]);
 
-  return { grid, list, standard, loader, rotate };
+  useEffect(() => {
+
+    const timeout = setTimeout(() => 
+      listUpdate(refreshList({ 
+        ...needRefresh, 
+        size: size.current, 
+        generator 
+      })
+      ), 500);
+
+    return () => clearTimeout(timeout);
+
+  }, [generator, needRefresh]);
+
+  return { grid, list, standard, loader };
 }
