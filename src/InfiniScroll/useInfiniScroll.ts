@@ -1,4 +1,5 @@
 import {
+  MutableRefObject,
   RefObject,
   useCallback,
   useEffect,
@@ -7,9 +8,9 @@ import {
 } from 'react';
 
 export interface InfiniScrollState {
-  list: InfiniCell[],
-  loader: RefObject<HTMLDivElement>;
   grid: RefObject<HTMLElement>;
+  list: InfiniCell[],
+  loader: RefObject<HTMLElement>;
   standard: RefObject<HTMLDivElement>;
 }
 
@@ -34,32 +35,40 @@ export interface InfiniCell {
 export type InfiniGenerator = (id: number) => InfiniCell;
 
 export interface ListModifiers {
+  full?: boolean,
   generator: InfiniGenerator,
   size: number, 
   slice?: boolean, 
 }
+
+const getLastIndex = (list: InfiniCell[]): number => (list[list.length - 1]?.id ?? -1) + 1;
 
 export const extendListToSize = (list: InfiniCell[], { generator, size }: ListModifiers): InfiniCell[] => {
   if (list.length > size) {
     return list;
   }
   list = [...list];
-  let lastIndex = (list[list.length - 1]?.id ?? -1) + 1;
+  let lastIndex = getLastIndex(list);
   while (list.length < size) {
     list.push(generator(lastIndex++));
   }
   return list;
 };
 
-export const refreshList = ({ size, slice, generator }: ListModifiers) => (list: InfiniCell[]): InfiniCell[] => {
+export const refreshList = ({ full, size, slice, generator }: ListModifiers) => (list: InfiniCell[]): InfiniCell[] => {
   if (!slice && list.length > size) {
     return list;
   }
-  if (slice) {
+
+  if (full) {
+    const lastIndex = getLastIndex(list);
+    list = [generator(lastIndex)];
+  } else if (slice) {
     const twoThirds = Math.ceil(size * 2 / 3);
     list = list.slice(list.length - twoThirds);
   }
-  return extendListToSize(list, {size, generator});
+
+  return extendListToSize(list, { generator, size });
 };
 
 export interface Refresh {
@@ -68,17 +77,10 @@ export interface Refresh {
   slice?: boolean,
 }
 
-export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
+export type Refresher = (options?: Refresh) => void;
 
-  const [list, listUpdate] = useState<InfiniCell[]>([]);
-  const [needRefresh, setRefresh] = useState<Refresh>({});
-  const grid = useRef<HTMLElement>(null);
-  const loader = useRef<HTMLDivElement>(null);
-  const size = useRef<number>(0);
-  const standard = useRef<HTMLDivElement>(null);
-  const refresh = useCallback((options?: Refresh) => 
-    setRefresh((previous) => 
-      ({ ...previous, ...options, done: false })), []);
+export function useInfiniScrollLoader(refresh: Refresher): RefObject<HTMLElement> {
+  const loader = useRef<HTMLElement>(null);
 
   useEffect(() => {
 
@@ -99,6 +101,13 @@ export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
     return () => intersectionObserver.disconnect();
 
   }, [refresh]);
+
+  return loader;
+}
+
+export function useInfiniScrollSize(refresh: Refresher, size: MutableRefObject<number>): [RefObject<HTMLElement>, RefObject<HTMLDivElement>] {
+  const grid = useRef<HTMLElement>(null);
+  const standard = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
 
@@ -148,17 +157,36 @@ export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
 
     return () => resizeObserver.disconnect();
 
-  }, [refresh]);
+  }, [refresh, size]);
 
-  useEffect(refresh, [generator, refresh]);
+  return [grid, standard];
+
+}
+
+export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
+
+  const [list, listUpdate] = useState<InfiniCell[]>([]);
+  const [needRefresh, setRefresh] = useState<Refresh>({ done: true });
+  const size = useRef<number>(0);
+  const refresh = useCallback((options?: Refresh) => 
+    setRefresh((previous) => 
+      ({ ...previous, ...options, done: false })), []);
+
+  const loader = useInfiniScrollLoader(refresh);
+  const [grid, standard] = useInfiniScrollSize(refresh, size);
+
+  useEffect(() => refresh({ full: true }), [generator, refresh]);
 
   useEffect(() => {
+
+    console.log({needRefresh});
 
     if (needRefresh.done) {
       return;
     }
 
     const cb = () => {
+      setRefresh({ done: true });
       listUpdate(
         refreshList({ 
           ...needRefresh, 
@@ -166,14 +194,13 @@ export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
           generator,
         })
       );
-      setRefresh({ done: true });
     };
 
     const timeout = setTimeout(cb, 500);
-
     return () => clearTimeout(timeout);
 
-  }, [generator, needRefresh]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [needRefresh]);
 
   return { grid, list, standard, loader };
 }

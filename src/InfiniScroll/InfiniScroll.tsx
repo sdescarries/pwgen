@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { PasswordOptions } from '@/Password';
 
@@ -53,11 +53,16 @@ export function InfiniScroll({ generator, options: { length } }: InfiniScrollPro
     <TestCell key={cell.id} {...cell} {...{ length }} />
   ), [length]);
 
+  const gauge = useMemo(() => (
+    <div className={'Standard'} ref={standard}>
+      <TestCell {...generator(-1)} />
+    </div>
+
+  ), [generator, standard]);
+
   return (
     <section className={'InfiniScroll'} ref={grid}>
-      <div className={'Standard'} ref={standard}>
-        <TestCell {...generator(-1)} />
-      </div>
+      {gauge}
       <div className={'Grid'}>
         {list.map(render)}
         <nav ref={loader} />

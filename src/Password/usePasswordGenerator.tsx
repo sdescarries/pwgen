@@ -49,7 +49,11 @@ interface PasswordContext {
   update: UpdatePasswordOptions;
 }
 
-const sleep = () => new Promise(resolve => setTimeout(resolve, 100));
+interface Cancelation {
+  live: boolean;
+  timeout?: NodeJS.Timeout;
+}
+
 
 export function usePasswordContext(): PasswordContext {
   const pending = useRef<PasswordOptions>({ charset: {}, length: 0 });
@@ -59,43 +63,70 @@ export function usePasswordContext(): PasswordContext {
 
   const generator: InfiniGenerator = (id: number): InfiniCell => {
 
-    const cancelation = {
-      live: true
+    const cancelation: Cancelation = {
+      live: true,
     };
 
     const value = ''.padEnd(current?.length, '_');
-
-    const cancel = () => {
-      cancelation.live = false;
-    };
 
     const infiniCell: InfiniCell = {
       id,
       value,
       ready: false,
-      cancel,
     };
 
-    infiniCell.promise = limit(() => 
-      sleep()
-        .then(() => {
+    infiniCell.cancel = () => {
+      cancelation.live = false;
 
-          if (!cancelation.live) {
-            return infiniCell.value;
-          }
+      
 
-          return pwgen();
-        })
-        .then(word => {
-          infiniCell.value = word;
-          infiniCell.ready = true;
+      /*
+      if (cancelation.timeout != null) {
+        clearTimeout(cancelation.timeout);
+        delete cancelation.timeout;
+        delete infiniCell.promise;
+        delete infiniCell.cancel;
+      }
+      */
+    };
 
-          delete infiniCell.promise;
-          delete infiniCell.cancel;
+    const spark = () => 
+      new Promise<void>(resolve => 
+        (cancelation.timeout = setTimeout(() => {
+          
+          resolve();
+        }, 100))
+      );
 
-          return word;
-        })
-    );
+    const work = (): Promise<string> => {
+
+      if (!cancelation.live) {
+        //return Promise.resolve(infiniCell.value);
+      }
+
+      return pwgen();
+    };
+
+    const complete = (word: string): string => {
+
+      if (!cancelation.live) {
+        //return infiniCell.value;
+      }
+
+      infiniCell.value = word;
+      infiniCell.ready = true;
+
+      delete infiniCell.promise;
+      delete infiniCell.cancel;
+
+      console.warn(`cell ${id} = ${word}`);
+      return word;
+    };
+
+    infiniCell.promise = 
+      limit(spark)
+        .then(work)
+        .then(complete);
 
     return infiniCell;
   };
