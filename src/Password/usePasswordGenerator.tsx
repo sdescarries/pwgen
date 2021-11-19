@@ -52,6 +52,7 @@ interface PasswordContext {
 interface Cancelation {
   live: boolean;
   timeout?: NodeJS.Timeout;
+  resolve?: () => void;
 }
 
 
@@ -71,37 +72,34 @@ export function usePasswordContext(): PasswordContext {
 
     const infiniCell: InfiniCell = {
       id,
-      value,
       ready: false,
+      value,
     };
 
     infiniCell.cancel = () => {
       cancelation.live = false;
+      delete infiniCell.cancel;
 
-      
+      if (cancelation.resolve) {
+        cancelation.resolve();
+      }
 
-      /*
       if (cancelation.timeout != null) {
         clearTimeout(cancelation.timeout);
         delete cancelation.timeout;
-        delete infiniCell.promise;
-        delete infiniCell.cancel;
       }
-      */
     };
 
     const spark = () => 
-      new Promise<void>(resolve => 
-        (cancelation.timeout = setTimeout(() => {
-          
-          resolve();
-        }, 100))
-      );
+      new Promise<void>(resolve => {
+        cancelation.resolve = resolve;
+        cancelation.timeout = setTimeout(resolve, 10);
+      });
 
     const work = (): Promise<string> => {
 
       if (!cancelation.live) {
-        //return Promise.resolve(infiniCell.value);
+        return Promise.resolve(infiniCell.value);
       }
 
       return pwgen();
@@ -110,7 +108,7 @@ export function usePasswordContext(): PasswordContext {
     const complete = (word: string): string => {
 
       if (!cancelation.live) {
-        //return infiniCell.value;
+        return infiniCell.value;
       }
 
       infiniCell.value = word;
@@ -119,7 +117,6 @@ export function usePasswordContext(): PasswordContext {
       delete infiniCell.promise;
       delete infiniCell.cancel;
 
-      console.warn(`cell ${id} = ${word}`);
       return word;
     };
 
@@ -139,8 +136,6 @@ export function usePasswordContext(): PasswordContext {
       }
     });
   };
-
-  console.log('render');
 
   return ({
     generator,

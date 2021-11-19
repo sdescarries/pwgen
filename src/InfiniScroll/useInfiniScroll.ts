@@ -62,9 +62,11 @@ export const refreshList = ({ full, size, slice, generator }: ListModifiers) => 
 
   if (full) {
     const lastIndex = getLastIndex(list);
+    list.forEach((cell) => cell.cancel?.());
     list = [generator(lastIndex)];
   } else if (slice) {
     const twoThirds = Math.ceil(size * 2 / 3);
+    list.slice(0, twoThirds).forEach((cell) => cell.cancel?.());
     list = list.slice(list.length - twoThirds);
   }
 
@@ -179,7 +181,7 @@ export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
 
   useEffect(() => {
 
-    console.log({needRefresh});
+    console.log(needRefresh);
 
     if (needRefresh.done) {
       return;
