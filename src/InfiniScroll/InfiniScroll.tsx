@@ -51,13 +51,12 @@ export function InfiniScroll({ generator, options: { length } }: InfiniScrollPro
 
   const render = useCallback((cell: InfiniCell) => (
     <TestCell key={cell.id} {...cell} {...{ length }} />
-  ), [length]);
+  ), [list, length]);
 
   const gauge = useMemo(() => (
     <div className={'Standard'} ref={standard}>
       <TestCell {...generator(-1)} />
     </div>
-
   ), [generator, standard]);
 
   return (

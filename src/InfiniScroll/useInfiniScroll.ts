@@ -149,7 +149,6 @@ export function useInfiniScrollSize(refresh: Refresher, size: MutableRefObject<n
         }
 
         size.current = count;
-        console.log(context, count);
       }
     };
 
@@ -180,8 +179,6 @@ export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
   useEffect(() => refresh({ full: true }), [generator, refresh]);
 
   useEffect(() => {
-
-    console.log(needRefresh);
 
     if (needRefresh.done) {
       return;
