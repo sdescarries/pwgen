@@ -1,12 +1,12 @@
-import { CharsetState } from '@/charset';
-import { DipSwitch } from '@/DipSwitch';
-import { InfiniScroll } from '@/InfiniScroll';
-import {
+import { DipSwitch } from '@/DipSwitch/';
+import { InfiniScroll } from '@/InfiniScroll/';
+import { Length } from '@/Length/';
+import { 
+  CharsetState,
+  Password,
   UpdatePasswordOptions,
-  usePasswordGenerator,
-} from '@/usePasswordGenerator';
-
-import { Length } from './Length';
+  usePasswordContext,
+} from '@/Password/';
 
 export interface ControlProps {
   update: UpdatePasswordOptions;
@@ -17,24 +17,24 @@ export function Control({ update }: ControlProps): JSX.Element {
   const updateLength = (length: number) => update({length});
   return (
     <div className={'Controls'}>
+      <Length update={updateLength}/>
       <DipSwitch charset={'AZ'} update={updateCharset} />
       <DipSwitch charset={'09'} update={updateCharset} />
       <DipSwitch charset={'SM'} update={updateCharset} />
-      <Length update={updateLength}/>
     </div>
   );
 }
 
 export function App(): JSX.Element {
-  const [password, updatePasswordOptions] = usePasswordGenerator();
+  const context = usePasswordContext();
   return (
     <div className="App">
-      <header>
-        <Control update={updatePasswordOptions} />
-      </header>
       <main>
-        <InfiniScroll render={password} />
+        <InfiniScroll {...context} Component={Password} />
       </main>
+      <header>
+        <Control {...context} />
+      </header>
     </div>
   );
 }

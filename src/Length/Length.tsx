@@ -1,4 +1,4 @@
-import { LengthProps, useLengthStorage } from '@/useLengthStorage';
+import { LengthProps, useLengthStorage } from './useLengthStorage';
 
 export function Length(props: LengthProps): JSX.Element {
 
@@ -9,7 +9,7 @@ export function Length(props: LengthProps): JSX.Element {
 
   return (
     <button
-      className={'Length'} data-testid={id}
+      className={'Frame Flame Length'} data-testid={id}
       onClick={() => toggle()}
       type={'submit'}
       title={hint}

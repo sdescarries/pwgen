@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 
-import { App } from '@/App';
+import { charsetLabels } from '@/Password/';
 
-import { charsetLabels } from './charset';
+import { App } from './App';
 
 describe('App', () => {
 

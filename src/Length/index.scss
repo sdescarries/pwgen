@@ -1,0 +1,19 @@
+.Length {
+  margin: 0 calc($size/4);
+  display: block;
+  height: $size;
+  width: $size;
+
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+
+  &:active {
+    background-color: $l4;
+    color: $l1;
+  }
+}

@@ -1,23 +1,7 @@
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
+// https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+import '@/__mocks__/IntersectionObserver';
+import '@/__mocks__/ResizeObserver';
+import '@/__mocks__/crypto';
 
-const disconnect = jest.fn();
-const observe = jest.fn();
-const unobserve = jest.fn();
-
-const IntersectionObserver = jest.fn(() => ({
-  disconnect,
-  observe,
-  unobserve,
-}));
-
-const getRandomValues = jest.fn();
-
-const crypto = {
-  getRandomValues,
-};
-
-Object.assign(global, { IntersectionObserver, crypto });
+jest.mock('p-limit', () => () => (cb: () => void) => cb());

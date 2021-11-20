@@ -1,15 +1,16 @@
-export interface CharsetState {
-  [key: string]: boolean,
-}
+import { CharsetLabels } from './types';
 
-export interface CharsetLabels {
-  [key: string]: string;
-}
 
 export const charsetLabels: CharsetLabels = {
   ['09']: 'Number',
   ['AZ']: 'Upper Case',
   ['SM']: 'Symbol',
+};
+
+export const charsetShorts: CharsetLabels = {
+  ['09']: '9',
+  ['AZ']: 'Z',
+  ['SM']: '#',
 };
 
 export const alphaLower = 'abcdefghijklmnopqrstuvwxyz';

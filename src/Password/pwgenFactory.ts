@@ -1,11 +1,16 @@
 import { getCharset } from './charset';
 import { pwgenImpl } from './pwgenImpl';
 import { Random } from './Random';
+import { pwgen } from './types';
 
-export type pwgen = () => Promise<string>;
 
 export function pwgenFactory(length: number, ...args: string[]): pwgen {
-  if (length < 1) {
+
+  if (length === 0) {
+    return (): Promise<string> => Promise.resolve('');
+  }
+
+  if (length < 4) {
     throw new Error(`length too short ${length}`);
   }
 

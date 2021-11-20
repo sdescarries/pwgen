@@ -1,0 +1,47 @@
+$l1: hsl(200, 15%, 10%);
+$l2: hsl(200, 15%, 25%);
+$l3: hsl(200, 15%, 50%);
+$l4: hsl(200, 15%, 70%);
+$l5: hsl(200, 15%, 90%);
+
+@media (prefers-color-scheme: light) {
+  $l1: hsl(200, 15%, 90%);
+  $l2: hsl(200, 15%, 70%);
+  $l3: hsl(200, 15%, 50%);
+  $l4: hsl(200, 15%, 25%);
+  $l5: hsl(200, 15%, 10%);
+}
+
+$size: 2.5rem;
+$border: calc($size/10);
+$height: calc($size - $border * 2);
+
+$normalFonts: "Fira Sans", "Droid Sans", "Helvetica Neue", "Roboto", "Oxygen", sans-serif;
+$codeFonts: "Fira Code", "Menlo", "Monaco", "Consolas", monospace;
+
+body {
+  background-color: $l1;
+  color: $l5;
+  font-family: $normalFonts;
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+@media (hover: hover) {
+  .Flame:hover {
+    box-shadow: #ff8000 0 0 calc($size/4), red 0 0 calc($size/2), 0 0 $size rgba(0, 0, 0, 0);
+  }
+}
+
+.Frame {
+  background-color: $l1;
+  border-radius: calc($size/2);
+  border: $border solid $l3;
+  display: flex;
+  flex-direction: row;
+  height: $height;
+  min-width: $height;
+  overflow: hidden;
+  color: $l3;
+}

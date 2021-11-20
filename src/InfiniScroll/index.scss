@@ -1,0 +1,27 @@
+.InfiniScroll {
+  height: 100%;
+  overflow-y: auto;
+  padding: 0 2rem;
+  position: relative;
+
+  .Standard {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .Grid {
+    display: inline-flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    gap: 8px;
+
+    nav {
+      background-color: red;
+      bottom: -80%;
+      height: 1rem;
+      position: absolute;
+      visibility: hidden;
+      width: 1rem;
+    }
+  }
+}
