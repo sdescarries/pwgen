@@ -130,12 +130,18 @@ export function usePasswordContext(): PasswordContext {
 
   const update: UpdatePasswordOptions = (options: PasswordUserOptions) => {
     pending.current = combinePasswordOptions(pending.current, options);
+
+    console.log(`pending options\n${JSON.stringify(pending.current, null, 2)}`);
     debounce(() => {
       if (!deepEqual(current, pending.current)) {
+
+        console.log(`commit\n${JSON.stringify(pending.current, null, 2)}`);
         setOptions(pending.current);
       }
     });
   };
+
+  console.log('generator refreshed');
 
   return ({
     generator,

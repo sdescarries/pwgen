@@ -4,10 +4,9 @@ import { PasswordOptions } from '@/Password';
 
 import { InfiniCell, InfiniGenerator, useInfiniScroll } from './useInfiniScroll';
 
-
 export type renderInfiniScroll = (key: number) => JSX.Element;
 
-interface ComponentProps {
+export interface ComponentProps {
   seed: number;
   length: number;
   promise?: Promise<string>;
@@ -21,7 +20,7 @@ export interface InfiniScrollProps {
 }
 
 
-export function TestCell({ id, value, promise, cancel }: InfiniCell): JSX.Element {
+export function Cell({ id, value, promise, cancel }: InfiniCell): JSX.Element {
 
   const [word, update] = useState<string>(value);
 
@@ -50,12 +49,12 @@ export function InfiniScroll({ generator, options: { length } }: InfiniScrollPro
   } = useInfiniScroll(generator);
 
   const render = useCallback((cell: InfiniCell) => (
-    <TestCell key={cell.id} {...cell} {...{ length }} />
-  ), [list, length]);
+    <Cell key={cell.id} {...cell} {...{ length }} />
+  ), [length]);
 
   const gauge = useMemo(() => (
     <div className={'Standard'} ref={standard}>
-      <TestCell {...generator(-1)} />
+      <Cell {...generator(-1)} />
     </div>
   ), [generator, standard]);
 
