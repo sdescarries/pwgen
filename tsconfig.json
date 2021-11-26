@@ -33,6 +33,8 @@
   },
   "include": [
     ".eslintrc.js",
+    "postcss.config.js",
+    "vite.config.js",
     "src"
   ]
 }

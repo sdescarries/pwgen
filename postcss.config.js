@@ -4,4 +4,4 @@ module.exports = {
     require('postcss-nesting'),
     require('autoprefixer'),
   ]
-}
+};
