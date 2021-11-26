@@ -1,10 +1,12 @@
-node_modules/
-package.json
+# Incompatible project files
+/cypress.json
+/package.json
 
-# Ignore artifacts:
-build/
-coverage/
-dist/
-jest.config.js
-postcss.config.js
-vite.config.ts
+# Build artifacts:
+/node_modules
+/build/
+/coverage/
+/dist/
+/jest.config.js
+/postcss.config.js
+/vite.config.ts
