@@ -1,6 +1,7 @@
 /*.local
 /.DS_Store
 /coverage
+/coverage.json
 /cypress/screenshots
 /dist
 /dist-ssr
