@@ -32,5 +32,5 @@ Object.entries(files).forEach(linkFile);
 
 run([
   `nyc merge .nyc_output`,
-  `nyc report --reporter lcov --report-dir coverage/combined`,
+  `nyc report --reporter lcov --report-dir dist/coverage`,
 ]);
