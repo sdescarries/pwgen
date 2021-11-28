@@ -48,12 +48,6 @@ jobs:
           yarn install --ignore-optional
           yarn jest --coverage
 
-      - uses: paambaati/codeclimate-action@84cea27117a473d605400ca3a97fcef7e433e2d6
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageLocations: coverage/jest/lcov.info:lcov
-
       - name: upload jest artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -79,16 +73,9 @@ jobs:
 
       - name: setup and test
         run: |
-          ls -R
           yarn install
           yarn inst
           yarn e2e
-
-      - uses: paambaati/codeclimate-action@84cea27117a473d605400ca3a97fcef7e433e2d6
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageLocations: coverage/cypress/lcov.info:lcov
 
       - name: upload cypress artifacts
         uses: actions/upload-artifact@v2
@@ -100,7 +87,6 @@ jobs:
   deploy:
     name: deploy
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     needs: [build, jest, cypress]
     steps:
       - uses: actions/checkout@v2
@@ -131,7 +117,15 @@ jobs:
           npm install -g nyc
           node nyc-report
 
+      - uses: paambaati/codeclimate-action@84cea27117a473d605400ca3a97fcef7e433e2d6
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageLocations: dist/coverage/lcov.info:lcov
+          debug: true
+          
       - uses: JamesIves/github-pages-deploy-action@0f24da7de3e7e135102609a4c9633b025be8411b
         with:
           branch: pages
           folder: dist
+        if: github.ref == 'refs/heads/master'
