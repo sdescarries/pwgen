@@ -5,24 +5,126 @@ on:
       - master
     tags:
       - '!*' # Do not execute on tags
-    paths:
-      - src/*
+    #paths:
+    #  - src/*
   pull_request:
-    paths:
-      - src/*
+    #paths:
+    #  - src/*
 
 jobs:
-  test:
-    name: unit tests coverage
+
+  build:
+    name: build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: 16
-    - run: yarn install
-    - uses: paambaati/codeclimate-action@84cea27117a473d605400ca3a97fcef7e433e2d6
-      env:
-        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-      with:
-        coverageCommand: yarn coverage
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: setup and test
+        run: |
+          yarn install --ignore-optional
+          yarn lint
+          yarn build
+
+      - name: upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+          retention-days: 7
+
+  jest:
+    name: jest tests coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: setup and test
+        run: |
+          yarn install --ignore-optional
+          yarn jest --coverage
+
+      - name: upload jest artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest
+          path: coverage/jest
+          retention-days: 7
+
+  cypress:
+    name: cypress e2e tests coverage
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+      - name: setup and test
+        run: |
+          yarn install
+          yarn inst
+          yarn e2e
+
+      - name: upload cypress artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress
+          path: coverage/cypress
+          retention-days: 7
+
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: [build, jest, cypress]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: download dist artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+      - name: download jest artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: jest
+          path: coverage/jest
+
+      - name: download cypress artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: cypress
+          path: coverage/cypress
+
+      - name: merge artifacts
+        run: |
+          npm install -g nyc
+          node nyc-report
+
+      - uses: paambaati/codeclimate-action@84cea27117a473d605400ca3a97fcef7e433e2d6
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageLocations: dist/coverage/lcov.info:lcov
+
+      - uses: JamesIves/github-pages-deploy-action@0f24da7de3e7e135102609a4c9633b025be8411b
+        with:
+          branch: pages
+          folder: dist
+        if: github.ref == 'refs/heads/master'

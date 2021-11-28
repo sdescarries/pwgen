@@ -1,10 +1,14 @@
-node_modules/
-package.json
+# Incompatible project files
+/cypress.json
+/jest.config.js
+/nyc-report.js
+/nyc.config.js
+/package.json
+/postcss.config.js
+/vite.config.ts
 
-# Ignore artifacts:
-build/
-coverage/
-dist/
-jest.config.js
-postcss.config.js
-vite.config.ts
+# Build artifacts:
+/build/
+/coverage/
+/dist/
+/node_modules/

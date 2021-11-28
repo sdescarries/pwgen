@@ -20,7 +20,7 @@ module.exports = {
 
   // Code coverage config
   collectCoverageFrom: ["<rootDir>/src/**/*.{ts,tsx}"],
-  coverageDirectory: "<rootDir>/coverage/",
+  coverageDirectory: "<rootDir>/coverage/jest",
   coveragePathIgnorePatterns: ["<rootDir>/node_modules/", "(.*).d.ts$"],
 
   // Important: order matters, specific rules should be defined first
