@@ -8,6 +8,7 @@ import {
 } from 'react';
 
 import { PasswordOptions, WordGenerator } from '@/Password';
+import { useDebounce } from '@/Password/useDebounce';
 
 export interface InfiniScrollState {
 
@@ -45,7 +46,7 @@ export interface ListModifiers {
   full?: boolean;
 
   // should a slice be replaced
-  slice?: boolean; 
+  slice?: boolean;
 
   // consume and erase value
   shred: (index: number) => void;
@@ -88,28 +89,18 @@ export const extendListToSize = (list: InfiniCell[], { length, cols, rows, shred
   if (list.length > size) {
     return list.slice(0, size);
   }
-  
+
   let lastIndex = getLastIndex(list);
   list = [...list];
   while (list.length < size) {
     list.push({ id: lastIndex++, length, shred, value: '' });
   }
-  
+
   return list;
 };
 
 export const refreshList = (mods: ListModifiers) => (list: InfiniCell[]): InfiniCell[] => {
-
-  const {
-    cols,
-    full,
-    index,
-    rows,
-    slice,
-    shred,
-    length,
-  } = mods;
-
+  const { cols, full, index, length, rows, shred, slice } = mods;
   if (full) {
     const lastIndex = getLastIndex(list);
     list = [{ id: lastIndex, length, shred, value: '' }];
@@ -123,28 +114,49 @@ export const refreshList = (mods: ListModifiers) => (list: InfiniCell[]): Infini
   return extendListToSize(list, mods);
 };
 
+type noop = () => void;
+
+const makeIntersectionHandler = (callback: noop) =>
+  ([{ isIntersecting }]: IntersectionObserverEntry[]) => {
+    if (isIntersecting) {
+      callback();
+    }
+  };
+
+export function observeLoaderEffect(loader: RefObject<HTMLElement>, callback: noop) {
+  if (!loader.current) {
+    console.warn('useInfiniScroll IntersectionObserver not ready');
+    return;
+  }
+  const handleIntersection = makeIntersectionHandler(callback);
+  const intersectionObserver = new IntersectionObserver(handleIntersection);
+  intersectionObserver.observe(loader.current);
+  return () => intersectionObserver.disconnect();
+}
+
+export function loaderIntersectsViewport(loader: RefObject<HTMLElement>, callback: noop): void {
+  const rect = loader.current?.getBoundingClientRect();
+  if (!rect) return;
+  if (rect.bottom > window.innerHeight) return;
+  if (rect.right > window.innerWidth) return;
+  callback();
+}
+
+export function intersectionInterval(loader: RefObject<HTMLElement>, callback: noop): noop {
+  const interval = setInterval(() => loaderIntersectsViewport(loader, callback), 200);
+  return () => clearInterval(interval);
+}
+
 export function useInfiniScrollLoader(refresh: Refresher): [RefObject<HTMLElement>] {
   const loader = useRef<HTMLElement>(null);
+  const debounce = useDebounce(100);
+  const callback = useCallback(() =>
+    debounce(() =>
+      refresh({ slice: true })
+    ), [debounce, refresh]);
 
-  useEffect(() => {
-
-    if (!loader.current) {
-      console.warn('useInfiniScroll IntersectionObserver not ready');
-      return;
-    }
-
-    const handleIntersection = ([{ isIntersecting }]: IntersectionObserverEntry[]) => {
-      if (isIntersecting) {
-        refresh({ slice: true });
-      }
-    };
-
-    const intersectionObserver = new IntersectionObserver(handleIntersection);
-    intersectionObserver.observe(loader.current);
-
-    return () => intersectionObserver.disconnect();
-
-  }, [refresh]);
+  useEffect(() => observeLoaderEffect(loader, callback), [callback]);
+  useEffect(() => intersectionInterval(loader, callback), [callback]);
 
   return [loader];
 }
@@ -184,7 +196,7 @@ export function makeResizeHandler(props: ResizeHandlerProps) {
   const handleResize = (entries: ResizeObserverEntry[]) => {
 
     updateResizeContext(props, context, entries);
-    
+
     let needRefresh = false;
     if (context.iw && context.ih) {
       const rows = Math.floor(context.ch / context.ih) * 2;
@@ -281,8 +293,8 @@ export function useInfiniScroll({ generator, length }: InfiniScrollProps): Infin
   const index = useRef<number>(0);
 
   const [needRefresh, setRefresh] = useState<Refresh>({ done: true });
-  const refresh = useCallback((options?: Refresh) => 
-    setRefresh((previous) => 
+  const refresh = useCallback((options?: Refresh) =>
+    setRefresh((previous) =>
       ({ ...previous, ...options, done: false })), []);
 
   const [loader] = useInfiniScrollLoader(refresh);
@@ -294,43 +306,26 @@ export function useInfiniScroll({ generator, length }: InfiniScrollProps): Infin
 
   useEffect(() => {
 
-    if (needRefresh.done) {
-      return;
-    }
+    if (needRefresh.done) return;
+    if (!length) return;
 
-    if (!length) {
-      return;
-    }
-
-    listUpdate(
-      refreshList({ 
-        ...needRefresh,
-        cols,
-        index,
-        length,
-        shred,
-        rows,
-      })
-    );
-
+    listUpdate(refreshList({...needRefresh, cols, rows, index, length, shred }));
     setRefresh({ done: true });
-
   }, [length, needRefresh, shred]);
 
   useEffect(() => {
+    if (!length) return;
+
     let alive = true;
-
-    if (!length) {
-      return;
-    }
-
     Promise
       .resolve()
       .then(async () => {
         const size = rows.current * cols.current;
         while(alive && index.current < size) {
-          const value = await generator();
-          await promiseAnimationFrame();
+          const [value] = await Promise.all([
+            generator(),
+            promiseAnimationFrame(),
+          ]);
           listUpdate(fillList(index, value));
         }
       })

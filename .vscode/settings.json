@@ -39,5 +39,6 @@
   "git.pullTags": false,
   "git.rebaseWhenSync": true,
   "html.format.enable": false,
-  "sortLines.filterBlankLines": true
+  "sortLines.filterBlankLines": true,
+  "files.trimTrailingWhitespace": true
 }
