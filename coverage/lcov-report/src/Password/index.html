@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.64% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>29/68</span>
+                <span class='fraction'>18/42</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/44</span>
+                <span class='fraction'>8/28</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>11/25</span>
+                <span class='fraction'>4/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.42% </span>
+                <span class="strong">45.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/56</span>
+                <span class='fraction'>16/35</span>
             </div>
         
             
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line low'></div>
     <div class="pad1">
@@ -73,21 +79,6 @@
 </tr>
 </thead>
 <tbody><tr>
-	<td class="file low" data-value="Password.tsx"><a href="Password.tsx.html">Password.tsx</a></td>
-	<td data-value="0" class="pic low">
-	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
-	</td>
-	<td data-value="0" class="pct low">0%</td>
-	<td data-value="3" class="abs low">0/3</td>
-	<td data-value="0" class="pct low">0%</td>
-	<td data-value="2" class="abs low">0/2</td>
-	<td data-value="100" class="pct high">100%</td>
-	<td data-value="0" class="abs high">0/0</td>
-	<td data-value="0" class="pct low">0%</td>
-	<td data-value="2" class="abs low">0/2</td>
-	</tr>
-
-<tr>
 	<td class="file low" data-value="Random.ts"><a href="Random.ts.html">Random.ts</a></td>
 	<td data-value="0" class="pic low">
 	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
@@ -119,17 +110,17 @@
 
 <tr>
 	<td class="file low" data-value="pwgenFactory.ts"><a href="pwgenFactory.ts.html">pwgenFactory.ts</a></td>
-	<td data-value="25" class="pic low">
-	<div class="chart"><div class="cover-fill" style="width: 25%"></div><div class="cover-empty" style="width: 75%"></div></div>
+	<td data-value="16.66" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 16%"></div><div class="cover-empty" style="width: 84%"></div></div>
 	</td>
-	<td data-value="25" class="pct low">25%</td>
-	<td data-value="12" class="abs low">3/12</td>
+	<td data-value="16.66" class="pct low">16.66%</td>
+	<td data-value="12" class="abs low">2/12</td>
 	<td data-value="10" class="pct low">10%</td>
 	<td data-value="10" class="abs low">1/10</td>
-	<td data-value="50" class="pct medium">50%</td>
-	<td data-value="2" class="abs medium">1/2</td>
-	<td data-value="30" class="pct low">30%</td>
-	<td data-value="10" class="abs low">3/10</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="2" class="abs low">0/2</td>
+	<td data-value="20" class="pct low">20%</td>
+	<td data-value="10" class="abs low">2/10</td>
 	</tr>
 
 <tr>
@@ -163,33 +154,18 @@
 	</tr>
 
 <tr>
-	<td class="file low" data-value="usePassword.ts"><a href="usePassword.ts.html">usePassword.ts</a></td>
-	<td data-value="14.28" class="pic low">
-	<div class="chart"><div class="cover-fill" style="width: 14%"></div><div class="cover-empty" style="width: 86%"></div></div>
-	</td>
-	<td data-value="14.28" class="pct low">14.28%</td>
-	<td data-value="14" class="abs low">2/14</td>
-	<td data-value="0" class="pct low">0%</td>
-	<td data-value="4" class="abs low">0/4</td>
-	<td data-value="0" class="pct low">0%</td>
-	<td data-value="6" class="abs low">0/6</td>
-	<td data-value="18.18" class="pct low">18.18%</td>
-	<td data-value="11" class="abs low">2/11</td>
-	</tr>
-
-<tr>
 	<td class="file high" data-value="usePasswordGenerator.tsx"><a href="usePasswordGenerator.tsx.html">usePasswordGenerator.tsx</a></td>
-	<td data-value="88.23" class="pic high">
-	<div class="chart"><div class="cover-fill" style="width: 88%"></div><div class="cover-empty" style="width: 12%"></div></div>
+	<td data-value="87.5" class="pic high">
+	<div class="chart"><div class="cover-fill" style="width: 87%"></div><div class="cover-empty" style="width: 13%"></div></div>
 	</td>
-	<td data-value="88.23" class="pct high">88.23%</td>
-	<td data-value="17" class="abs high">15/17</td>
-	<td data-value="41.66" class="pct low">41.66%</td>
-	<td data-value="24" class="abs low">10/24</td>
-	<td data-value="80" class="pct high">80%</td>
-	<td data-value="10" class="abs high">8/10</td>
-	<td data-value="86.66" class="pct high">86.66%</td>
-	<td data-value="15" class="abs high">13/15</td>
+	<td data-value="87.5" class="pct high">87.5%</td>
+	<td data-value="8" class="abs high">7/8</td>
+	<td data-value="50" class="pct medium">50%</td>
+	<td data-value="14" class="abs medium">7/14</td>
+	<td data-value="66.66" class="pct medium">66.66%</td>
+	<td data-value="3" class="abs medium">2/3</td>
+	<td data-value="85.71" class="pct high">85.71%</td>
+	<td data-value="7" class="abs high">6/7</td>
 	</tr>
 
 </tbody>
@@ -199,8 +175,8 @@
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Nov 28 2021 02:33:02 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
+                at Sun Dec 05 2021 02:22:46 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

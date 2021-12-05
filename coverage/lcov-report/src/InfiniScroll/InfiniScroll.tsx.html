@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/10</span>
+                <span class='fraction'>7/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>1/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
@@ -54,8 +54,14 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -124,10 +130,33 @@
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,14 +180,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">42x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -173,93 +197,66 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">40x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">40x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">40x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">40x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useCallback, useEffect, useMemo, useState } from 'react';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useCallback } from 'react';
 &nbsp;
-import { PasswordOptions } from '@/Password';
-&nbsp;
-import { InfiniCell, InfiniGenerator, useInfiniScroll } from './useInfiniScroll';
+import { InfiniCell, InfiniScrollProps, useInfiniScroll } from './useInfiniScroll';
 &nbsp;
 export type renderInfiniScroll = (key: number) =&gt; JSX.Element;
 &nbsp;
-export interface ComponentProps {
-  seed: number;
-  length: number;
-  promise?: Promise&lt;string&gt;;
-  cancel?: () =&gt; void;
+export interface CellProps extends InfiniCell {
+  index: number;
 }
 &nbsp;
-export interface InfiniScrollProps {
-  Component: React.FunctionComponent&lt;ComponentProps&gt;;
-  generator: InfiniGenerator;
-  options: PasswordOptions;
-}
+export function Cell(props: CellProps): JSX.Element {
 &nbsp;
+  const { id, index, length, shred, value = '' } = props;
 &nbsp;
-export function Cell({ id, value, promise, cancel }: InfiniCell): JSX.Element {
-&nbsp;
-  const [word, update] = useState&lt;string&gt;(value);
-&nbsp;
-  useEffect(() =&gt; {
-&nbsp;
-    if (promise) {
-      promise
-        .then((w) =&gt; 
-          update(w.padEnd(length, '*')))
+  const pbcopy = useCallback(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+    if (<span class="cstat-no" title="statement not covered" >value) {</span>
+      navigator
+        .clipboard
+        .writeText(value)
+        .then(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >s</span>hred(index))</span>
         .catch(console.warn);
     }
-    return cancel;
+  }, [index, shred, value]);
 &nbsp;
-  }, [promise, cancel]);
+  const displayWord = value.padEnd(length, '*');
 &nbsp;
-  return (&lt;button className={'Password'} id={`${id}`}&gt;{word}&lt;/button&gt;);
+  const classNames = ['Password'];
+&nbsp;
+  if (<span class="branch-1 cbranch-no" title="branch not covered" >value) {</span>
+    classNames.push('Ready');
+  }
+&nbsp;
+  return (
+    &lt;button 
+      className={classNames.join(' ')} 
+      disabled={!value} 
+      id={`${id}`} 
+      onClick={pbcopy}
+    &gt;
+      {displayWord}
+    &lt;/button&gt;
+  );
 }
 &nbsp;
-&nbsp;
-export function InfiniScroll({ generator, options: { length } }: InfiniScrollProps): JSX.Element {
+export function InfiniScroll(props: InfiniScrollProps): JSX.Element {
   const { 
     grid, 
     list, 
     loader,
     standard, 
-  } = useInfiniScroll(generator);
+  } = useInfiniScroll(props);
 &nbsp;
-  const render = useCallback((<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >cell: InfiniCell) =&gt; (</span></span>
-    &lt;Cell key={cell.id} {...cell} {...{ length }} /&gt;
-  ), [length]);
-&nbsp;
-  const gauge = useMemo(() =&gt; (
-    &lt;div className={'Standard'} ref={standard}&gt;
-      &lt;Cell {...generator(-1)} /&gt;
-    &lt;/div&gt;
-  ), [generator, standard]);
+  const render = <span class="fstat-no" title="function not covered" >(c</span>ell: InfiniCell, <span class="cstat-no" title="statement not covered" >index: number) =&gt; </span>
+    &lt;Cell key={cell.id} {...cell} index={index} /&gt;;
 &nbsp;
   return (
     &lt;section className={'InfiniScroll'} ref={grid}&gt;
-      {gauge}
+      &lt;div className={'Standard'} ref={standard}&gt;
+        &lt;Cell id={-1} {...props} index={-1} shred={<span class="fstat-no" title="function not covered" >() =&gt; undefined} /&gt;</span>
+      &lt;/div&gt;
       &lt;div className={'Grid'}&gt;
         {list.map(render)}
         &lt;nav ref={loader} /&gt;
@@ -273,8 +270,8 @@ export function InfiniScroll({ generator, options: { length } }: InfiniScrollPro
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Nov 28 2021 02:33:02 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
+                at Sun Dec 05 2021 02:22:46 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
