@@ -3,7 +3,6 @@ import { InfiniScroll } from '@/InfiniScroll/';
 import { Length } from '@/Length/';
 import { 
   CharsetState,
-  Password,
   UpdatePasswordOptions,
   usePasswordContext,
 } from '@/Password/';
@@ -30,7 +29,7 @@ export function App(): JSX.Element {
   return (
     <div className="App">
       <main>
-        <InfiniScroll {...context} Component={Password} />
+        <InfiniScroll {...context} />
       </main>
       <header>
         <Control {...context} />

@@ -1,66 +1,63 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback } from 'react';
 
-import { PasswordOptions } from '@/Password';
-
-import { InfiniCell, InfiniGenerator, useInfiniScroll } from './useInfiniScroll';
+import { InfiniCell, InfiniScrollProps, useInfiniScroll } from './useInfiniScroll';
 
 export type renderInfiniScroll = (key: number) => JSX.Element;
 
-export interface ComponentProps {
-  seed: number;
-  length: number;
-  promise?: Promise<string>;
-  cancel?: () => void;
+export interface CellProps extends InfiniCell {
+  index: number;
 }
 
-export interface InfiniScrollProps {
-  Component: React.FunctionComponent<ComponentProps>;
-  generator: InfiniGenerator;
-  options: PasswordOptions;
-}
+export function Cell(props: CellProps): JSX.Element {
 
+  const { id, index, length, shred, value = '' } = props;
 
-export function Cell({ id, value, promise, cancel }: InfiniCell): JSX.Element {
-
-  const [word, update] = useState<string>(value);
-
-  useEffect(() => {
-
-    if (promise) {
-      promise
-        .then((w) => 
-          update(w.padEnd(length, '*')))
+  const pbcopy = useCallback(() => {
+    if (value) {
+      navigator
+        .clipboard
+        .writeText(value)
+        .then(() => shred(index))
         .catch(console.warn);
     }
-    return cancel;
+  }, [index, shred, value]);
 
-  }, [promise, cancel]);
+  const displayWord = value.padEnd(length, '*');
 
-  return (<button className={'Password'} id={`${id}`}>{word}</button>);
+  const classNames = ['Password'];
+
+  if (value) {
+    classNames.push('Ready');
+  }
+
+  return (
+    <button 
+      className={classNames.join(' ')} 
+      disabled={!value} 
+      id={`${id}`} 
+      onClick={pbcopy}
+    >
+      {displayWord}
+    </button>
+  );
 }
 
-
-export function InfiniScroll({ generator, options: { length } }: InfiniScrollProps): JSX.Element {
+export function InfiniScroll(props: InfiniScrollProps): JSX.Element {
   const { 
     grid, 
     list, 
     loader,
     standard, 
-  } = useInfiniScroll(generator);
+  } = useInfiniScroll(props);
 
-  const render = useCallback((cell: InfiniCell) => (
-    <Cell key={cell.id} {...cell} {...{ length }} />
-  ), [length]);
-
-  const gauge = useMemo(() => (
-    <div className={'Standard'} ref={standard}>
-      <Cell {...generator(-1)} />
-    </div>
-  ), [generator, standard]);
+  const render = (cell: InfiniCell, index: number) => 
+    <Cell key={cell.id} {...cell} index={index} />;
 
   return (
     <section className={'InfiniScroll'} ref={grid}>
-      {gauge}
+      <div className={'Standard'} ref={standard}>
+        <Cell id={-1} {...props} index={-1} shred={() => undefined} />
+      </div>
       <div className={'Grid'}>
         {list.map(render)}
         <nav ref={loader} />

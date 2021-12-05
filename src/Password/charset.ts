@@ -1,6 +1,5 @@
 import { CharsetLabels } from './types';
 
-
 export const charsetLabels: CharsetLabels = {
   ['09']: 'Number',
   ['AZ']: 'Upper Case',

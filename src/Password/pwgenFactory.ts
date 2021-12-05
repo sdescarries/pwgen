@@ -1,10 +1,10 @@
 import { getCharset } from './charset';
 import { pwgenImpl } from './pwgenImpl';
 import { Random } from './Random';
-import { pwgen } from './types';
+import { WordGenerator } from './types';
 
 
-export function pwgenFactory(length: number, ...args: string[]): pwgen {
+export function pwgenFactory(length: number, ...args: string[]): WordGenerator {
 
   if (length === 0) {
     return (): Promise<string> => Promise.resolve('');

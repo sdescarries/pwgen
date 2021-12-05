@@ -25,3 +25,33 @@
     }
   }
 }
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.Password {
+  background-color: $l2;
+  border-radius: 1rem;
+  color: $l5;
+  cursor: pointer;
+  font-family: $codeFonts;
+  font-size: 1rem;
+  height: 2rem;
+  margin: 0;
+
+  &:disabled {
+    background-color: $l1;
+    color: $l2;
+  }
+
+  &.Ready {
+    animation: cardEntrance 2000ms ease-out backwards;
+  }
+}

@@ -7,38 +7,60 @@ import {
   useState,
 } from 'react';
 
+import { PasswordOptions, WordGenerator } from '@/Password';
+
 export interface InfiniScrollState {
+
+  // container element for the infinite scroll
   grid: RefObject<HTMLElement>;
+
+  // table data
   list: InfiniCell[],
+
+  // infini scroll bottom of view observer
   loader: RefObject<HTMLElement>;
+
+  // cell size observer
   standard: RefObject<HTMLDivElement>;
 }
 
 export interface InfiniCell {
-
   // unique identifier for the cell
   id: number;
 
-  // cell content promise
-  promise?: Promise<string>;
+  // word length
+  length: number;
 
-  // content promise cancelation
-  cancel?: () => void;
+  // consume and erase value
+  shred: (index: number) => void;
 
   // actual value
-  value: string;
-
-  // promise resolution
-  ready: boolean;
+  value?: string;
 }
 
-export type InfiniGenerator = (id: number) => InfiniCell;
 
 export interface ListModifiers {
-  full?: boolean,
-  generator: InfiniGenerator,
-  size: number, 
-  slice?: boolean, 
+
+  // should the whole list be refreshed
+  full?: boolean;
+
+  // should a slice be replaced
+  slice?: boolean; 
+
+  // consume and erase value
+  shred: (index: number) => void;
+
+  // number of visible lines in table
+  rows: MutableRefObject<number>;
+
+  // number of visible columns in table
+  cols: MutableRefObject<number>;
+
+  // write cursor index in array
+  index: MutableRefObject<number>;
+
+  // word length for placeholder
+  length: number;
 }
 
 export interface Refresh {
@@ -50,45 +72,55 @@ export interface Refresh {
 export type Refresher = (options?: Refresh) => void;
 
 export interface ResizeHandlerProps {
+  cols: MutableRefObject<number>;
+  rows: MutableRefObject<number>;
+
   grid: RefObject<HTMLElement>;
-  refresh: Refresher;
-  size: MutableRefObject<number>;
   standard: RefObject<HTMLDivElement>;
+
+  refresh: Refresher;
 }
 
 export const getLastIndex = (list: InfiniCell[]): number => (list[list.length - 1]?.id ?? -1) + 1;
 
-export const extendListToSize = (list: InfiniCell[], { generator, size }: ListModifiers): InfiniCell[] => {
+export const extendListToSize = (list: InfiniCell[], { length, cols, rows, shred }: ListModifiers): InfiniCell[] => {
+  const size = cols.current * rows.current;
   if (list.length > size) {
-    console.log('reuse list');
-    return list;
+    return list.slice(0, size);
   }
-  list = [...list];
+  
   let lastIndex = getLastIndex(list);
-
-  console.log(`fill list for  ${size - list.length}`);
-
+  list = [...list];
   while (list.length < size) {
-    list.push(generator(lastIndex++));
+    list.push({ id: lastIndex++, length, shred, value: '' });
   }
+  
   return list;
 };
 
-export const refreshList = ({ full, size, slice, generator }: ListModifiers) => (list: InfiniCell[]): InfiniCell[] => {
+export const refreshList = (mods: ListModifiers) => (list: InfiniCell[]): InfiniCell[] => {
+
+  const {
+    cols,
+    full,
+    index,
+    rows,
+    slice,
+    shred,
+    length,
+  } = mods;
 
   if (full) {
     const lastIndex = getLastIndex(list);
-    list.forEach((cell) => cell.cancel?.());
-    list = [generator(lastIndex)];
+    list = [{ id: lastIndex, length, shred, value: '' }];
+    index.current = 0;
   } else if (slice) {
-    const twoThirds = Math.ceil(size * 2 / 3);
-    list.slice(0, twoThirds).forEach((cell) => cell.cancel?.());
-    list = list.slice(list.length - twoThirds);
-  } else if (list.length >= size) {
-    return list;
+    const oneThird = Math.ceil(rows.current / 3) * cols.current;
+    list = list.slice(oneThird);
+    index.current = Math.max(0, index.current - oneThird);
   }
 
-  return extendListToSize(list, { generator, size });
+  return extendListToSize(list, mods);
 };
 
 export function useInfiniScrollLoader(refresh: Refresher): [RefObject<HTMLElement>] {
@@ -117,8 +149,9 @@ export function useInfiniScrollLoader(refresh: Refresher): [RefObject<HTMLElemen
   return [loader];
 }
 
-export function makeResizeHandler({ grid, refresh, size, standard }: ResizeHandlerProps) {
+export function makeResizeHandler(props: ResizeHandlerProps) {
 
+  const { grid, standard, refresh } = props;
   const context = {
     cw: 0,
     ch: 0,
@@ -127,6 +160,8 @@ export function makeResizeHandler({ grid, refresh, size, standard }: ResizeHandl
   };
 
   const handleResize = (entries: ResizeObserverEntry[]) => {
+
+    let needRefresh = false;
 
     for (const { contentRect, target } of entries) {
       if (target === standard.current) {
@@ -141,22 +176,33 @@ export function makeResizeHandler({ grid, refresh, size, standard }: ResizeHandl
     }
 
     if (context.iw && context.ih) {
-      const rows = Math.floor(context.ch / context.ih);
+      const rows = Math.floor(context.ch / context.ih) * 2;
       const cols = Math.floor(context.cw / context.iw);
-      const count = Math.floor(rows * cols) * 2;
 
-      if (count > 0 && size.current <= count) {
-        refresh();
+      if (props.rows.current != rows) {
+        props.rows.current = rows;
+        needRefresh = true;
       }
 
-      size.current = count;
+      if (props.cols.current != cols) {
+        props.cols.current = cols;
+        needRefresh = true;
+      }
+    }
+
+    if (needRefresh) {
+      refresh();
     }
   };
 
   return handleResize;
 }
 
-export function useInfiniScrollSize(refresh: Refresher, size: MutableRefObject<number>): [RefObject<HTMLElement>, RefObject<HTMLDivElement>] {
+export function useInfiniScrollSize(
+  refresh: Refresher,
+  cols: MutableRefObject<number>,
+  rows: MutableRefObject<number>,
+): [RefObject<HTMLElement>, RefObject<HTMLDivElement>] {
   const grid = useRef<HTMLElement>(null);
   const standard = useRef<HTMLDivElement>(null);
 
@@ -167,23 +213,61 @@ export function useInfiniScrollSize(refresh: Refresher, size: MutableRefObject<n
       return;
     }
 
-    const handleResize = makeResizeHandler({ grid, refresh, size, standard });
+    const handleResize = makeResizeHandler({ cols, rows, grid, standard, refresh });
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(grid.current);
     resizeObserver.observe(standard.current);
-
     return () => resizeObserver.disconnect();
-
-  }, [refresh, size]);
+  }, [cols, rows, refresh]);
 
   return [grid, standard];
-
 }
 
-export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
+const promiseAnimationFrame = () => new Promise(resolve => requestAnimationFrame(resolve));
+
+const fillList = (index: MutableRefObject<number>, value: string) => (oldList: InfiniCell[]) => {
+  const cell = oldList[index.current];
+
+  if (!cell) {
+    return oldList;
+  }
+
+  const newList = [...oldList];
+  newList[index.current] = {
+    ...cell,
+    value,
+  };
+
+  index.current++;
+  return newList;
+};
+
+const shredder = (index: number) => (oldList: InfiniCell[]) => {
+  const cell = oldList[index];
+
+  if (!cell) {
+    return oldList;
+  }
+
+  const newList = [...oldList];
+  newList[index] = {
+    ...cell,
+    value: '',
+  };
+
+  return newList;
+};
+
+export interface InfiniScrollProps extends PasswordOptions {
+  generator: WordGenerator;
+}
+
+export function useInfiniScroll({ generator, length }: InfiniScrollProps): InfiniScrollState {
 
   const [list, listUpdate] = useState<InfiniCell[]>([]);
-  const size = useRef<number>(0);
+  const cols = useRef<number>(0);
+  const rows = useRef<number>(0);
+  const index = useRef<number>(0);
 
   const [needRefresh, setRefresh] = useState<Refresh>({ done: true });
   const refresh = useCallback((options?: Refresh) => 
@@ -191,9 +275,11 @@ export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
       ({ ...previous, ...options, done: false })), []);
 
   const [loader] = useInfiniScrollLoader(refresh);
-  const [grid, standard] = useInfiniScrollSize(refresh, size);
+  const [grid, standard] = useInfiniScrollSize(refresh, cols, rows);
 
-  useEffect(() => refresh({ full: true }), [generator, refresh]);
+  useEffect(() => refresh({ full: true }), [generator, length, refresh]);
+
+  const shred = useCallback((index: number) => listUpdate(shredder(index)), []);
 
   useEffect(() => {
 
@@ -201,21 +287,48 @@ export function useInfiniScroll(generator: InfiniGenerator): InfiniScrollState {
       return;
     }
 
-    const cb = () => {
-      setRefresh({ done: true });
-      listUpdate(
-        refreshList({ 
-          ...needRefresh, 
-          size: size.current, 
-          generator,
-        })
-      );
+    if (!length) {
+      return;
+    }
+
+    listUpdate(
+      refreshList({ 
+        ...needRefresh,
+        cols,
+        index,
+        length,
+        shred,
+        rows,
+      })
+    );
+
+    setRefresh({ done: true });
+
+  }, [length, needRefresh, shred]);
+
+  useEffect(() => {
+    let alive = true;
+
+    if (!length) {
+      return;
+    }
+
+    Promise
+      .resolve()
+      .then(async () => {
+        const size = rows.current * cols.current;
+        while(alive && index.current < size) {
+          const value = await generator();
+          await promiseAnimationFrame();
+          listUpdate(fillList(index, value));
+        }
+      })
+      .catch(console.warn);
+
+    return () => {
+      alive = false;
     };
-
-    const timeout = setTimeout(cb, 500);
-    return () => clearTimeout(timeout);
-
-  }, [generator, needRefresh]);
+  }, [generator, length, needRefresh]);
 
   return { grid, list, loader, standard };
 }
