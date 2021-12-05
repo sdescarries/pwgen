@@ -149,32 +149,43 @@ export function useInfiniScrollLoader(refresh: Refresher): [RefObject<HTMLElemen
   return [loader];
 }
 
-export function makeResizeHandler(props: ResizeHandlerProps) {
+interface ResizeContext {
+  cw: number;
+  ch: number;
+  iw: number;
+  ih: number;
+}
 
-  const { grid, standard, refresh } = props;
-  const context = {
-    cw: 0,
-    ch: 0,
-    iw: 0,
-    ih: 0,
-  };
+const makeResizeContext = (): ResizeContext => ({
+  cw: 0,
+  ch: 0,
+  iw: 0,
+  ih: 0,
+});
 
-  const handleResize = (entries: ResizeObserverEntry[]) => {
-
-    let needRefresh = false;
-
-    for (const { contentRect, target } of entries) {
-      if (target === standard.current) {
-        context.iw = contentRect.width + 8;
-        context.ih = contentRect.height + 8;
-      }
-
-      if (target === grid.current) {
-        context.cw = contentRect.width;
-        context.ch = contentRect.height;
-      }
+const updateResizeContext = (props: ResizeHandlerProps, context: ResizeContext, entries: ResizeObserverEntry[]) => {
+  const { grid, standard } = props;
+  for (const { contentRect, target } of entries) {
+    if (target === standard.current) {
+      context.iw = contentRect.width + 8;
+      context.ih = contentRect.height + 8;
     }
 
+    if (target === grid.current) {
+      context.cw = contentRect.width;
+      context.ch = contentRect.height;
+    }
+  }
+};
+
+export function makeResizeHandler(props: ResizeHandlerProps) {
+
+  const context = makeResizeContext();
+  const handleResize = (entries: ResizeObserverEntry[]) => {
+
+    updateResizeContext(props, context, entries);
+    
+    let needRefresh = false;
     if (context.iw && context.ih) {
       const rows = Math.floor(context.ch / context.ih) * 2;
       const cols = Math.floor(context.cw / context.iw);
@@ -191,7 +202,7 @@ export function makeResizeHandler(props: ResizeHandlerProps) {
     }
 
     if (needRefresh) {
-      refresh();
+      props.refresh();
     }
   };
 
