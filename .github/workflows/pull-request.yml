@@ -1,15 +1,11 @@
-name: code climate
+name: ci/cd
 on:
   push:
     branches:
       - master
     tags:
       - '!*' # Do not execute on tags
-    #paths:
-    #  - src/*
   pull_request:
-    #paths:
-    #  - src/*
 
 jobs:
 
