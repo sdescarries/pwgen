@@ -6,17 +6,16 @@ export interface CharsetLabels {
   [key: string]: string;
 }
 
-export type pwgen = () => Promise<string>;
+export type WordGenerator = () => Promise<string>;
 
 export interface PasswordContext {
-  generator: pwgen;
+  generator: WordGenerator;
   options: PasswordOptions;
   update: UpdatePasswordOptions;
 }
 
-
 export interface PasswordProps {
-  generator?: pwgen;
+  generator?: WordGenerator;
   seed: number;
 }
 
@@ -26,6 +25,5 @@ export interface PasswordOptions {
 }
 
 export type PasswordUserOptions = Partial<PasswordOptions>;
-
 export type PasswordRenderer = (key: number) => JSX.Element;
 export type UpdatePasswordOptions = (options: PasswordUserOptions) => void;
