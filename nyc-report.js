@@ -14,8 +14,8 @@ const runOne = (command) => cp.execSync(command, { stdio: 'inherit' });
 const run = (commands) => commands.forEach(runOne);
 
 const files = {
-  jest: 'coverage/cypress/coverage-final.json',
-  cypress: 'coverage/cypress/coverage-final.json',
+  jest: 'results/jest/coverage-final.json',
+  cypress: 'results/cypress/coverage-final.json',
 };
 
 fs.mkdirSync('.nyc_output', { recursive: true });
