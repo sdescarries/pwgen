@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>9/18</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">63.63% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>7/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,25 +99,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">636x</span>
+<span class="cline-any cline-yes">636x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">636x</span>
+<span class="cline-any cline-yes">5288x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5088x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">636x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { Random } from './Random';
 &nbsp;
@@ -127,25 +127,25 @@ export interface PwgenProps {
   random: Random;
 }
 &nbsp;
-export function pwgenImpl({ length, charset, random }: PwgenProps): string {
+export function <span class="fstat-no" title="function not covered" >pwgenImpl(</span>{ length, charset, random }: PwgenProps): string {
   // Output word
   let word = <span class="cstat-no" title="statement not covered" >'';</span>
-  let <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >prev = -1;</span></span>
+  let prev = <span class="cstat-no" title="statement not covered" >-1;</span>
 &nbsp;
   // Add random chars form set for desired length
-  for (let n = <span class="cstat-no" title="statement not covered" >0; n</span> &lt; length; ++n) {
-    let <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >key;</span></span>
+<span class="cstat-no" title="statement not covered" >  for (let n = <span class="cstat-no" title="statement not covered" >0;</span> n &lt; length; ++n) {</span>
+    let key;
 &nbsp;
     // Prevent consecutive chars from being the same
-    do {
-      key = random.pop();
-    } while (key === <span class="cstat-no" title="statement not covered" >prev);</span>
+<span class="cstat-no" title="statement not covered" >    do {</span>
+<span class="cstat-no" title="statement not covered" >      key = random.pop();</span>
+    } while (key === prev);
 &nbsp;
-    prev = key;
-    word += charset[<span class="cstat-no" title="statement not covered" >key];</span>
+<span class="cstat-no" title="statement not covered" >    prev = key;</span>
+<span class="cstat-no" title="statement not covered" >    word += charset[key];</span>
   }
 &nbsp;
-  return word;
+<span class="cstat-no" title="statement not covered" >  return word;</span>
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -153,10 +153,9 @@ export function pwgenImpl({ length, charset, random }: PwgenProps): string {
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Sun Dec 05 2021 02:31:02 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Sat Jan 15 2022 12:12:42 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
