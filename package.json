@@ -9,7 +9,7 @@
     "cypress": "cypress",
     "e2e": "start-server-and-test preview http://localhost:3000/pwgen/ 'cypress run'",
     "format": "eslint --fix .",
-    "inst": "nyc instrument dist/assets/index.*.js ./",
+    "instrument": "nyc instrument dist/assets/index.*.js ./",
     "jest": "jest",
     "lint": "eslint src",
     "prebuild": "tsc",

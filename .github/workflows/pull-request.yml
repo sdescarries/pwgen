@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: jest
-          path: coverage/jest
+          path: results/jest
           retention-days: 7
 
   cypress:
@@ -70,14 +70,14 @@ jobs:
       - name: setup and test
         run: |
           yarn install
-          yarn inst
+          yarn instrument
           yarn e2e
 
       - name: upload cypress artifacts
         uses: actions/upload-artifact@v2
         with:
           name: cypress
-          path: coverage/cypress
+          path: results/cypress
           retention-days: 7
 
   deploy:

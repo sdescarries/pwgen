@@ -1,7 +1,13 @@
 // Jest on steroids 🤹 💊
 
 const { resolve } = require("path");
-const { accessSync, constants, mkdirSync, statSync, writeFileSync } = require("fs");
+const {
+  accessSync,
+  constants,
+  mkdirSync,
+  statSync,
+  writeFileSync,
+} = require("fs");
 
 const uncover = [
   `!**/*.{spec,unit,test,jest}.{js,jsx,ts,tsx}`,
@@ -29,14 +35,17 @@ const template = {
   // The test environment that will be used for testing, jsdom for browser environment
   testEnvironment: "jsdom",
 
-  modulePathIgnorePatterns: ["<rootDir>/.+/__mocks__", "<rootDir>/.+/__snapshots__"],
+  modulePathIgnorePatterns: [
+    "<rootDir>/.+/__mocks__",
+    "<rootDir>/.+/__snapshots__",
+  ],
 
   reporters: [
     "default",
     [
       "jest-html-reporters",
       {
-        filename: resolve(`${__dirname}/results/jest/index.html`),
+        publicPath: resolve(`${__dirname}/results/jest`),
         expand: true,
       },
     ],
@@ -62,9 +71,7 @@ const template = {
     "^@/(.*)$": "<rootDir>/src/$1", // To resolve typescript path aliases
   },
 
-  watchPathIgnorePatterns: [
-    "<rootDir>/node_modules/",
-  ],
+  watchPathIgnorePatterns: ["<rootDir>/node_modules/"],
 };
 
 const accessible = (entry) => {
@@ -92,7 +99,9 @@ function config() {
       accessiblePaths.forEach((candidate) => {
         const info = statSync(candidate);
         const clean = candidate.replace(/(.jest|\/+$)/gim, "");
-        const coverage = info.isDirectory() ? `${clean}/**/*.{js,jsx,ts,tsx}` : clean;
+        const coverage = info.isDirectory()
+          ? `${clean}/**/*.{js,jsx,ts,tsx}`
+          : clean;
         result.collectCoverageFrom.push(coverage);
       });
 
@@ -103,7 +112,7 @@ function config() {
   mkdirSync(resolve(`${__dirname}/results/jest/`), { recursive: true });
   writeFileSync(
     resolve(`${__dirname}/results/jest/jest.config.json`),
-    JSON.stringify(result, null, 2),
+    JSON.stringify(result, null, 2)
   );
 
   return result;
