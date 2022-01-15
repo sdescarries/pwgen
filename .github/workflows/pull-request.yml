@@ -100,13 +100,13 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: jest
-          path: coverage/jest
+          path: results/jest
 
       - name: download cypress artifacts
         uses: actions/download-artifact@v2
         with:
           name: cypress
-          path: coverage/cypress
+          path: results/cypress
 
       - name: merge artifacts
         run: |
