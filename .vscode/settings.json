@@ -30,6 +30,7 @@
     "typescript",
     "json"
   ],
+  "files.trimTrailingWhitespace": true,
   "git.allowForcePush": true,
   "git.autoStash": true,
   "git.autofetch": "all",
@@ -39,6 +40,5 @@
   "git.pullTags": false,
   "git.rebaseWhenSync": true,
   "html.format.enable": false,
-  "sortLines.filterBlankLines": true,
-  "files.trimTrailingWhitespace": true
+  "sortLines.filterBlankLines": true
 }

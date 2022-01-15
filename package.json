@@ -11,7 +11,7 @@
     "format": "eslint --fix .",
     "inst": "nyc instrument dist/assets/index.*.js ./",
     "jest": "jest",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "prebuild": "tsc",
     "prepare": "husky install",
     "preview": "vite preview --port=3000",
