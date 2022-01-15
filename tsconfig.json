@@ -33,8 +33,9 @@
   },
   "include": [
     ".eslintrc.js",
+    ".stryker-tmp",
     "postcss.config.js",
+    "src",
     "vite.config.js",
-    "src"
   ]
 }

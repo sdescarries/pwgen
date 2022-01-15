@@ -4,6 +4,7 @@
 [![code climate](https://github.com/sdescarries/pwgen/actions/workflows/pull-request.yml/badge.svg?branch=master&event=push)](https://github.com/sdescarries/pwgen/actions/workflows/pull-request.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c30aa75a30fddffba7c5/maintainability)](https://codeclimate.com/github/sdescarries/pwgen/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c30aa75a30fddffba7c5/test_coverage)](https://codeclimate.com/github/sdescarries/pwgen/test_coverage)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fsdescarries%2Fpwgen%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/sdescarries/pwgen/master)
 
 Browser based secure password generator built with <img alt='React' src='docs/react.svg' height=16/> and <img alt='Vite' src='docs/vite.svg' height=16 />
 

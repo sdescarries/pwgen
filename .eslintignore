@@ -5,6 +5,7 @@
 /nyc.config.js
 /package.json
 /postcss.config.js
+/stryker.conf.js
 /vite.config.ts
 
 # Build artifacts:

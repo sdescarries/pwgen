@@ -40,6 +40,8 @@ const template = {
     "<rootDir>/.+/__snapshots__",
   ],
 
+  preset: "ts-jest",
+
   reporters: [
     "default",
     [
@@ -62,7 +64,7 @@ const template = {
   setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
 
   // Ignore cypress e2e test files
-  testPathIgnorePatterns: ["<rootDir>/cypress/"],
+  testPathIgnorePatterns: ["<rootDir>/cypress/", "<rootDir>/.stryker-tmp/"],
 
   // Important: order matters, specific rules should be defined first
   // See : https://jestjs.io/fr/docs/configuration#modulenamemapper-objectstring-string--arraystring
