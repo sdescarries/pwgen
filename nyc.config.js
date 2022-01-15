@@ -1,3 +1,3 @@
 module.exports = {
-  'report-dir': 'coverage/cypress',
+  'report-dir': 'results/cypress',
 };

@@ -1,4 +1,10 @@
 {
-  "baseUrl": "http://localhost:5000/pwgen/",
+  "baseUrl": "http://localhost:3000/pwgen/",
+  "env": {
+    "browserPermissions": {
+      "clipboard": "allow",
+      "javascript": "allow"
+    }
+  },
   "video": false
 }

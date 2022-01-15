@@ -6,6 +6,7 @@
 /dist
 /dist-ssr
 /node_modules
+/results
 
 # Created by https://www.toptal.com/developers/gitignore/api/jetbrains,macos,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=jetbrains,macos,node

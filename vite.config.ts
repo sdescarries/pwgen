@@ -1,7 +1,7 @@
-import path from "path";
-import { defineConfig } from "vite";
-import legacy from "@vitejs/plugin-legacy";
-import reactRefresh from "@vitejs/plugin-react-refresh";
+import path from 'path';
+import { defineConfig } from 'vite';
+import legacy from '@vitejs/plugin-legacy';
+import reactRefresh from '@vitejs/plugin-react-refresh';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,12 +14,12 @@ export default defineConfig({
     jsxInject: `import React from 'react'`,
   },
   plugins: [
-    legacy(), 
+    legacy(),
     reactRefresh(),
   ],
   resolve: {
     alias: {
-      "@/": `${path.resolve(__dirname, "src")}/`,
+      '@/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
 });
