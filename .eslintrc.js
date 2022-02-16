@@ -25,6 +25,7 @@ module.exports = {
         'plugin:testing-library/react',
       ],
       files: [
+        'src/**/__mocks__/**/*.[jt]s?(x)',
         'src/**/__tests__/**/*.[jt]s?(x)',
         'src/**/?(*.)+(spec|test).[jt]s?(x)',
       ], // Override config for same files pattern as jest `testMatch` default value
@@ -43,6 +44,7 @@ module.exports = {
         'testing-library/no-await-sync-query': 'error',
         'testing-library/no-debugging-utils': 'warn',
         'testing-library/no-dom-import': 'off',
+        'ts-expect-error': 'off',
       },
     },
   ],

@@ -12,7 +12,7 @@ export function Cell(props: CellProps): JSX.Element {
 
   const { id, index, length, shred, value = '' } = props;
 
-  const pbcopy = useCallback(() => {
+  const pbCopy = useCallback(() => {
     if (value) {
       navigator
         .clipboard
@@ -31,11 +31,11 @@ export function Cell(props: CellProps): JSX.Element {
   }
 
   return (
-    <button 
-      className={classNames.join(' ')} 
-      disabled={!value} 
-      id={`${id}`} 
-      onClick={pbcopy}
+    <button
+      className={classNames.join(' ')}
+      disabled={!value}
+      id={`${id}`}
+      onClick={pbCopy}
     >
       {displayWord}
     </button>
@@ -43,14 +43,14 @@ export function Cell(props: CellProps): JSX.Element {
 }
 
 export function InfiniScroll(props: InfiniScrollProps): JSX.Element {
-  const { 
-    grid, 
-    list, 
+  const {
+    grid,
+    list,
     loader,
-    standard, 
+    standard,
   } = useInfiniScroll(props);
 
-  const render = (cell: InfiniCell, index: number) => 
+  const render = (cell: InfiniCell, index: number) =>
     <Cell key={cell.id} {...cell} index={index} />;
 
   return (
