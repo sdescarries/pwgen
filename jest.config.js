@@ -71,7 +71,7 @@ const template = {
     "^@/(.*)$": "<rootDir>/src/$1", // To resolve typescript path aliases
   },
 
-  watchPathIgnorePatterns: ["<rootDir>/node_modules/"],
+  watchPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/results/"],
 };
 
 const accessible = (entry) => {
