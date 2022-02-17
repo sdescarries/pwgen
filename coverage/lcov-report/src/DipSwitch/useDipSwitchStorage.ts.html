@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">74.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>33/44</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>3/6</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>14/21</span>
+                <span class='fraction'>38/51</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">75% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>3/4</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">68.18% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>15/22</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">86.95% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>18/24</span>
+                <span class='fraction'>20/23</span>
             </div>
         
             
@@ -125,17 +125,17 @@
 <span class="cline-any cline-yes">63x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">57x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">57x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">57x</span>
+<span class="cline-any cline-yes">57x</span>
+<span class="cline-any cline-yes">57x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
@@ -147,17 +147,17 @@
 <span class="cline-any cline-yes">117x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">57x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">123x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">117x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">117x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">117x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">117x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Dispatch, useEffect, useState } from 'react';
 &nbsp;
@@ -175,11 +175,11 @@ export const charsetStoragePath = (charset: string): string =&gt;
 &nbsp;
 export function loadDipSwitchStorage(charset: string): boolean {
   try {
-    const serialized = localStorage.getItem(charsetStoragePath(<span class="branch-0 cbranch-no" title="branch not covered" >charset))<span class="branch-1 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" > ?? '</span></span></span>false';
+    const serialized = localStorage.getItem(charsetStoragePath(charset))<span class="branch-0 cbranch-no" title="branch not covered" > ?? '</span>false';
     return JSON.parse(serialized) as boolean;
-  } catch ({ <span class="cstat-no" title="statement not covered" >message }) {</span>
-<span class="cstat-no" title="statement not covered" >    console.warn(message);</span>
-<span class="cstat-no" title="statement not covered" >    return false;</span>
+  } catch ({ message }) {
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >    console.warn(message);</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >    return false;</span></span>
   }
 }
 &nbsp;
@@ -188,7 +188,7 @@ export const saveDipSwitchStorage = <span class="fstat-no" title="function not c
     .resolve()
     .then(<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >charsetStoragePath(charset))</span>
     .then(<span class="fstat-no" title="function not covered" >(p</span>ath) =&gt; <span class="cstat-no" title="statement not covered" >localStorage.setItem(path, JSON.stringify(value)))</span>
-    .catch(<span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >undefined)</span>;</span>
+    .catch(<span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >u</span>ndefined)</span>;</span>
 &nbsp;
 export function useDipSwitchStorage({ charset, update }: DipSwitchProps): [boolean, Dispatch&lt;boolean&gt;] {
 &nbsp;
@@ -214,7 +214,7 @@ export function useDipSwitchStorage({ charset, update }: DipSwitchProps): [boole
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Feb 09 2022 16:32:54 GMT+0000 (Coordinated Universal Time)
+                at Thu Feb 17 2022 22:17:26 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
