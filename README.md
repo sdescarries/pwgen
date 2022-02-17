@@ -1,7 +1,6 @@
-# Secure Password Generator
+# [Secure Password Generator](https://sdescarries.github.io/pwgen/)
 
-[![build and deploy](https://github.com/sdescarries/pwgen/actions/workflows/pull-request.yml/badge.svg)](https://sdescarries.github.io/pwgen/)
-[![code climate](https://github.com/sdescarries/pwgen/actions/workflows/pull-request.yml/badge.svg?branch=master&event=push)](https://github.com/sdescarries/pwgen/actions/workflows/pull-request.yml)
+[![ci/cd](https://github.com/sdescarries/pwgen/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/sdescarries/pwgen/actions/workflows/ci-cd.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c30aa75a30fddffba7c5/maintainability)](https://codeclimate.com/github/sdescarries/pwgen/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c30aa75a30fddffba7c5/test_coverage)](https://codeclimate.com/github/sdescarries/pwgen/test_coverage)
 
