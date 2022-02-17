@@ -6,7 +6,7 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/pwgen/',
+  base: '/',
   build: {
     sourcemap: true,
   },

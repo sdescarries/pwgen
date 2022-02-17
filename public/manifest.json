@@ -1,0 +1,16 @@
+{
+  "lang": "en-us",
+  "name": "Secure Password Generator",
+  "short_name": "pwgen",
+  "description": "Secure Password Generator",
+  "start_url": "/pwgen/",
+  "background_color": "#161b1d",
+  "theme_color": "#e2e7e9",
+  "orientation": "any",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/favicon.svg"
+    }
+  ]
+}

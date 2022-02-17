@@ -14,7 +14,7 @@
     "lint": "eslint src",
     "prebuild": "tsc",
     "prepare": "husky install",
-    "preview": "vite preview --port=5000",
+    "preview": "vite preview --port=3500",
     "start": "vite --host"
   },
   "devDependencies": {

@@ -1,11 +1,7 @@
 # Incompatible project files
-/cypress.json
-/jest.config.js
-/nyc-report.js
-/nyc.config.js
-/package.json
-/postcss.config.js
-/vite.config.ts
+*.json
+/*.js
+/*.ts
 
 # Build artifacts:
 /build/
