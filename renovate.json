@@ -1,0 +1,18 @@
+{
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "automerge": true,
+      "matchUpdateTypes": ["patch", "pin", "digest"]
+    },
+    {
+      "automerge": true,
+      "matchDepTypes": ["devDependencies"]
+    }
+  ],
+  "schedule": ["every weekend"],
+  "stabilityDays": 3,
+  "vulnerabilityAlerts": {
+    "labels": ["security"]
+  }
+}
