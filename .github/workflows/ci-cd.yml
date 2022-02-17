@@ -126,7 +126,7 @@ jobs:
         with:
           coverageLocations: dist/coverage/lcov.info:lcov
 
-      - uses: JamesIves/github-pages-deploy-action@0f24da7de3e7e135102609a4c9633b025be8411b
+      - uses: JamesIves/github-pages-deploy-action@ca88c7228a31c8c5bccb8046b7907c9d63c7fae5
         with:
           branch: pages
           folder: dist
