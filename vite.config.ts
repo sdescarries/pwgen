@@ -1,5 +1,6 @@
 import istanbul from 'vite-plugin-istanbul';
 import legacy from '@vitejs/plugin-legacy';
+//import manifest from './manifest.json';
 import path from 'path';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -20,39 +21,18 @@ export default defineConfig({
       include: 'src/*',
       checkProd: true,
     }),
-    VitePWA({
+    VitePWA(
 
-      includeAssets: ['favicon.svg', 'apple-touch-icon.png', 'pwgen.png'],
-      manifest: {
-        lang: 'en-us',
-        name: 'Secure Password Generator',
-        short_name: 'pwgen',
-        description: 'Secure Password Generator',
-        start_url: '/pwgen/',
-        background_color: '#161b1d',
-        theme_color: '#e2e7e9',
-        orientation: 'any',
-        display: 'standalone',
-        icons: [
-          {
-            src: '/pwgen/favicon.svg',
-            sizes: '200x200',
-            type: 'image/svg',
-            purpose: 'any'
-          },
-          {
-            src: '/pwgen/apple-touch-icon.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/pwgen/pwgen.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
-    }),
+      /*{
+      includeAssets: [
+        'favicon.svg',
+        'apple-touch-icon.png',
+        'pwgen.png'
+      ],
+      manifest: manifest as any,
+    } */
+
+    ),
     legacy(),
     reactRefresh(),
   ],
