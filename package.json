@@ -14,7 +14,7 @@
     "lint": "eslint src",
     "prebuild": "tsc",
     "prepare": "husky install",
-    "preview": "vite preview --port=5000",
+    "preview": "vite preview --port=3500",
     "start": "vite --host"
   },
   "devDependencies": {
@@ -61,6 +61,7 @@
     "typescript": "4.5.5",
     "vite": "2.8.3",
     "vite-plugin-istanbul": "2.5.0",
+    "vite-plugin-pwa": "^0.11.13",
     "web-vitals": "2.1.4"
   },
   "optionalDependencies": {

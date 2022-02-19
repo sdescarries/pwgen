@@ -44,5 +44,8 @@
   "html.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
   "sortLines.filterBlankLines": true,
-  "typescript.preferences.quoteStyle": "single"
+  "typescript.preferences.quoteStyle": "single",
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  }
 }
