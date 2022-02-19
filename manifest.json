@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "background_color": "#161b1d",
+  "description": "Secure Password Generator",
+  "display": "standalone",
+  "icons": [
+    {
+      "purpose": "any",
+      "sizes": "200x200",
+      "src": "/pwgen/favicon.svg",
+      "type": "image/svg"
+    },
+    {
+      "purpose": "any",
+      "sizes": "192x192",
+      "src": "/pwgen/apple-touch-icon.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "/pwgen/pwgen.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "maskable",
+      "sizes": "250x250",
+      "src": "/pwgen/pwgen.svg",
+      "type": "image/svg"
+    }
+  ],
+  "id": "/pwgen/",
+  "lang": "en-us",
+  "name": "Secure Password Generator",
+  "orientation": "natural",
+  "short_name": "pwgen",
+  "start_url": "/pwgen/",
+  "theme_color": "#e2e7e9"
+}
