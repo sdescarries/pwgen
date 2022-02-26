@@ -120,7 +120,7 @@ jobs:
           npm install -g nyc
           node nyc-report
 
-      - uses: paambaati/codeclimate-action@84cea27117a473d605400ca3a97fcef7e433e2d6
+      - uses: paambaati/codeclimate-action@671b47c85925bd7cef25815a39bb9533427cbd29
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
