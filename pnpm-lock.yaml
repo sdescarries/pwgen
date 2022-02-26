@@ -40,7 +40,7 @@ specifiers:
   postcss-nesting: 10.1.2
   react: 17.0.2
   react-dom: 17.0.2
-  sass: 1.49.8
+  sass: 1.49.9
   start-server-and-test: ^1.14.0
   ts-jest: 27.1.3
   typescript: 4.5.5
@@ -92,10 +92,10 @@ devDependencies:
   postcss-nesting: 10.1.2_postcss@8.4.7
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
-  sass: 1.49.8
+  sass: 1.49.9
   ts-jest: 27.1.3_8fa130d172bf7d71653f05507c50c5a3
   typescript: 4.5.5
-  vite: 2.8.4_sass@1.49.8
+  vite: 2.8.4_sass@1.49.9
   vite-plugin-istanbul: 2.5.0
   vite-plugin-pwa: 0.11.13_vite@2.8.4
   web-vitals: 2.1.4
@@ -2299,7 +2299,7 @@ packages:
       magic-string: 0.25.7
       regenerator-runtime: 0.13.9
       systemjs: 6.12.1
-      vite: 2.8.4_sass@1.49.8
+      vite: 2.8.4_sass@1.49.9
     dev: true
 
   /@vitejs/plugin-react-refresh/1.3.6:
@@ -7210,8 +7210,8 @@ packages:
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  /sass/1.49.8:
-    resolution: {integrity: sha512-NoGOjvDDOU9og9oAxhRnap71QaTjjlzrvLnKecUJ3GxhaQBrV6e7gPuSPF28u1OcVAArVojPAe4ZhOXwwC4tGw==}
+  /sass/1.49.9:
+    resolution: {integrity: sha512-YlYWkkHP9fbwaFRZQRXgDi3mXZShslVmmo+FVK3kHLUELHHEYrCmL1x6IUjC7wLS6VuJSAFXRQS/DxdsC4xL1A==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
@@ -8095,7 +8095,7 @@ packages:
       fast-glob: 3.2.11
       pretty-bytes: 5.6.0
       rollup: 2.64.0
-      vite: 2.8.4_sass@1.49.8
+      vite: 2.8.4_sass@1.49.9
       workbox-build: 6.4.2
       workbox-window: 6.4.2
     transitivePeerDependencies:
@@ -8104,7 +8104,7 @@ packages:
       - supports-color
     dev: true
 
-  /vite/2.8.4_sass@1.49.8:
+  /vite/2.8.4_sass@1.49.9:
     resolution: {integrity: sha512-GwtOkkaT2LDI82uWZKcrpRQxP5tymLnC7hVHHqNkhFNknYr0hJUlDLfhVRgngJvAy3RwypkDCWtTKn1BjO96Dw==}
     engines: {node: '>=12.2.0'}
     hasBin: true
@@ -8124,7 +8124,7 @@ packages:
       postcss: 8.4.7
       resolve: 1.22.0
       rollup: 2.64.0
-      sass: 1.49.8
+      sass: 1.49.9
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
