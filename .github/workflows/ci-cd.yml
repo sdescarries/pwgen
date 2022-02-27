@@ -94,9 +94,6 @@ jobs:
         with:
           node-version: 16
 
-      - name: install pnpm
-        run: curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
-
       - name: download dist artifacts
         uses: actions/download-artifact@v2
         with:
@@ -120,13 +117,15 @@ jobs:
           npm install -g nyc
           node nyc-report
 
-      - uses: paambaati/codeclimate-action@84cea27117a473d605400ca3a97fcef7e433e2d6
+      - name: Code Climate Coverage Action
+        uses: paambaati/codeclimate-action@v3.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageLocations: dist/coverage/lcov.info:lcov
 
-      - uses: JamesIves/github-pages-deploy-action@4a4e918eebde22924fa8cca4d1b94cbcc85a810e
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: pages
           folder: dist
