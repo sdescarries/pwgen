@@ -17,7 +17,7 @@ jobs:
       - uses: pnpm/action-setup@v2.2.1
         with:
           version: 6.31.0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
 
@@ -42,7 +42,7 @@ jobs:
       - uses: pnpm/action-setup@v2.2.1
         with:
           version: 6.31.0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
 
@@ -67,7 +67,7 @@ jobs:
       - uses: pnpm/action-setup@v2.2.1
         with:
           version: 6.31.0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
 
@@ -90,7 +90,7 @@ jobs:
     needs: [build, jest, cypress]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
 
