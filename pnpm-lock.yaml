@@ -45,7 +45,7 @@ specifiers:
   ts-jest: 27.1.3
   typescript: 4.6.2
   vite: 2.8.6
-  vite-plugin-istanbul: 2.5.0
+  vite-plugin-istanbul: 2.5.1
   vite-plugin-pwa: 0.11.13
   web-vitals: 2.1.4
 
@@ -96,7 +96,7 @@ devDependencies:
   ts-jest: 27.1.3_60149d457e34ffba7d4e845dde6a1263
   typescript: 4.6.2
   vite: 2.8.6_sass@1.49.9
-  vite-plugin-istanbul: 2.5.0
+  vite-plugin-istanbul: 2.5.1
   vite-plugin-pwa: 0.11.13_vite@2.8.6
   web-vitals: 2.1.4
 
@@ -8082,8 +8082,8 @@ packages:
     dev: false
     optional: true
 
-  /vite-plugin-istanbul/2.5.0:
-    resolution: {integrity: sha512-RqDYGbTo0mY7Ak/8K/GMG3reI2lPcNtKAf2Fzqa72EkGZ6nI3xYpXxCnyObCicK0vJOESNvr/CwOmZn3XHifsQ==}
+  /vite-plugin-istanbul/2.5.1:
+    resolution: {integrity: sha512-5ZR2/haQalUXVqHrjatZ0QKxzF3e0hBiJe6VhjGYxE7Yc4WFs7ZE56oazYB4jnPXvlirOvgLxG0LJQoHFdMxMg==}
     dependencies:
       chalk: 4.1.2
       istanbul-lib-instrument: 4.0.3
