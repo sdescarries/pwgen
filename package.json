@@ -43,7 +43,7 @@
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.3.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
-    "eslint-plugin-testing-library": "5.0.6",
+    "eslint-plugin-testing-library": "5.1.0",
     "husky": "7.0.4",
     "identity-obj-proxy": "3.0.0",
     "istanbul-lib-coverage": "3.2.0",
