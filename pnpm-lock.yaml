@@ -36,7 +36,7 @@ specifiers:
   nyc: 15.1.0
   p-limit: 4.0.0
   postcss: 8.4.12
-  postcss-import: 14.0.2
+  postcss-import: 14.1.0
   postcss-nesting: 10.1.3
   react: 17.0.2
   react-dom: 17.0.2
@@ -88,7 +88,7 @@ devDependencies:
   nyc: 15.1.0
   p-limit: 4.0.0
   postcss: 8.4.12
-  postcss-import: 14.0.2_postcss@8.4.12
+  postcss-import: 14.1.0_postcss@8.4.12
   postcss-nesting: 10.1.3_postcss@8.4.12
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -6774,8 +6774,8 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /postcss-import/14.0.2_postcss@8.4.12:
-    resolution: {integrity: sha512-BJ2pVK4KhUyMcqjuKs9RijV5tatNzNa73e/32aBVE/ejYPe37iH+6vAu9WvqUkB5OAYgLHzbSvzHnorybJCm9g==}
+  /postcss-import/14.1.0_postcss@8.4.12:
+    resolution: {integrity: sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       postcss: ^8.0.0
