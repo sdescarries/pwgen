@@ -44,7 +44,7 @@ specifiers:
   start-server-and-test: ^1.14.0
   ts-jest: 27.1.4
   typescript: 4.6.3
-  vite: 2.9.1
+  vite: 2.9.6
   vite-plugin-istanbul: 2.5.1
   vite-plugin-pwa: 0.11.13
   web-vitals: 2.1.4
@@ -66,7 +66,7 @@ devDependencies:
   '@types/react-dom': 17.0.15
   '@typescript-eslint/eslint-plugin': 5.17.0_689ff565753ecf7c3328c07fad067df5
   '@typescript-eslint/parser': 5.17.0_eslint@8.12.0+typescript@4.6.3
-  '@vitejs/plugin-legacy': 1.8.1_vite@2.9.1
+  '@vitejs/plugin-legacy': 1.8.1_vite@2.9.6
   '@vitejs/plugin-react-refresh': 1.3.6
   autoprefixer: 10.4.4_postcss@8.4.12
   eslint: 8.12.0
@@ -95,9 +95,9 @@ devDependencies:
   sass: 1.49.11
   ts-jest: 27.1.4_9985e1834e803358b7be1e6ce5ca0eea
   typescript: 4.6.3
-  vite: 2.9.1_sass@1.49.11
+  vite: 2.9.6_sass@1.49.11
   vite-plugin-istanbul: 2.5.1
-  vite-plugin-pwa: 0.11.13_vite@2.9.1
+  vite-plugin-pwa: 0.11.13_vite@2.9.6
   web-vitals: 2.1.4
 
 packages:
@@ -2228,7 +2228,7 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vitejs/plugin-legacy/1.8.1_vite@2.9.1:
+  /@vitejs/plugin-legacy/1.8.1_vite@2.9.6:
     resolution: {integrity: sha512-kmBWKq7EeNvzS4AqPBqUKdoWG/NYQXh7StUFMWR3D21aN5Mfmar7CTO2a7K+bBxJH/vAL9gnnueA0wb7cycCmQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -2239,7 +2239,7 @@ packages:
       magic-string: 0.26.1
       regenerator-runtime: 0.13.9
       systemjs: 6.12.1
-      vite: 2.9.1_sass@1.49.11
+      vite: 2.9.6_sass@1.49.11
     dev: true
 
   /@vitejs/plugin-react-refresh/1.3.6:
@@ -8084,7 +8084,7 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-pwa/0.11.13_vite@2.9.1:
+  /vite-plugin-pwa/0.11.13_vite@2.9.6:
     resolution: {integrity: sha512-Ssj14m3TRVLfkFEAWSMcFE2d1cSdEZyrVTzfY2lSL+umHYvcIFHVDAY143sygtBCb44OPczsAOmWwBTxwOvh7g==}
     peerDependencies:
       vite: ^2.0.0
@@ -8093,7 +8093,7 @@ packages:
       fast-glob: 3.2.11
       pretty-bytes: 5.6.0
       rollup: 2.64.0
-      vite: 2.9.1_sass@1.49.11
+      vite: 2.9.6_sass@1.49.11
       workbox-build: 6.4.2
       workbox-window: 6.4.2
     transitivePeerDependencies:
@@ -8102,8 +8102,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite/2.9.1_sass@1.49.11:
-    resolution: {integrity: sha512-vSlsSdOYGcYEJfkQ/NeLXgnRv5zZfpAsdztkIrs7AZHV8RCMZQkwjo4DS5BnrYTqoWqLoUe1Cah4aVO4oNNqCQ==}
+  /vite/2.9.6_sass@1.49.11:
+    resolution: {integrity: sha512-3IffdrByHW95Yjv0a13TQOQfJs7L5dVlSPuTt432XLbRMriWbThqJN2k/IS6kXn5WY4xBLhK9XoaWay1B8VzUw==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
