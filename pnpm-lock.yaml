@@ -32,7 +32,7 @@ specifiers:
   identity-obj-proxy: 3.0.0
   istanbul-lib-coverage: 3.2.0
   jest: 27.5.1
-  jest-html-reporters: 3.0.6
+  jest-html-reporters: 3.0.7
   nyc: 15.1.0
   p-limit: 4.0.0
   postcss: 8.4.13
@@ -84,7 +84,7 @@ devDependencies:
   identity-obj-proxy: 3.0.0
   istanbul-lib-coverage: 3.2.0
   jest: 27.5.1
-  jest-html-reporters: 3.0.6
+  jest-html-reporters: 3.0.7
   nyc: 15.1.0
   p-limit: 4.0.0
   postcss: 8.4.13
@@ -5612,8 +5612,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /jest-html-reporters/3.0.6:
-    resolution: {integrity: sha512-snTlUuZ0FyFmXEkYrNiCH1Zym/u3owI45yG24morKmVJSlTmcjZsaEtbbmL58buxj2Bo6NWukJFaFX7w2aGkXA==}
+  /jest-html-reporters/3.0.7:
+    resolution: {integrity: sha512-WttOk3J3KjEv+0WdTIW9sOZ+n03XZq4fJgymzSjlXx5umwHjGoh83/Xbh3wW0vh3DdBfkJfzGtnVNHtvB0xEHw==}
     dependencies:
       fs-extra: 9.1.0
       open: 8.4.0
