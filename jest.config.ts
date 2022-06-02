@@ -1,22 +1,26 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // Jest on steroids 🤹 💊
-
-const { resolve } = require("path");
-const {
+import type { Config } from '@jest/types';
+import {
   accessSync,
   constants,
   mkdirSync,
   statSync,
   writeFileSync,
-} = require("fs");
+} from 'fs';
+import { resolve } from 'path';
 
 const uncover = [
-  `!**/*.{spec,unit,test,jest}.{js,jsx,ts,tsx}`,
-  `!**/*.{snap}`,
-  `!**/__mocks__/**/*`,
+  '!**/*.{spec,unit,test,jest}.{js,jsx,ts,tsx}',
+  '!**/*.{snap}',
+  '!**/__mocks__/**/*',
 ];
 
-const template = {
+const template: Config.InitialOptions = ({
   verbose: true,
+
+  // Automatically clear mock calls, instances, contexts and results before every test
+  clearMocks: true,
 
   coverageThreshold: {
     global: {
@@ -29,21 +33,24 @@ const template = {
 
   coverageDirectory: resolve(`${__dirname}/results/jest/`),
 
+  // Indicates which provider should be used to instrument code for coverage
+  coverageProvider: 'v8',
+
   // The root of the source code, `<rootDir>` is a token Jest substitutes
-  roots: ["<rootDir>/src/"],
+  roots: ['<rootDir>/src/'],
 
   // The test environment that will be used for testing, jsdom for browser environment
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
 
   modulePathIgnorePatterns: [
-    "<rootDir>/.+/__mocks__",
-    "<rootDir>/.+/__snapshots__",
+    '<rootDir>/.+/__mocks__',
+    '<rootDir>/.+/__snapshots__',
   ],
 
   reporters: [
-    "default",
+    'default',
     [
-      "jest-html-reporters",
+      'jest-html-reporters',
       {
         publicPath: resolve(`${__dirname}/results/jest`),
         expand: true,
@@ -53,59 +60,63 @@ const template = {
 
   // Jest transformations -- this adds support for TypeScript using ts-jest
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    '^.+\\.[t]sx?$': 'ts-jest',
   },
 
   // Runs special logic, such as cleaning up components
   // when using React Testing Library and adds special
   // extended assertions to Jest
-  setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
 
   // Ignore cypress e2e test files
-  testPathIgnorePatterns: ["<rootDir>/cypress/"],
+  testPathIgnorePatterns: ['<rootDir>/cypress/'],
 
   // Important: order matters, specific rules should be defined first
   // See : https://jestjs.io/fr/docs/configuration#modulenamemapper-objectstring-string--arraystring
   moduleNameMapper: {
-    ".+\\.(css|sass|scss|png|jpg|ttf|woff|woff2|svg)$": "identity-obj-proxy", // Return proxies objects
-    "^@/(.*)$": "<rootDir>/src/$1", // To resolve typescript path aliases
+    '.+\\.(css|sass|scss|png|jpg|ttf|woff|woff2|svg)$': 'identity-obj-proxy', // Return proxies objects
+    '^@/(.*)$': '<rootDir>/src/$1', // To resolve typescript path aliases
   },
 
-  watchPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/results/"],
-};
+  watchPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/results/',
+  ],
+});
 
-const accessible = (entry) => {
+function accessible(entry: string): boolean {
   try {
     accessSync(resolve(`${process.cwd()}/${entry}`), constants.R_OK);
     return true;
   } catch {
     return false;
   }
-};
+}
 
-function config() {
-  const result = JSON.parse(JSON.stringify(template));
+export function config(): Config.InitialOptions {
+  const result: Config.InitialOptions = { ...template };
   const argv = process.argv.slice(2).reverse();
 
-  if (argv.includes("--coverage")) {
+  if (argv.includes('--coverage')) {
     // Improve coverage UX by limiting the scope to the same test target
 
     const accessiblePaths = argv.filter(accessible);
 
     // Leave default behavior when no path specified (will run coverage on tested files only)
     if (accessiblePaths.length) {
-      result.collectCoverageFrom = [`!**/*`];
+      const collectCoverageFrom = ['!**/*'];
 
       accessiblePaths.forEach((candidate) => {
         const info = statSync(candidate);
-        const clean = candidate.replace(/(.jest|\/+$)/gim, "");
+        const clean = candidate.replace(/(\.[jt]est|\/+$)/gim, '');
         const coverage = info.isDirectory()
           ? `${clean}/**/*.{js,jsx,ts,tsx}`
           : clean;
-        result.collectCoverageFrom.push(coverage);
+        collectCoverageFrom.push(coverage);
       });
 
-      result.collectCoverageFrom.push(...uncover);
+      collectCoverageFrom.push(...uncover);
+      Object.assign(result, { collectCoverageFrom });
     }
   }
 
@@ -118,4 +129,4 @@ function config() {
   return result;
 }
 
-module.exports = config;
+export default config;

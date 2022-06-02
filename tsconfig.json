@@ -26,9 +26,10 @@
     "strict": true,
     "target": "es2015",
     "types": [
-      "vite/client",
+      "@types/testing-library__jest-dom",
+      "jest",
       "node",
-      "jest"
+      "vite/client",
     ]
   },
   "include": [

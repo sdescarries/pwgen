@@ -1,4 +1,6 @@
 
+import { jest } from '@jest/globals';
+
 export const getRandomValues = jest.fn();
 
 export const cryptoMock = {

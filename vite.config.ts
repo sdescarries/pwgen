@@ -1,8 +1,7 @@
 import istanbul from 'vite-plugin-istanbul';
 import legacy from '@vitejs/plugin-legacy';
-//import manifest from './manifest.json';
 import path from 'path';
-import reactRefresh from '@vitejs/plugin-react-refresh';
+import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vite';
 
@@ -21,20 +20,9 @@ export default defineConfig({
       include: 'src/*',
       checkProd: true,
     }),
-    VitePWA(
-
-      /*{
-      includeAssets: [
-        'favicon.svg',
-        'apple-touch-icon.png',
-        'pwgen.png'
-      ],
-      manifest: manifest as any,
-    } */
-
-    ),
+    VitePWA(),
     legacy(),
-    reactRefresh(),
+    react(),
   ],
   resolve: {
     alias: {
