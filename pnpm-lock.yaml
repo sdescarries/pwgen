@@ -37,7 +37,7 @@ specifiers:
   p-limit: 4.0.0
   postcss: 8.4.14
   postcss-import: 14.1.0
-  postcss-nesting: 10.1.4
+  postcss-nesting: 10.1.8
   react: 17.0.2
   react-dom: 17.0.2
   sass: 1.49.11
@@ -89,7 +89,7 @@ devDependencies:
   p-limit: 4.0.0
   postcss: 8.4.14
   postcss-import: 14.1.0_postcss@8.4.14
-  postcss-nesting: 10.1.4_postcss@8.4.14
+  postcss-nesting: 10.1.8_postcss@8.4.14
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   sass: 1.49.11
@@ -1394,6 +1394,17 @@ packages:
 
   /@bcoe/v8-coverage/0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
+    dev: true
+
+  /@csstools/selector-specificity/2.0.0_444rcjjorr3kpoqtvoodsr46pu:
+    resolution: {integrity: sha512-rZ6vufeY/UjAgtyiJ4WvfF6XP6HizIyOfbZOg0RnecIwjrvH8Am3nN1BpKnnPZunYAkUcPPXDhwbxOtGop8cfQ==}
+    engines: {node: ^12 || ^14 || >=16}
+    peerDependencies:
+      postcss: ^8.3
+      postcss-selector-parser: ^6.0.10
+    dependencies:
+      postcss: 8.4.14
+      postcss-selector-parser: 6.0.10
     dev: true
 
   /@cypress/browserify-preprocessor/3.0.2:
@@ -6665,12 +6676,13 @@ packages:
       resolve: 1.22.0
     dev: true
 
-  /postcss-nesting/10.1.4_postcss@8.4.14:
-    resolution: {integrity: sha512-2ixdQ59ik/Gt1+oPHiI1kHdwEI8lLKEmui9B1nl6163ANLC+GewQn7fXMxJF2JSb4i2MKL96GU8fIiQztK4TTA==}
+  /postcss-nesting/10.1.8_postcss@8.4.14:
+    resolution: {integrity: sha512-txdb3/idHYsBbNDFo1PFY0ExCgH5nfWi8G5lO49e6iuU42TydbODTzJgF5UuL5bhgeSlnAtDgfFTDG0Cl1zaSQ==}
     engines: {node: ^12 || ^14 || >=16}
     peerDependencies:
       postcss: ^8.4
     dependencies:
+      '@csstools/selector-specificity': 2.0.0_444rcjjorr3kpoqtvoodsr46pu
       postcss: 8.4.14
       postcss-selector-parser: 6.0.10
     dev: true
