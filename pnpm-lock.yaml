@@ -42,7 +42,7 @@ specifiers:
   react-dom: 17.0.2
   sass: 1.49.11
   start-server-and-test: ^1.14.0
-  ts-jest: 27.1.4
+  ts-jest: 27.1.5
   typescript: 4.6.4
   vite: 2.9.6
   vite-plugin-istanbul: 2.5.1
@@ -93,7 +93,7 @@ devDependencies:
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   sass: 1.49.11
-  ts-jest: 27.1.4_53ggqi2i4rbcfjtktmjua6zili
+  ts-jest: 27.1.5_53ggqi2i4rbcfjtktmjua6zili
   typescript: 4.6.4
   vite: 2.9.6_sass@1.49.11
   vite-plugin-istanbul: 2.5.1
@@ -6068,11 +6068,11 @@ packages:
     dev: true
 
   /lodash.memoize/3.0.4:
-    resolution: {integrity: sha1-LcvSwofLwKVcxCMovQxzYVDVPj8=}
+    resolution: {integrity: sha512-eDn9kqrAmVUC1wmZvlQ6Uhde44n+tXpqPrN8olQJbttgh0oKclk+SF54P47VEGE9CEiMeRwAP8BaM7UHvBkz2A==}
     dev: true
 
   /lodash.memoize/4.1.2:
-    resolution: {integrity: sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=}
+    resolution: {integrity: sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag==}
     dev: true
 
   /lodash.merge/4.6.2:
@@ -7692,8 +7692,8 @@ packages:
       punycode: 2.1.1
     dev: true
 
-  /ts-jest/27.1.4_53ggqi2i4rbcfjtktmjua6zili:
-    resolution: {integrity: sha512-qjkZlVPWVctAezwsOD1OPzbZ+k7zA5z3oxII4dGdZo5ggX/PL7kvwTM0pXTr10fAtbiVpJaL3bWd502zAhpgSQ==}
+  /ts-jest/27.1.5_53ggqi2i4rbcfjtktmjua6zili:
+    resolution: {integrity: sha512-Xv6jBQPoBEvBq/5i2TeSG9tt/nqkbpcurrEG1b+2yfBrcJelOZF9Ml6dmyMh7bcW9JyFbRYpR5rxROSlBLTZHA==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
     peerDependencies:
