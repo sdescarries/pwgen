@@ -17,17 +17,15 @@ const registerCodeCoverageTasks = require('@cypress/code-coverage/task');
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
-const pluginConfig: Cypress.PluginConfig = (
+export const pluginConfig = (
   on: Cypress.PluginEvents,
   config: Cypress.PluginConfigOptions
-) => {
+): Cypress.PluginConfigOptions => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-  config = registerCodeCoverageTasks(on, config);
+  registerCodeCoverageTasks(on, config);
 
   // IMPORTANT to return the config object
   // with the any changed environment variables
   return config;
 };
-
-export default pluginConfig;
