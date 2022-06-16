@@ -112,17 +112,14 @@ jobs:
           name: cypress
           path: results/cypress
 
-      - name: merge artifacts
-        run: |
-          npm install --location=global nyc
-          node nyc-report
-
       - name: Code Climate Coverage Action
         uses: paambaati/codeclimate-action@v3.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageLocations: dist/coverage/lcov.info:lcov
+          coverageLocations: |
+            results/cypress/lcov.info:lcov
+            results/jest/lcov.info:lcov
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.2.5

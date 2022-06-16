@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+rm -rf results dist .nyc_output
+
+pnpm install
+pnpm jest --coverage
+pnpm e2e
+node nyc-report
