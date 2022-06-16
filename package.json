@@ -75,5 +75,10 @@
   "optionalDependencies": {
     "cypress": "^10.1.0",
     "start-server-and-test": "^1.14.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "source-map": "^0.7.4"
+    }
   }
 }
