@@ -18,8 +18,8 @@
     "start": "vite --host"
   },
   "devDependencies": {
-    "@babel/core": "7.18.5",
-    "@babel/preset-env": "7.18.2",
+    "@babel/core": "7.18.6",
+    "@babel/preset-env": "7.18.6",
     "@cypress/code-coverage": "3.10.0",
     "@jest/globals": "28.1.1",
     "@jest/types": "28.1.1",
