@@ -56,7 +56,7 @@ specifiers:
   typescript: 4.7.4
   vite: 2.9.13
   vite-plugin-istanbul: 2.8.0
-  vite-plugin-pwa: 0.12.0
+  vite-plugin-pwa: 0.12.2
   web-vitals: 2.1.4
   webpack: 5.73.0
 
@@ -115,7 +115,7 @@ devDependencies:
   typescript: 4.7.4
   vite: 2.9.13_sass@1.53.0
   vite-plugin-istanbul: 2.8.0
-  vite-plugin-pwa: 0.12.0_vite@2.9.13
+  vite-plugin-pwa: 0.12.2_vite@2.9.13
   web-vitals: 2.1.4
   webpack: 5.73.0
 
@@ -7509,10 +7509,10 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-pwa/0.12.0_vite@2.9.13:
-    resolution: {integrity: sha512-KYD+cnS5ExLF3T28NkfzBLZ53ehHlp+qMhHGFNh0zlVGpFHrJkL2v9wd4AMi7ZkBTffgeNatIFiv8rhCsMSxBQ==}
+  /vite-plugin-pwa/0.12.2_vite@2.9.13:
+    resolution: {integrity: sha512-XK2oi1YZkoc1J8fyerNYxyh/yfb+INdrdOW/mOOD5DBLq7jVPxHQuncIhqiREbGOMlY/xMe9CSE7QZ9xIAEf7A==}
     peerDependencies:
-      vite: ^2.0.0
+      vite: ^2.0.0 || ^3.0.0-0
     dependencies:
       debug: 4.3.4
       fast-glob: 3.2.11
