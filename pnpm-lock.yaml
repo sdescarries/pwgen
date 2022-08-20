@@ -51,7 +51,7 @@ specifiers:
   react-dom: 18.2.0
   sass: 1.53.0
   start-server-and-test: ^1.14.0
-  ts-jest: 28.0.7
+  ts-jest: 28.0.8
   ts-node: 10.9.1
   typescript: 4.7.4
   vite: 2.9.15
@@ -110,7 +110,7 @@ devDependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   sass: 1.53.0
-  ts-jest: 28.0.7_domhqx63i3eqyw25e7t4mgxmiy
+  ts-jest: 28.0.8_domhqx63i3eqyw25e7t4mgxmiy
   ts-node: 10.9.1_qiyc72axg2v44xl4yovan2v55u
   typescript: 4.7.4
   vite: 2.9.15_sass@1.53.0
@@ -7350,8 +7350,8 @@ packages:
       punycode: 2.1.1
     dev: true
 
-  /ts-jest/28.0.7_domhqx63i3eqyw25e7t4mgxmiy:
-    resolution: {integrity: sha512-wWXCSmTwBVmdvWrOpYhal79bDpioDy4rTT+0vyUnE3ZzM7LOAAGG9NXwzkEL/a516rQEgnMmS/WKP9jBPCVJyA==}
+  /ts-jest/28.0.8_domhqx63i3eqyw25e7t4mgxmiy:
+    resolution: {integrity: sha512-5FaG0lXmRPzApix8oFG8RKjAz4ehtm8yMKOTy5HX3fY6W8kmvOrmcY0hKDElW52FJov+clhUbrKAqofnj4mXTg==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
     peerDependencies:
