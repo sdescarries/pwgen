@@ -49,7 +49,7 @@ specifiers:
   postcss-nesting: 10.1.10
   react: 18.2.0
   react-dom: 18.2.0
-  sass: 1.53.0
+  sass: 1.55.0
   start-server-and-test: ^1.14.0
   ts-jest: 28.0.8
   ts-node: 10.9.1
@@ -109,11 +109,11 @@ devDependencies:
   postcss-nesting: 10.1.10_postcss@8.4.16
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  sass: 1.53.0
+  sass: 1.55.0
   ts-jest: 28.0.8_domhqx63i3eqyw25e7t4mgxmiy
   ts-node: 10.9.1_qiyc72axg2v44xl4yovan2v55u
   typescript: 4.7.4
-  vite: 2.9.15_sass@1.53.0
+  vite: 2.9.15_sass@1.55.0
   vite-plugin-istanbul: 2.9.0
   vite-plugin-pwa: 0.12.3_vite@2.9.15
   web-vitals: 2.1.4
@@ -2506,7 +2506,7 @@ packages:
       magic-string: 0.26.2
       regenerator-runtime: 0.13.9
       systemjs: 6.12.1
-      vite: 2.9.15_sass@1.53.0
+      vite: 2.9.15_sass@1.55.0
     dev: true
 
   /@vitejs/plugin-react/1.3.2:
@@ -6854,8 +6854,8 @@ packages:
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  /sass/1.53.0:
-    resolution: {integrity: sha512-zb/oMirbKhUgRQ0/GFz8TSAwRq2IlR29vOUJZOx0l8sV+CkHUfHa4u5nqrG+1VceZp7Jfj59SVW9ogdhTvJDcQ==}
+  /sass/1.55.0:
+    resolution: {integrity: sha512-Pk+PMy7OGLs9WaxZGJMn7S96dvlyVBwwtToX895WmCpAOr5YiJYEUJfiJidMuKb613z2xNWcXCHEuOvjZbqC6A==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
@@ -7627,7 +7627,7 @@ packages:
       fast-glob: 3.2.11
       pretty-bytes: 6.0.0
       rollup: 2.76.0
-      vite: 2.9.15_sass@1.53.0
+      vite: 2.9.15_sass@1.55.0
       workbox-build: 6.5.3
       workbox-window: 6.5.3
     transitivePeerDependencies:
@@ -7635,7 +7635,7 @@ packages:
       - supports-color
     dev: true
 
-  /vite/2.9.15_sass@1.53.0:
+  /vite/2.9.15_sass@1.55.0:
     resolution: {integrity: sha512-fzMt2jK4vQ3yK56te3Kqpkaeq9DkcZfBbzHwYpobasvgYmP2SoAr6Aic05CsB4CzCZbsDv4sujX3pkEGhLabVQ==}
     engines: {node: '>=12.2.0'}
     hasBin: true
@@ -7655,7 +7655,7 @@ packages:
       postcss: 8.4.16
       resolve: 1.22.0
       rollup: 2.76.0
-      sass: 1.53.0
+      sass: 1.55.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
