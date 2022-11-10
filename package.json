@@ -7,7 +7,7 @@
   "scripts": {
     "build": "vite build",
     "cypress": "cypress",
-    "e2e": "start-server-and-test start http-get://localhost:3000/pwgen/ 'cypress run'",
+    "e2e": "start-server-and-test start http-get://localhost:5173/pwgen/ 'cypress run'",
     "format": "eslint --fix .",
     "instrument": "nyc instrument dist/assets/index.*.js ./",
     "jest": "jest",
