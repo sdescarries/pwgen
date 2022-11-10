@@ -20,6 +20,6 @@ export default defineConfig({
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents: pluginConfig,
-    baseUrl: 'http://localhost:3000/pwgen/',
+    baseUrl: 'http://localhost:5173/pwgen/',
   },
 })
