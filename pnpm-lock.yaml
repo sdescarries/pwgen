@@ -29,7 +29,7 @@ specifiers:
   eslint-import-resolver-typescript: 3.5.2
   eslint-plugin-cypress: 2.12.1
   eslint-plugin-import: 2.26.0
-  eslint-plugin-jest: 27.1.5
+  eslint-plugin-jest: 27.1.6
   eslint-plugin-jest-dom: 4.0.3
   eslint-plugin-jsx-a11y: 6.6.1
   eslint-plugin-react: 7.31.11
@@ -89,7 +89,7 @@ devDependencies:
   eslint-import-resolver-typescript: 3.5.2_ktrec6dplf4now6nlbc6d67jee
   eslint-plugin-cypress: 2.12.1_eslint@8.28.0
   eslint-plugin-import: 2.26.0_vc54pluhgv7booofyyjouvuf74
-  eslint-plugin-jest: 27.1.5_bifecjdquhom2xjmkl7gfpj6ma
+  eslint-plugin-jest: 27.1.6_bifecjdquhom2xjmkl7gfpj6ma
   eslint-plugin-jest-dom: 4.0.3_eslint@8.28.0
   eslint-plugin-jsx-a11y: 6.6.1_eslint@8.28.0
   eslint-plugin-react: 7.31.11_eslint@8.28.0
@@ -4152,8 +4152,8 @@ packages:
       requireindex: 1.2.0
     dev: true
 
-  /eslint-plugin-jest/27.1.5_bifecjdquhom2xjmkl7gfpj6ma:
-    resolution: {integrity: sha512-CK2dekZ5VBdzsOSOH5Fc1rwC+cWXjkcyrmf1RV714nDUDKu+o73TTJiDxpbILG8PtPPpAAl3ywzh5QA7Ft0mjA==}
+  /eslint-plugin-jest/27.1.6_bifecjdquhom2xjmkl7gfpj6ma:
+    resolution: {integrity: sha512-XA7RFLSrlQF9IGtAmhddkUkBuICCTuryfOTfCSWcZHiHb69OilIH05oozH2XA6CEOtztnOd0vgXyvxZodkxGjg==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^5.0.0
@@ -4166,7 +4166,7 @@ packages:
         optional: true
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.44.0_fnsv2sbzcckq65bwfk7a5xwslu
-      '@typescript-eslint/utils': 5.42.1_hsf322ms6xhhd4b5ne6lb74y4a
+      '@typescript-eslint/utils': 5.44.0_hsf322ms6xhhd4b5ne6lb74y4a
       eslint: 8.28.0
       jest: 29.3.1_odkjkoia5xunhxkdrka32ib6vi
     transitivePeerDependencies:
