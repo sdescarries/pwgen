@@ -55,7 +55,7 @@ specifiers:
   ts-node: 10.9.1
   typescript: 4.9.3
   vite: 3.2.5
-  vite-plugin-istanbul: 3.0.2
+  vite-plugin-istanbul: 3.0.4
   vite-plugin-pwa: 0.13.3
   web-vitals: 3.1.0
   webpack: 5.75.0
@@ -114,7 +114,7 @@ devDependencies:
   ts-node: 10.9.1_zhirybrk4zoofuxp64necizyzy
   typescript: 4.9.3
   vite: 3.2.5_tr7neyh64qpc4cjqb6wcsya4ri
-  vite-plugin-istanbul: 3.0.2
+  vite-plugin-istanbul: 3.0.4
   vite-plugin-pwa: 0.13.3_vite@3.2.5
   web-vitals: 3.1.0
   webpack: 5.75.0
@@ -7845,8 +7845,8 @@ packages:
       core-util-is: 1.0.2
       extsprintf: 1.3.0
 
-  /vite-plugin-istanbul/3.0.2:
-    resolution: {integrity: sha512-eOKedaeciqJTLEAUo7mkMqXjjeAXGhHUYuiLLBUaBwj8AdO31uVOsZvKeVViRqHKyhi5YlarmGh8r7jJVlX0VQ==}
+  /vite-plugin-istanbul/3.0.4:
+    resolution: {integrity: sha512-DJy3cq6yOFbsM3gLQf/3zeuaJNJsfBv5dLFdZdv8sUV30xLtZI+66QeYfHUyP/5vBUYyLA+xNUCSG5uHY6w+5g==}
     dependencies:
       '@istanbuljs/load-nyc-config': 1.1.0
       istanbul-lib-instrument: 5.2.1
