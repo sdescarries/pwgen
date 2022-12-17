@@ -20,7 +20,7 @@ specifiers:
   '@types/testing-library__jest-dom': 5.14.5
   '@typescript-eslint/eslint-plugin': 5.46.1
   '@typescript-eslint/parser': 5.46.1
-  '@vitejs/plugin-legacy': 2.3.1
+  '@vitejs/plugin-legacy': 3.0.1
   '@vitejs/plugin-react': 2.2.0
   autoprefixer: 10.4.13
   babel-loader: 9.1.0
@@ -81,7 +81,7 @@ devDependencies:
   '@types/testing-library__jest-dom': 5.14.5
   '@typescript-eslint/eslint-plugin': 5.46.1_imrg37k3svwu377c6q7gkarwmi
   '@typescript-eslint/parser': 5.46.1_ha6vam6werchizxrnqvarmz2zu
-  '@vitejs/plugin-legacy': 2.3.1_vite@3.2.5
+  '@vitejs/plugin-legacy': 3.0.1_vite@3.2.5
   '@vitejs/plugin-react': 2.2.0_vite@3.2.5
   autoprefixer: 10.4.13_postcss@8.4.20
   babel-loader: 9.1.0_ztqwsvkb6z73luspkai6ilstpu
@@ -1326,25 +1326,25 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       core-js-pure: 3.23.1
-      regenerator-runtime: 0.13.10
+      regenerator-runtime: 0.13.11
     dev: true
 
   /@babel/runtime/7.18.9:
     resolution: {integrity: sha512-lkqXDcvlFT5rvEjiu6+QYO+1GXrEHRo2LOtS7E4GtX5ESIZOgepqsZBVIj6Pv+a6zqsya9VCgiK1KAK4BvJDAw==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      regenerator-runtime: 0.13.10
+      regenerator-runtime: 0.13.11
     dev: true
 
   /@babel/runtime/7.20.1:
     resolution: {integrity: sha512-mrzLkl6U9YLF8qpqI7TB82PESyEGjm/0Ly91jG575eVxMMlb8fYfOXFZIJ8XfLrJZQbm7dlKry2bJmXBUEkdFg==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      regenerator-runtime: 0.13.10
+      regenerator-runtime: 0.13.11
     dev: true
 
-  /@babel/standalone/7.20.4:
-    resolution: {integrity: sha512-27bv4h47jbaFZ7+e7gT1VEo9PNL1ynxqUX6/BERLz1qxm/5gzpbcHX+47VnSeYHyEyGZkRznpSOd8zPBhiz6tw==}
+  /@babel/standalone/7.20.6:
+    resolution: {integrity: sha512-u5at/CbBLETf7kx2LOY4XdhseD79Y099WZKAOMXeT8qvd9OSR515my2UNBBLY4qIht/Qi9KySeQHQwQwxJN4Sw==}
     engines: {node: '>=6.9.0'}
     dev: true
 
@@ -2513,17 +2513,17 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vitejs/plugin-legacy/2.3.1_vite@3.2.5:
-    resolution: {integrity: sha512-J5KaGBlSt2tEYPVjM/C8dA6DkRzkFkbPe+Xb4IX5G+XOV5OGbVAfkMjKywdrkO3gGynO8S98i71Lmsff4cWkCQ==}
+  /@vitejs/plugin-legacy/3.0.1_vite@3.2.5:
+    resolution: {integrity: sha512-XCtEjxoR3rmy000ujYRBp5kggWqzHz9+F20/yIMUWOzbvu0+KW1e14Fvb8h7SpNn+bfjGW1RiAs1Vrgb7Js+iQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       terser: ^5.4.0
-      vite: ^3.0.0
+      vite: ^4.0.0
     dependencies:
-      '@babel/standalone': 7.20.4
-      core-js: 3.26.0
-      magic-string: 0.26.7
-      regenerator-runtime: 0.13.10
+      '@babel/standalone': 7.20.6
+      core-js: 3.26.1
+      magic-string: 0.27.0
+      regenerator-runtime: 0.13.11
       systemjs: 6.13.0
       vite: 3.2.5_o2iixvyklpce477lkpnahelma4
     dev: true
@@ -3415,8 +3415,8 @@ packages:
     requiresBuild: true
     dev: true
 
-  /core-js/3.26.0:
-    resolution: {integrity: sha512-+DkDrhoR4Y0PxDz6rurahuB+I45OsEUv8E1maPTB6OuHRohMMcznBq9TMpdpDMm/hUPob/mJJS3PqgbHpMTQgw==}
+  /core-js/3.26.1:
+    resolution: {integrity: sha512-21491RRQVzUn0GGM9Z1Jrpr6PNPxPi+Za8OM9q4tksTSnlbXXGKK1nXNg/QvwFYettXvSX6zWKCtHHfjN4puyA==}
     requiresBuild: true
     dev: true
 
@@ -6238,6 +6238,13 @@ packages:
       sourcemap-codec: 1.4.8
     dev: true
 
+  /magic-string/0.27.0:
+    resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.14
+    dev: true
+
   /make-dir/3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
     engines: {node: '>=8'}
@@ -6927,8 +6934,8 @@ packages:
     resolution: {integrity: sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==}
     dev: true
 
-  /regenerator-runtime/0.13.10:
-    resolution: {integrity: sha512-KepLsg4dU12hryUO7bp/axHAKvwGOCV0sGloQtpagJ12ai+ojVDqkeGSiRX1zlq+kjIMZ1t7gpze+26QqtdGqw==}
+  /regenerator-runtime/0.13.11:
+    resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
     dev: true
 
   /regenerator-transform/0.15.0:
