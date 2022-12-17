@@ -57,7 +57,7 @@
     "jest-html-reporters": "3.0.11",
     "nyc": "15.1.0",
     "p-limit": "4.0.0",
-    "postcss": "8.4.19",
+    "postcss": "8.4.20",
     "postcss-import": "15.1.0",
     "postcss-nesting": "10.2.0",
     "react": "18.2.0",
