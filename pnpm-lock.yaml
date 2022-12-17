@@ -44,7 +44,7 @@ specifiers:
   jest-html-reporters: 3.0.11
   nyc: 15.1.0
   p-limit: 4.0.0
-  postcss: 8.4.19
+  postcss: 8.4.20
   postcss-import: 15.1.0
   postcss-nesting: 10.2.0
   react: 18.2.0
@@ -83,7 +83,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.46.0_ha6vam6werchizxrnqvarmz2zu
   '@vitejs/plugin-legacy': 2.3.1_vite@3.2.5
   '@vitejs/plugin-react': 2.2.0_vite@3.2.5
-  autoprefixer: 10.4.13_postcss@8.4.19
+  autoprefixer: 10.4.13_postcss@8.4.20
   babel-loader: 9.1.0_ztqwsvkb6z73luspkai6ilstpu
   eslint: 8.29.0
   eslint-import-resolver-typescript: 3.5.2_lt3hqehuojhfcbzgzqfngbtmrq
@@ -104,9 +104,9 @@ devDependencies:
   jest-html-reporters: 3.0.11
   nyc: 15.1.0
   p-limit: 4.0.0
-  postcss: 8.4.19
-  postcss-import: 15.1.0_postcss@8.4.19
-  postcss-nesting: 10.2.0_postcss@8.4.19
+  postcss: 8.4.20
+  postcss-import: 15.1.0_postcss@8.4.20
+  postcss-nesting: 10.2.0_postcss@8.4.20
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   sass: 1.56.2
@@ -1410,14 +1410,14 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
-  /@csstools/selector-specificity/2.0.2_45y636a2vqremknoajyxd5nkzy:
+  /@csstools/selector-specificity/2.0.2_6s6acirjwumum7k7mfug5izbum:
     resolution: {integrity: sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg==}
     engines: {node: ^12 || ^14 || >=16}
     peerDependencies:
       postcss: ^8.2
       postcss-selector-parser: ^6.0.10
     dependencies:
-      postcss: 8.4.19
+      postcss: 8.4.20
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -2912,7 +2912,7 @@ packages:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
 
-  /autoprefixer/10.4.13_postcss@8.4.19:
+  /autoprefixer/10.4.13_postcss@8.4.20:
     resolution: {integrity: sha512-49vKpMqcZYsJjwotvt4+h/BCjJVnhGwcLpDt5xkcaOG3eLrG/HUYLagrihYsQ+qrIBgIzX1Rw7a6L8I/ZA1Atg==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
@@ -2924,7 +2924,7 @@ packages:
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss: 8.4.19
+      postcss: 8.4.20
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -6687,26 +6687,26 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /postcss-import/15.1.0_postcss@8.4.19:
+  /postcss-import/15.1.0_postcss@8.4.20:
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 8.4.19
+      postcss: 8.4.20
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.1
     dev: true
 
-  /postcss-nesting/10.2.0_postcss@8.4.19:
+  /postcss-nesting/10.2.0_postcss@8.4.20:
     resolution: {integrity: sha512-EwMkYchxiDiKUhlJGzWsD9b2zvq/r2SSubcRrgP+jujMXFzqvANLt16lJANC+5uZ6hjI7lpRmI6O8JIl+8l1KA==}
     engines: {node: ^12 || ^14 || >=16}
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      '@csstools/selector-specificity': 2.0.2_45y636a2vqremknoajyxd5nkzy
-      postcss: 8.4.19
+      '@csstools/selector-specificity': 2.0.2_6s6acirjwumum7k7mfug5izbum
+      postcss: 8.4.20
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -6722,8 +6722,8 @@ packages:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
     dev: true
 
-  /postcss/8.4.19:
-    resolution: {integrity: sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA==}
+  /postcss/8.4.20:
+    resolution: {integrity: sha512-6Q04AXR1212bXr5fh03u8aAwbLxAQNGQ/Q1LNa0VfOI06ZAlhPHtQvE4OIdpj4kLThXilalPnmDSOD65DcHt+g==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.4
@@ -7901,7 +7901,7 @@ packages:
     dependencies:
       '@types/node': 18.11.15
       esbuild: 0.15.13
-      postcss: 8.4.19
+      postcss: 8.4.20
       resolve: 1.22.1
       rollup: 2.79.1
       sass: 1.56.2
