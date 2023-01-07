@@ -23,7 +23,7 @@ specifiers:
   '@vitejs/plugin-legacy': 3.0.1
   '@vitejs/plugin-react': 3.0.0
   autoprefixer: 10.4.13
-  babel-loader: 9.1.0
+  babel-loader: 9.1.2
   cypress: ^11.0.1
   eslint: 8.31.0
   eslint-import-resolver-typescript: 3.5.2
@@ -67,7 +67,7 @@ optionalDependencies:
 devDependencies:
   '@babel/core': 7.20.12
   '@babel/preset-env': 7.20.2_@babel+core@7.20.12
-  '@cypress/code-coverage': 3.10.0_csputy3nqccjhujuys4shbl6x4
+  '@cypress/code-coverage': 3.10.0_bxby5c323so37sm7bejdvrrjou
   '@jest/globals': 29.3.1
   '@jest/types': 29.3.1
   '@testing-library/dom': 8.19.1
@@ -84,7 +84,7 @@ devDependencies:
   '@vitejs/plugin-legacy': 3.0.1_vite@4.0.4
   '@vitejs/plugin-react': 3.0.0_vite@4.0.4
   autoprefixer: 10.4.13_postcss@8.4.20
-  babel-loader: 9.1.0_la66t7xldg4uecmyawueag5wkm
+  babel-loader: 9.1.2_la66t7xldg4uecmyawueag5wkm
   eslint: 8.31.0
   eslint-import-resolver-typescript: 3.5.2_ol7jqilc3wemtdbq3nzhywgxq4
   eslint-plugin-cypress: 2.12.1_eslint@8.31.0
@@ -1416,12 +1416,12 @@ packages:
       postcss-selector-parser: 6.0.10
     dev: true
 
-  /@cypress/code-coverage/3.10.0_csputy3nqccjhujuys4shbl6x4:
+  /@cypress/code-coverage/3.10.0_bxby5c323so37sm7bejdvrrjou:
     resolution: {integrity: sha512-K5pW2KPpK4vKMXqxd6vuzo6m9BNgpAv1LcrrtmqAtOJ1RGoEILXYZVost0L6Q+V01NyY7n7jXIIfS7LR3nP6YA==}
     peerDependencies:
       cypress: '*'
     dependencies:
-      '@cypress/webpack-preprocessor': 5.12.0_njkdw3fwropxoonvgypxn52iqa
+      '@cypress/webpack-preprocessor': 5.12.0_jefi3vcapkwufolupgjd3y6ulq
       chalk: 4.1.2
       cypress: 11.0.1
       dayjs: 1.10.7
@@ -1462,7 +1462,7 @@ packages:
       tunnel-agent: 0.6.0
       uuid: 8.3.2
 
-  /@cypress/webpack-preprocessor/5.12.0_njkdw3fwropxoonvgypxn52iqa:
+  /@cypress/webpack-preprocessor/5.12.0_jefi3vcapkwufolupgjd3y6ulq:
     resolution: {integrity: sha512-D/eLKKlgx6c/307FaCmjZGjFA64G29aA8KcCy6WqpNK/bSnRdPquMW2plemIsT/B80TK2DDKzZX/H3FcS41ZDA==}
     peerDependencies:
       '@babel/core': ^7.0.1
@@ -1472,7 +1472,7 @@ packages:
     dependencies:
       '@babel/core': 7.20.12
       '@babel/preset-env': 7.20.2_@babel+core@7.20.12
-      babel-loader: 9.1.0_la66t7xldg4uecmyawueag5wkm
+      babel-loader: 9.1.2_la66t7xldg4uecmyawueag5wkm
       bluebird: 3.7.1
       debug: 4.3.4
       lodash: 4.17.21
@@ -3171,8 +3171,8 @@ packages:
       - supports-color
     dev: true
 
-  /babel-loader/9.1.0_la66t7xldg4uecmyawueag5wkm:
-    resolution: {integrity: sha512-Antt61KJPinUMwHwIIz9T5zfMgevnfZkEVWYDWlG888fgdvRRGD0JTuf/fFozQnfT+uq64sk1bmdHDy/mOEWnA==}
+  /babel-loader/9.1.2_la66t7xldg4uecmyawueag5wkm:
+    resolution: {integrity: sha512-mN14niXW43tddohGl8HPu5yfQq70iUThvFL/4QzESA7GcZoC0eVOhvWdQ8+3UlSjaDE9MVtsW9mxDY07W7VpVA==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       '@babel/core': ^7.12.0
