@@ -31,7 +31,7 @@ specifiers:
   eslint-plugin-import: 2.26.0
   eslint-plugin-jest: 27.2.1
   eslint-plugin-jest-dom: 4.0.3
-  eslint-plugin-jsx-a11y: 6.7.0
+  eslint-plugin-jsx-a11y: 6.7.1
   eslint-plugin-react: 7.32.0
   eslint-plugin-react-hooks: 4.6.0
   eslint-plugin-simple-import-sort: 8.0.0
@@ -91,7 +91,7 @@ devDependencies:
   eslint-plugin-import: 2.26.0_2ac3tknkazjoq5fxmuugu665ny
   eslint-plugin-jest: 27.2.1_gwbh725yvx2gda2van5hxf7p64
   eslint-plugin-jest-dom: 4.0.3_eslint@8.31.0
-  eslint-plugin-jsx-a11y: 6.7.0_eslint@8.31.0
+  eslint-plugin-jsx-a11y: 6.7.1_eslint@8.31.0
   eslint-plugin-react: 7.32.0_eslint@8.31.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.31.0
   eslint-plugin-simple-import-sort: 8.0.0_eslint@8.31.0
@@ -4239,8 +4239,8 @@ packages:
       - typescript
     dev: true
 
-  /eslint-plugin-jsx-a11y/6.7.0_eslint@8.31.0:
-    resolution: {integrity: sha512-EGGRKhzejSzXKtjmEjWNtr4SK/DkMkSzkBH7g7e7moBDXZXrqaUIxkmD7uF93upMysc4dKYEJwupu7Dff+ShwA==}
+  /eslint-plugin-jsx-a11y/6.7.1_eslint@8.31.0:
+    resolution: {integrity: sha512-63Bog4iIethyo8smBklORknVjB0T2dwB8Mr/hIC+fBS0uyHdYYpzM/Ed+YC8VxTjlXHEWFOdmgwcDn1U2L9VCA==}
     engines: {node: '>=4.0'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
