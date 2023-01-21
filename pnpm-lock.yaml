@@ -34,7 +34,7 @@ specifiers:
   eslint-plugin-jsx-a11y: 6.7.1
   eslint-plugin-react: 7.32.1
   eslint-plugin-react-hooks: 4.6.0
-  eslint-plugin-simple-import-sort: 8.0.0
+  eslint-plugin-simple-import-sort: 9.0.0
   eslint-plugin-testing-library: 5.9.1
   husky: 8.0.3
   identity-obj-proxy: 3.0.0
@@ -94,7 +94,7 @@ devDependencies:
   eslint-plugin-jsx-a11y: 6.7.1_eslint@8.32.0
   eslint-plugin-react: 7.32.1_eslint@8.32.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.32.0
-  eslint-plugin-simple-import-sort: 8.0.0_eslint@8.32.0
+  eslint-plugin-simple-import-sort: 9.0.0_eslint@8.32.0
   eslint-plugin-testing-library: 5.9.1_7uibuqfxkfaozanbtbziikiqje
   husky: 8.0.3
   identity-obj-proxy: 3.0.0
@@ -4252,8 +4252,8 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-simple-import-sort/8.0.0_eslint@8.32.0:
-    resolution: {integrity: sha512-bXgJQ+lqhtQBCuWY/FUWdB27j4+lqcvXv5rUARkzbeWLwea+S5eBZEQrhnO+WgX3ZoJHVj0cn943iyXwByHHQw==}
+  /eslint-plugin-simple-import-sort/9.0.0_eslint@8.32.0:
+    resolution: {integrity: sha512-PtrLjyXP8kjRneWT1n0b99y/2Fyup37we7FVoWsI61/O7x4ztLohzhep/pxI/cYlECr/cQ2j6utckdvWpVwXNA==}
     peerDependencies:
       eslint: '>=5.0.0'
     dependencies:
