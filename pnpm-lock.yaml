@@ -28,7 +28,7 @@ specifiers:
   eslint: 8.31.0
   eslint-import-resolver-typescript: 3.5.3
   eslint-plugin-cypress: 2.12.1
-  eslint-plugin-import: 2.27.4
+  eslint-plugin-import: 2.27.5
   eslint-plugin-jest: 27.2.1
   eslint-plugin-jest-dom: 4.0.3
   eslint-plugin-jsx-a11y: 6.7.1
@@ -86,9 +86,9 @@ devDependencies:
   autoprefixer: 10.4.13_postcss@8.4.21
   babel-loader: 9.1.2_la66t7xldg4uecmyawueag5wkm
   eslint: 8.31.0
-  eslint-import-resolver-typescript: 3.5.3_hnftvkj7qg3s6bbigj4pr6djxy
+  eslint-import-resolver-typescript: 3.5.3_vz4tyq5r7fh66imfi352lmrvhq
   eslint-plugin-cypress: 2.12.1_eslint@8.31.0
-  eslint-plugin-import: 2.27.4_2ac3tknkazjoq5fxmuugu665ny
+  eslint-plugin-import: 2.27.5_2ac3tknkazjoq5fxmuugu665ny
   eslint-plugin-jest: 27.2.1_gwbh725yvx2gda2van5hxf7p64
   eslint-plugin-jest-dom: 4.0.3_eslint@8.31.0
   eslint-plugin-jsx-a11y: 6.7.1_eslint@8.31.0
@@ -4068,7 +4068,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-import-resolver-typescript/3.5.3_hnftvkj7qg3s6bbigj4pr6djxy:
+  /eslint-import-resolver-typescript/3.5.3_vz4tyq5r7fh66imfi352lmrvhq:
     resolution: {integrity: sha512-njRcKYBc3isE42LaTcJNVANR3R99H9bAxBDMNDr2W7yq5gYPxbU3MkdhsQukxZ/Xg9C2vcyLlDsbKfRDg0QvCQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -4078,7 +4078,7 @@ packages:
       debug: 4.3.4
       enhanced-resolve: 5.10.0
       eslint: 8.31.0
-      eslint-plugin-import: 2.27.4_2ac3tknkazjoq5fxmuugu665ny
+      eslint-plugin-import: 2.27.5_2ac3tknkazjoq5fxmuugu665ny
       get-tsconfig: 4.2.0
       globby: 13.1.2
       is-core-module: 2.11.0
@@ -4113,7 +4113,7 @@ packages:
       debug: 3.2.7
       eslint: 8.31.0
       eslint-import-resolver-node: 0.3.7
-      eslint-import-resolver-typescript: 3.5.3_hnftvkj7qg3s6bbigj4pr6djxy
+      eslint-import-resolver-typescript: 3.5.3_vz4tyq5r7fh66imfi352lmrvhq
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4127,8 +4127,8 @@ packages:
       globals: 11.12.0
     dev: true
 
-  /eslint-plugin-import/2.27.4_2ac3tknkazjoq5fxmuugu665ny:
-    resolution: {integrity: sha512-Z1jVt1EGKia1X9CnBCkpAOhWy8FgQ7OmJ/IblEkT82yrFU/xJaxwujaTzLWqigewwynRQ9mmHfX9MtAfhxm0sA==}
+  /eslint-plugin-import/2.27.5_2ac3tknkazjoq5fxmuugu665ny:
+    resolution: {integrity: sha512-LmEt3GVofgiGuiE+ORpnvP+kAm3h6MLZJ4Q5HCyHADofsb4VzXFsRiWj3c0OFiV+3DWFh0qg3v9gcPlfc3zRow==}
     engines: {node: '>=4'}
     peerDependencies:
       '@typescript-eslint/parser': '*'
