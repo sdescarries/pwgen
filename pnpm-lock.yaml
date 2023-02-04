@@ -46,7 +46,7 @@ specifiers:
   p-limit: 4.0.0
   postcss: 8.4.21
   postcss-import: 15.1.0
-  postcss-nesting: 11.0.0
+  postcss-nesting: 11.1.0
   react: 18.2.0
   react-dom: 18.2.0
   sass: 1.57.1
@@ -106,7 +106,7 @@ devDependencies:
   p-limit: 4.0.0
   postcss: 8.4.21
   postcss-import: 15.1.0_postcss@8.4.21
-  postcss-nesting: 11.0.0_postcss@8.4.21
+  postcss-nesting: 11.1.0_postcss@8.4.21
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   sass: 1.57.1
@@ -6612,8 +6612,8 @@ packages:
       resolve: 1.22.1
     dev: true
 
-  /postcss-nesting/11.0.0_postcss@8.4.21:
-    resolution: {integrity: sha512-Y+jmDpQuSSoM/Qq+rqDc4D3E8Cn84qUmJLFS/M5u0YgM+5adLi9qFApbz5XzjzXjGAzItTUCP7RikLGy06ebiA==}
+  /postcss-nesting/11.1.0_postcss@8.4.21:
+    resolution: {integrity: sha512-TVBCeKlUmMyX3sNeSg10yATb2XmAoosp0E1zdlpjrD+L2FrQPmrRTxlRFQh/R0Y4WlQ0butfDwRhzlYuj7y/TA==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss: ^8.4
