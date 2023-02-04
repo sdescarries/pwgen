@@ -59,7 +59,7 @@
     "p-limit": "4.0.0",
     "postcss": "8.4.21",
     "postcss-import": "15.1.0",
-    "postcss-nesting": "11.0.0",
+    "postcss-nesting": "11.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "1.57.1",
