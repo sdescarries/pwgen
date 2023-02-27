@@ -113,7 +113,7 @@ jobs:
           path: results/cypress
 
       - name: Code Climate Coverage Action
-        uses: paambaati/codeclimate-action@v3.0.0
+        uses: paambaati/codeclimate-action@v3.2.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
