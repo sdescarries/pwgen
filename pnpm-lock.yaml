@@ -58,7 +58,7 @@ specifiers:
   vite-plugin-istanbul: 4.0.0
   vite-plugin-pwa: 0.14.4
   web-vitals: 3.1.1
-  webpack: 5.75.0
+  webpack: 5.76.0
 
 optionalDependencies:
   cypress: 11.0.1
@@ -67,7 +67,7 @@ optionalDependencies:
 devDependencies:
   '@babel/core': 7.21.0
   '@babel/preset-env': 7.20.2_@babel+core@7.21.0
-  '@cypress/code-coverage': 3.10.0_3f3o3vapol7sbhj334pzp3qqb4
+  '@cypress/code-coverage': 3.10.0_z7oe7n7qlwgbqvatqhzbf7d2ve
   '@jest/globals': 29.4.3
   '@jest/types': 29.4.3
   '@testing-library/dom': 9.0.0
@@ -84,7 +84,7 @@ devDependencies:
   '@vitejs/plugin-legacy': 4.0.1_vite@4.1.4
   '@vitejs/plugin-react': 3.1.0_vite@4.1.4
   autoprefixer: 10.4.13_postcss@8.4.21
-  babel-loader: 9.1.2_qoaxtqicpzj5p3ubthw53xafqm
+  babel-loader: 9.1.2_tkx7iv5lytdmlhrwm4n6r336ei
   eslint: 8.34.0
   eslint-import-resolver-typescript: 3.5.3_mvgyw3chnqkp6sgfmmtihyjpnm
   eslint-plugin-cypress: 2.12.1_eslint@8.34.0
@@ -117,7 +117,7 @@ devDependencies:
   vite-plugin-istanbul: 4.0.0_vite@4.1.4
   vite-plugin-pwa: 0.14.4_vite@4.1.4
   web-vitals: 3.1.1
-  webpack: 5.75.0
+  webpack: 5.76.0
 
 packages:
 
@@ -1411,12 +1411,12 @@ packages:
       postcss-selector-parser: 6.0.10
     dev: true
 
-  /@cypress/code-coverage/3.10.0_3f3o3vapol7sbhj334pzp3qqb4:
+  /@cypress/code-coverage/3.10.0_z7oe7n7qlwgbqvatqhzbf7d2ve:
     resolution: {integrity: sha512-K5pW2KPpK4vKMXqxd6vuzo6m9BNgpAv1LcrrtmqAtOJ1RGoEILXYZVost0L6Q+V01NyY7n7jXIIfS7LR3nP6YA==}
     peerDependencies:
       cypress: '*'
     dependencies:
-      '@cypress/webpack-preprocessor': 5.12.0_qsqdrzledvgzysxosml7bddaba
+      '@cypress/webpack-preprocessor': 5.12.0_rbl6upoaak3vi6ubld2hoperpe
       chalk: 4.1.2
       cypress: 11.0.1
       dayjs: 1.10.7
@@ -1457,7 +1457,7 @@ packages:
       tunnel-agent: 0.6.0
       uuid: 8.3.2
 
-  /@cypress/webpack-preprocessor/5.12.0_qsqdrzledvgzysxosml7bddaba:
+  /@cypress/webpack-preprocessor/5.12.0_rbl6upoaak3vi6ubld2hoperpe:
     resolution: {integrity: sha512-D/eLKKlgx6c/307FaCmjZGjFA64G29aA8KcCy6WqpNK/bSnRdPquMW2plemIsT/B80TK2DDKzZX/H3FcS41ZDA==}
     peerDependencies:
       '@babel/core': ^7.0.1
@@ -1467,11 +1467,11 @@ packages:
     dependencies:
       '@babel/core': 7.21.0
       '@babel/preset-env': 7.20.2_@babel+core@7.21.0
-      babel-loader: 9.1.2_qoaxtqicpzj5p3ubthw53xafqm
+      babel-loader: 9.1.2_tkx7iv5lytdmlhrwm4n6r336ei
       bluebird: 3.7.1
       debug: 4.3.4
       lodash: 4.17.21
-      webpack: 5.75.0
+      webpack: 5.76.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3175,7 +3175,7 @@ packages:
       - supports-color
     dev: true
 
-  /babel-loader/9.1.2_qoaxtqicpzj5p3ubthw53xafqm:
+  /babel-loader/9.1.2_tkx7iv5lytdmlhrwm4n6r336ei:
     resolution: {integrity: sha512-mN14niXW43tddohGl8HPu5yfQq70iUThvFL/4QzESA7GcZoC0eVOhvWdQ8+3UlSjaDE9MVtsW9mxDY07W7VpVA==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -3185,7 +3185,7 @@ packages:
       '@babel/core': 7.21.0
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: 5.75.0
+      webpack: 5.76.0
     dev: true
 
   /babel-plugin-istanbul/6.1.1:
@@ -7485,7 +7485,7 @@ packages:
       unique-string: 2.0.0
     dev: true
 
-  /terser-webpack-plugin/5.3.6_webpack@5.75.0:
+  /terser-webpack-plugin/5.3.6_webpack@5.76.0:
     resolution: {integrity: sha512-kfLFk+PoLUQIbLmB1+PZDMRSZS99Mp+/MHqDNmMA6tOItzRt+Npe3E+fsMs5mfcM0wCtrrdU387UnV+vnSffXQ==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -7506,7 +7506,7 @@ packages:
       schema-utils: 3.1.1
       serialize-javascript: 6.0.0
       terser: 5.15.1
-      webpack: 5.75.0
+      webpack: 5.76.0
     dev: true
 
   /terser/5.15.1:
@@ -7969,8 +7969,8 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /webpack/5.75.0:
-    resolution: {integrity: sha512-piaIaoVJlqMsPtX/+3KTTO6jfvrSYgauFVdt8cr9LTHKmcq/AMd4mhzsiP7ZF/PGRNPGA8336jldh9l2Kt2ogQ==}
+  /webpack/5.76.0:
+    resolution: {integrity: sha512-l5sOdYBDunyf72HW8dF23rFtWq/7Zgvt/9ftMof71E/yUb1YLOBmTgA2K4vQthB3kotMrSj609txVE0dnr2fjA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
@@ -8000,7 +8000,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.1.1
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.6_webpack@5.75.0
+      terser-webpack-plugin: 5.3.6_webpack@5.76.0
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:
