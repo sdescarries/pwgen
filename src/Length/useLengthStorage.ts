@@ -13,13 +13,15 @@ export function loadLengthStorage(): number {
   try {
     const serialized = localStorage.getItem(lengthStoragePath) ?? '8';
     return JSON.parse(serialized) as number;
-  } catch ({ message }) {
-    console.warn(message);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.warn(error.message);
+    }
     return 8;
   }
 }
 
-export const saveLengthStorage = (value: number): Promise<void> => 
+export const saveLengthStorage = (value: number): Promise<void> =>
   Promise
     .resolve()
     .then(() => localStorage.setItem(lengthStoragePath, JSON.stringify(value)))

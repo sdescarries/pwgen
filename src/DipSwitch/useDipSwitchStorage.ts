@@ -8,7 +8,7 @@ export interface DipSwitchProps {
   update: UpdateCharsetState;
 }
 
-export const charsetStoragePath = (charset: string): string => 
+export const charsetStoragePath = (charset: string): string =>
   `pwgen-charset-${charset}`;
 
 
@@ -16,13 +16,15 @@ export function loadDipSwitchStorage(charset: string): boolean {
   try {
     const serialized = localStorage.getItem(charsetStoragePath(charset)) ?? 'false';
     return JSON.parse(serialized) as boolean;
-  } catch ({ message }) {
-    console.warn(message);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.warn(error.message);
+    }
     return false;
   }
 }
 
-export const saveDipSwitchStorage = (charset: string, value: boolean): Promise<void> => 
+export const saveDipSwitchStorage = (charset: string, value: boolean): Promise<void> =>
   Promise
     .resolve()
     .then(() => charsetStoragePath(charset))

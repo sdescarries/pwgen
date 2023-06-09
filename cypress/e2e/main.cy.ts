@@ -1,55 +1,32 @@
 describe('Password Generator', () => {
-  it('loads properly', () => {
+  beforeEach(() => {
     cy.visit('/');
   });
 
-  for (let n = 0; n < 10; n++) {
-    it(`waits for password ${n} to be generated`, () => {
+  it('waits for passwords to be generated', () => {
+    for (let n = 0; n < 10; n++) {
       cy
         .get(`.Password.Ready#${n}`)
         .should('have.class', 'Ready')
         .contains(/(?!\*{8})/)
-        .contains(/\w+/);
-    });
-  }
+        .contains(/\w+/)
+        .click();
 
-  it('copies password 0 on click', () => {
-    cy.get('.Password.Ready#0').click();
-
-    /* Can't read clipboard content without manual authorization
-    cy.window()
-      .then(({ navigator }) =>navigator.clipboard.readText())
-      .then((text) => expect(text).to.match(/\w{8}/));
-    */
+      cy
+        .contains(`.Password#${n}`, /\*{8}/)
+        .should('not.have.class', 'Ready');
+    }
   });
 
-  it('clears the consumed password from state', () => {
-    cy
-      .contains('.Password#0', /\*{8}/)
-      .should('not.have.class', 'Ready');
-  });
-
-  it('scrolls and loads new data', () => {
+  it('rotates entries after scroll', () => {
     cy.get('.InfiniScroll').scrollTo('bottom');
+    cy.get('.Password#0').should('not.exist');
   });
 
-  it('waits for password 0 to disappear', () => {
-    cy.get('.Password .Ready #0').should('not.exist');
-  });
-
-  it('toggles length', () => {
+  it('toggles options', () => {
     cy.get('[data-testId="Length"]').click();
-  });
-
-  it('toggles upper case', () => {
     cy.get('[data-testId="dipSwitch-AZ"]').click();
-  });
-
-  it('toggles numbers', () => {
     cy.get('[data-testId="dipSwitch-09"]').click();
-  });
-
-  it('toggles symbols', () => {
     cy.get('[data-testId="dipSwitch-SM"]').click();
   });
 
