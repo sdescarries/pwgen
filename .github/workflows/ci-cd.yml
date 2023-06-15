@@ -76,7 +76,6 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: /home/runner/.cache/Cypress
-          key: ${{ runner.os }}-primes
 
       - name: setup and test
         run: |
