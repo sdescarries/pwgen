@@ -24,7 +24,7 @@ jobs:
 
       - name: setup and test
         run: |
-          pnpm install
+          pnpm install --no-optional
           pnpm lint
           pnpm build
 
@@ -73,10 +73,15 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
+      - uses: actions/cache@v3
+        with:
+          path: /home/runner/.cache/Cypress
+          key: ${{ runner.os }}-primes
 
       - name: setup and test
         run: |
           pnpm install
+          pnpm cypress install
           pnpm e2e
 
       - name: upload cypress artifacts
