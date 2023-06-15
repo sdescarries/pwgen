@@ -51,7 +51,7 @@ jobs:
       - name: setup and test
         run: |
           pnpm install --no-optional
-          pnpm jest -- --coverage
+          pnpm jest --coverage
 
       - name: upload jest artifacts
         if: always()
