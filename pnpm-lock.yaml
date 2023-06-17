@@ -24,7 +24,7 @@ devDependencies:
     version: 7.22.5(@babel/core@7.22.5)
   '@cypress/code-coverage':
     specifier: 3.10.7
-    version: 3.10.7(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(babel-loader@9.1.2)(cypress@12.14.0)(webpack@5.86.0)
+    version: 3.10.7(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(babel-loader@9.1.2)(cypress@12.14.0)(webpack@5.87.0)
   '@jest/globals':
     specifier: 29.5.0
     version: 29.5.0
@@ -75,7 +75,7 @@ devDependencies:
     version: 10.4.14(postcss@8.4.24)
   babel-loader:
     specifier: 9.1.2
-    version: 9.1.2(@babel/core@7.22.5)(webpack@5.86.0)
+    version: 9.1.2(@babel/core@7.22.5)(webpack@5.87.0)
   eslint:
     specifier: 8.42.0
     version: 8.42.0
@@ -173,8 +173,8 @@ devDependencies:
     specifier: 3.3.2
     version: 3.3.2
   webpack:
-    specifier: 5.86.0
-    version: 5.86.0
+    specifier: 5.87.0
+    version: 5.87.0
 
 packages:
 
@@ -1497,12 +1497,12 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: true
 
-  /@cypress/code-coverage@3.10.7(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(babel-loader@9.1.2)(cypress@12.14.0)(webpack@5.86.0):
+  /@cypress/code-coverage@3.10.7(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(babel-loader@9.1.2)(cypress@12.14.0)(webpack@5.87.0):
     resolution: {integrity: sha512-kQFB8GemDAAk6JBINsR9MLEgCw2AKb3FcdHQjIJ3KV4ZER6ZF0NGdO8SRj5oTVp28oqfOab4cgoBdecRiOE3qA==}
     peerDependencies:
       cypress: '*'
     dependencies:
-      '@cypress/webpack-preprocessor': 5.17.1(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(babel-loader@9.1.2)(webpack@5.86.0)
+      '@cypress/webpack-preprocessor': 5.17.1(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(babel-loader@9.1.2)(webpack@5.87.0)
       chalk: 4.1.2
       cypress: 12.14.0
       dayjs: 1.10.7
@@ -1543,7 +1543,7 @@ packages:
       tunnel-agent: 0.6.0
       uuid: 8.3.2
 
-  /@cypress/webpack-preprocessor@5.17.1(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(babel-loader@9.1.2)(webpack@5.86.0):
+  /@cypress/webpack-preprocessor@5.17.1(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(babel-loader@9.1.2)(webpack@5.87.0):
     resolution: {integrity: sha512-FE/e8ikPc8z4EVopJCaior3RGy0jd2q9Xcp5NtiwNG4XnLfEnUFTZlAGwXe75sEh4fNMPrBJW1KIz77PX5vGAw==}
     peerDependencies:
       '@babel/core': ^7.0.1
@@ -1553,11 +1553,11 @@ packages:
     dependencies:
       '@babel/core': 7.22.5
       '@babel/preset-env': 7.22.5(@babel/core@7.22.5)
-      babel-loader: 9.1.2(@babel/core@7.22.5)(webpack@5.86.0)
+      babel-loader: 9.1.2(@babel/core@7.22.5)(webpack@5.87.0)
       bluebird: 3.7.1
       debug: 4.3.4(supports-color@8.1.1)
       lodash: 4.17.21
-      webpack: 5.86.0
+      webpack: 5.87.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3248,7 +3248,7 @@ packages:
       - supports-color
     dev: true
 
-  /babel-loader@9.1.2(@babel/core@7.22.5)(webpack@5.86.0):
+  /babel-loader@9.1.2(@babel/core@7.22.5)(webpack@5.87.0):
     resolution: {integrity: sha512-mN14niXW43tddohGl8HPu5yfQq70iUThvFL/4QzESA7GcZoC0eVOhvWdQ8+3UlSjaDE9MVtsW9mxDY07W7VpVA==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -3258,7 +3258,7 @@ packages:
       '@babel/core': 7.22.5
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: 5.86.0
+      webpack: 5.87.0
     dev: true
 
   /babel-plugin-istanbul@6.1.1:
@@ -4012,6 +4012,14 @@ packages:
 
   /enhanced-resolve@5.14.1:
     resolution: {integrity: sha512-Vklwq2vDKtl0y/vtwjSesgJ5MYS7Etuk5txS8VdKL4AOS1aUlD96zqIfsOSLQsdv3xgMRbtkWM8eG9XDfKUPow==}
+    engines: {node: '>=10.13.0'}
+    dependencies:
+      graceful-fs: 4.2.11
+      tapable: 2.2.1
+    dev: true
+
+  /enhanced-resolve@5.15.0:
+    resolution: {integrity: sha512-LXYT42KJ7lpIKECr2mAXIaMldcNCh/7E0KBKOu4KSfkHmP+mZmSs+8V5gBAqisWBy0OO4W5Oyys0GO1Y8KtdKg==}
     engines: {node: '>=10.13.0'}
     dependencies:
       graceful-fs: 4.2.11
@@ -5003,10 +5011,6 @@ packages:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
     dependencies:
       get-intrinsic: 1.1.3
-    dev: true
-
-  /graceful-fs@4.2.10:
-    resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
     dev: true
 
   /graceful-fs@4.2.11:
@@ -6691,7 +6695,7 @@ packages:
     resolution: {integrity: sha512-whdkPIooSu/bASggZ96BWVvZTRMOFxnyUG5PnTSGKoJE2gd5mbVNmR2Nj20QFzxYYgAXpoqC+AiXzl+UMRh7zQ==}
     engines: {node: '>=8'}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       hasha: 5.2.2
       lodash.flattendeep: 4.4.0
       release-zalgo: 1.0.0
@@ -7597,7 +7601,7 @@ packages:
       unique-string: 2.0.0
     dev: true
 
-  /terser-webpack-plugin@5.3.9(webpack@5.86.0):
+  /terser-webpack-plugin@5.3.9(webpack@5.87.0):
     resolution: {integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -7618,7 +7622,7 @@ packages:
       schema-utils: 3.2.0
       serialize-javascript: 6.0.1
       terser: 5.17.7
-      webpack: 5.86.0
+      webpack: 5.87.0
     dev: true
 
   /terser@5.17.7:
@@ -8079,8 +8083,8 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /webpack@5.86.0:
-    resolution: {integrity: sha512-3BOvworZ8SO/D4GVP+GoRC3fVeg5MO4vzmq8TJJEkdmopxyazGDxN8ClqN12uzrZW9Tv8EED8v5VSb6Sqyi0pg==}
+  /webpack@5.87.0:
+    resolution: {integrity: sha512-GOu1tNbQ7p1bDEoFRs2YPcfyGs8xq52yyPBZ3m2VGnXGtV9MxjrkABHm4V9Ia280OefsSLzvbVoXcfLxjKY/Iw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
@@ -8098,7 +8102,7 @@ packages:
       acorn-import-assertions: 1.9.0(acorn@8.8.2)
       browserslist: 4.21.7
       chrome-trace-event: 1.0.3
-      enhanced-resolve: 5.14.1
+      enhanced-resolve: 5.15.0
       es-module-lexer: 1.2.1
       eslint-scope: 5.1.1
       events: 3.3.0
@@ -8110,7 +8114,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.2.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.9(webpack@5.86.0)
+      terser-webpack-plugin: 5.3.9(webpack@5.87.0)
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:
