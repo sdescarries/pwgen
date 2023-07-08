@@ -23,8 +23,8 @@ devDependencies:
     specifier: 7.22.6
     version: 7.22.6(@babel/core@7.22.6)
   '@cypress/code-coverage':
-    specifier: 3.10.7
-    version: 3.10.7(@babel/core@7.22.6)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(cypress@12.14.0)(webpack@5.88.1)
+    specifier: 3.10.8
+    version: 3.10.8(@babel/core@7.22.6)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(cypress@12.14.0)(webpack@5.88.1)
   '@jest/globals':
     specifier: 29.5.0
     version: 29.5.0
@@ -1540,15 +1540,15 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: true
 
-  /@cypress/code-coverage@3.10.7(@babel/core@7.22.6)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(cypress@12.14.0)(webpack@5.88.1):
-    resolution: {integrity: sha512-kQFB8GemDAAk6JBINsR9MLEgCw2AKb3FcdHQjIJ3KV4ZER6ZF0NGdO8SRj5oTVp28oqfOab4cgoBdecRiOE3qA==}
+  /@cypress/code-coverage@3.10.8(@babel/core@7.22.6)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(cypress@12.14.0)(webpack@5.88.1):
+    resolution: {integrity: sha512-9KZvQKYjoz09ocZEGC0a0+uVFSMe6gOblqGpWoTGi8HYSbKFAuOJkjJB5vJ1fb1u52GOgW2b1JqhhtJJyA/ksg==}
     peerDependencies:
       cypress: '*'
     dependencies:
       '@cypress/webpack-preprocessor': 5.17.1(@babel/core@7.22.6)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(webpack@5.88.1)
       chalk: 4.1.2
       cypress: 12.14.0
-      dayjs: 1.10.7
+      dayjs: 1.11.8
       debug: 4.3.4(supports-color@8.1.1)
       execa: 4.1.0
       globby: 11.0.4
@@ -3844,10 +3844,6 @@ packages:
       abab: 2.0.6
       whatwg-mimetype: 3.0.0
       whatwg-url: 11.0.0
-    dev: true
-
-  /dayjs@1.10.7:
-    resolution: {integrity: sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==}
     dev: true
 
   /dayjs@1.11.8:
