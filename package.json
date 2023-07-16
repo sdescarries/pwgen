@@ -69,7 +69,7 @@
     "vite": "4.4.3",
     "vite-plugin-istanbul": "4.1.0",
     "vite-plugin-pwa": "0.16.4",
-    "web-vitals": "3.3.2",
+    "web-vitals": "3.4.0",
     "webpack": "5.88.1"
   },
   "optionalDependencies": {
