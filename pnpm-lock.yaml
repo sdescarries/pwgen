@@ -140,8 +140,8 @@ devDependencies:
     specifier: 15.1.0
     version: 15.1.0(postcss@8.4.27)
   postcss-nesting:
-    specifier: 12.0.0
-    version: 12.0.0(postcss@8.4.27)
+    specifier: 12.0.1
+    version: 12.0.1(postcss@8.4.27)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -7093,8 +7093,8 @@ packages:
       resolve: 1.22.1
     dev: true
 
-  /postcss-nesting@12.0.0(postcss@8.4.27):
-    resolution: {integrity: sha512-knqwW65kxssmyIFadRSimaiRyLVRd0MdwfabesKw6XvGLwSOCJ+4zfvNQQCOOYij5obwpZzDpODuGRv2PCyiUw==}
+  /postcss-nesting@12.0.1(postcss@8.4.27):
+    resolution: {integrity: sha512-6LCqCWP9pqwXw/njMvNK0hGY44Fxc4B2EsGbn6xDcxbNRzP8GYoxT7yabVVMLrX3quqOJ9hg2jYMsnkedOf8pA==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss: ^8.4
