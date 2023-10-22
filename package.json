@@ -70,7 +70,7 @@
     "vite-plugin-istanbul": "5.0.0",
     "vite-plugin-pwa": "0.16.5",
     "web-vitals": "3.5.0",
-    "webpack": "5.88.2"
+    "webpack": "5.89.0"
   },
   "optionalDependencies": {
     "cypress": "^13.0.0",
