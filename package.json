@@ -20,7 +20,7 @@
   "devDependencies": {
     "@babel/core": "7.23.2",
     "@babel/preset-env": "7.23.2",
-    "@cypress/code-coverage": "3.12.4",
+    "@cypress/code-coverage": "3.12.5",
     "@jest/globals": "29.7.0",
     "@jest/types": "29.6.3",
     "@testing-library/dom": "9.3.3",
