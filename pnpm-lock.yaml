@@ -125,8 +125,8 @@ devDependencies:
     specifier: 29.7.0
     version: 29.7.0
   jest-html-reporters:
-    specifier: 3.1.6
-    version: 3.1.6
+    specifier: 3.1.7
+    version: 3.1.7
   nyc:
     specifier: 15.1.0
     version: 15.1.0
@@ -5838,8 +5838,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /jest-html-reporters@3.1.6:
-    resolution: {integrity: sha512-xn3Q7h4TiHnJ1zU2ISU5/jdH1hoeg0pDVBGRDW9c0CsfT8iOYgFi/4iL7uYmuf3b2Qr00tosqUG3joGlbB6wAA==}
+  /jest-html-reporters@3.1.7:
+    resolution: {integrity: sha512-GTmjqK6muQ0S0Mnksf9QkL9X9z2FGIpNSxC52E0PHDzjPQ1XDu2+XTI3B3FS43ZiUzD1f354/5FfwbNIBzT7ew==}
     dependencies:
       fs-extra: 10.1.0
       open: 8.4.2
