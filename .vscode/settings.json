@@ -16,10 +16,11 @@
     "prebuild",
     "pwgen",
     "sdescarries",
+    "testid",
     "vitejs"
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.detectIndentation": false,

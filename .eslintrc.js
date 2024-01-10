@@ -40,8 +40,6 @@ module.exports = {
         'jest/no-identical-title': 'error',
         'jest/prefer-to-have-length': 'warn',
         'jest/valid-expect': 'error',
-        'testing-library/await-async-query': 'error',
-        'testing-library/no-await-sync-query': 'error',
         'testing-library/no-debugging-utils': 'warn',
         'testing-library/no-dom-import': 'off',
         'ts-expect-error': 'off',
