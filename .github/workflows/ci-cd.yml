@@ -103,19 +103,19 @@ jobs:
           node-version: 20
 
       - name: download dist artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist
 
       - name: download jest artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: jest
           path: results/jest
 
       - name: download cypress artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: cypress
           path: results/cypress
