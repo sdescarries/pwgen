@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { charsetLabels, charsetShorts } from '@/Password/';
 
-import { 
+import {
   DipSwitchProps,
   useDipSwitchStorage,
 } from './useDipSwitchStorage';
@@ -42,10 +43,10 @@ export function DipSwitch(props: DipSwitchProps): JSX.Element {
         onChange={() => toggle(!checked)}
         type={'checkbox'}
       />
-      <Label 
-        id={id} 
-        charset={props.charset} 
-        checked={checked} 
+      <Label
+        id={id}
+        charset={props.charset}
+        checked={checked}
       />
     </div>
   );

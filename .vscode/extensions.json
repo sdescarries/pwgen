@@ -2,7 +2,6 @@
   "recommendations": [
     "andys8.jest-snippets",
     "dbaeumer.vscode-eslint",
-    "rvest.vs-code-prettier-eslint",
     "ryanluker.vscode-coverage-gutters"
   ]
 }

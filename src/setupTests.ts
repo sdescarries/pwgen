@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom/jest-globals';
 import '@/__mocks__/IntersectionObserver';
 import '@/__mocks__/ResizeObserver';
 import '@/__mocks__/crypto';
