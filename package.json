@@ -67,7 +67,7 @@
     "ts-jest": "29.1.1",
     "ts-node": "10.9.2",
     "typescript": "5.3.3",
-    "vite": "5.0.11",
+    "vite": "5.0.12",
     "vite-plugin-istanbul": "5.0.0",
     "vite-plugin-pwa": "0.17.4",
     "web-vitals": "3.5.1",
