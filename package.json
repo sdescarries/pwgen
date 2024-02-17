@@ -69,7 +69,7 @@
     "typescript": "5.3.3",
     "vite": "5.0.12",
     "vite-plugin-istanbul": "5.0.0",
-    "vite-plugin-pwa": "0.17.5",
+    "vite-plugin-pwa": "0.18.1",
     "web-vitals": "3.5.2",
     "webpack": "5.90.1"
   },
