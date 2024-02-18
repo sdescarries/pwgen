@@ -140,8 +140,8 @@ devDependencies:
     specifier: 8.4.35
     version: 8.4.35
   postcss-import:
-    specifier: 16.0.0
-    version: 16.0.0(postcss@8.4.35)
+    specifier: 16.0.1
+    version: 16.0.1(postcss@8.4.35)
   postcss-nesting:
     specifier: 12.0.2
     version: 12.0.2(postcss@8.4.35)
@@ -4517,7 +4517,7 @@ packages:
     dependencies:
       debug: 3.2.7(supports-color@8.1.1)
       is-core-module: 2.13.1
-      resolve: 1.22.4
+      resolve: 1.22.8
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6250,7 +6250,7 @@ packages:
       jest-pnp-resolver: 1.2.3(jest-resolve@29.7.0)
       jest-util: 29.7.0
       jest-validate: 29.7.0
-      resolve: 1.22.4
+      resolve: 1.22.8
       resolve.exports: 2.0.2
       slash: 3.0.0
     dev: true
@@ -7274,8 +7274,8 @@ packages:
       find-up: 6.3.0
     dev: true
 
-  /postcss-import@16.0.0(postcss@8.4.35):
-    resolution: {integrity: sha512-e77lhVvrD1I2y7dYmBv0k9ULTdArgEYZt97T4w6sFIU5uxIHvDFQlKgUUyY7v7Barj0Yf/zm5A4OquZN7jKm5Q==}
+  /postcss-import@16.0.1(postcss@8.4.35):
+    resolution: {integrity: sha512-i2Pci0310NaLHr/5JUFSw1j/8hf1CzwMY13g6ZDxgOavmRHQi2ba3PmUHoihO+sjaum+KmCNzskNsw7JDrg03g==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       postcss: ^8.0.0
@@ -7283,7 +7283,7 @@ packages:
       postcss: 8.4.35
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
-      resolve: 1.22.4
+      resolve: 1.22.8
     dev: true
 
   /postcss-nesting@12.0.2(postcss@8.4.35):
@@ -7644,15 +7644,6 @@ packages:
   /resolve.exports@2.0.2:
     resolution: {integrity: sha512-X2UW6Nw3n/aMgDVy+0rSqgHlv39WZAlZrXCdnbyEiKm17DSqHX4MmQMaST3FbeWR5FTuRcUwYAziZajji0Y7mg==}
     engines: {node: '>=10'}
-    dev: true
-
-  /resolve@1.22.4:
-    resolution: {integrity: sha512-PXNdCiPqDqeUou+w1C2eTQbNfxKSuMxqTCuvlmmMsk1NWHL5fRrhY6Pl0qEYYc6+QqGClco1Qj8XnjPego4wfg==}
-    hasBin: true
-    dependencies:
-      is-core-module: 2.13.1
-      path-parse: 1.0.7
-      supports-preserve-symlinks-flag: 1.0.0
     dev: true
 
   /resolve@1.22.8:
