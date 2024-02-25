@@ -10,7 +10,7 @@ overrides:
 optionalDependencies:
   cypress:
     specifier: ^13.6.2
-    version: 13.6.5
+    version: 13.6.6
   start-server-and-test:
     specifier: ^2.0.3
     version: 2.0.3
@@ -24,7 +24,7 @@ devDependencies:
     version: 7.23.9(@babel/core@7.23.9)
   '@cypress/code-coverage':
     specifier: 3.12.24
-    version: 3.12.24(@babel/core@7.23.9)(@babel/preset-env@7.23.9)(babel-loader@9.1.3)(cypress@13.6.5)(webpack@5.90.3)
+    version: 3.12.24(@babel/core@7.23.9)(@babel/preset-env@7.23.9)(babel-loader@9.1.3)(cypress@13.6.6)(webpack@5.90.3)
   '@jest/globals':
     specifier: 29.7.0
     version: 29.7.0
@@ -1490,7 +1490,7 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: true
 
-  /@cypress/code-coverage@3.12.24(@babel/core@7.23.9)(@babel/preset-env@7.23.9)(babel-loader@9.1.3)(cypress@13.6.5)(webpack@5.90.3):
+  /@cypress/code-coverage@3.12.24(@babel/core@7.23.9)(@babel/preset-env@7.23.9)(babel-loader@9.1.3)(cypress@13.6.6)(webpack@5.90.3):
     resolution: {integrity: sha512-ihvYLXduJyYW9SqJp5dwFn8lRk6/hSZmSloVYp+52fsaTVhB+Ypb7Zh7GbjpVfuqW81KnPEyPa1IdcnOqHMjwA==}
     peerDependencies:
       '@babel/core': ^7.0.1
@@ -1504,7 +1504,7 @@ packages:
       '@cypress/webpack-preprocessor': 6.0.1(@babel/core@7.23.9)(@babel/preset-env@7.23.9)(babel-loader@9.1.3)(webpack@5.90.3)
       babel-loader: 9.1.3(@babel/core@7.23.9)(webpack@5.90.3)
       chalk: 4.1.2
-      cypress: 13.6.5
+      cypress: 13.6.6
       dayjs: 1.11.10
       debug: 4.3.4(supports-color@8.1.1)
       execa: 4.1.0
@@ -4186,8 +4186,8 @@ packages:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
     dev: true
 
-  /cypress@13.6.5:
-    resolution: {integrity: sha512-2NxSDcO2zHw5kTcosc6dzv2zppEqiXrFFhZw5cx/EWrSNZABTzpr/EyvYzGgrWm46o5173JUfuJfDQcaiZZPVQ==}
+  /cypress@13.6.6:
+    resolution: {integrity: sha512-S+2S9S94611hXimH9a3EAYt81QM913ZVA03pUmGDfLTFa5gyp85NJ8dJGSlEAEmyRsYkioS1TtnWtbv/Fzt11A==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
     requiresBuild: true
@@ -6078,7 +6078,7 @@ packages:
   /is-finalizationregistry@1.0.2:
     resolution: {integrity: sha512-0by5vtUJs8iFQb5TYUHHPudOR+qXYIMKtiUzvLIZITZUjknFmziyBJuLhVRc+Ds0dREFlskDNJKYIdIzu/9pfw==}
     dependencies:
-      call-bind: 1.0.2
+      call-bind: 1.0.5
     dev: true
 
   /is-fullwidth-code-point@3.0.0:
