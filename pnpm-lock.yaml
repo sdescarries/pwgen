@@ -23,8 +23,8 @@ devDependencies:
     specifier: 7.24.0
     version: 7.24.0(@babel/core@7.24.0)
   '@cypress/code-coverage':
-    specifier: 3.12.26
-    version: 3.12.26(@babel/core@7.24.0)(@babel/preset-env@7.24.0)(babel-loader@9.1.3)(cypress@13.6.6)(webpack@5.90.3)
+    specifier: 3.12.28
+    version: 3.12.28(@babel/core@7.24.0)(@babel/preset-env@7.24.0)(babel-loader@9.1.3)(cypress@13.6.6)(webpack@5.90.3)
   '@jest/globals':
     specifier: 29.7.0
     version: 29.7.0
@@ -1495,8 +1495,8 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: true
 
-  /@cypress/code-coverage@3.12.26(@babel/core@7.24.0)(@babel/preset-env@7.24.0)(babel-loader@9.1.3)(cypress@13.6.6)(webpack@5.90.3):
-    resolution: {integrity: sha512-fJDELN3BNOPKm8JRZxHN/FrNebXpjX/PAsJYUbqp7SIn7Rk7MlDhKR5T0gFOzhrfvOpKmJ7t0dQf7kqRjb/LOQ==}
+  /@cypress/code-coverage@3.12.28(@babel/core@7.24.0)(@babel/preset-env@7.24.0)(babel-loader@9.1.3)(cypress@13.6.6)(webpack@5.90.3):
+    resolution: {integrity: sha512-+VtT9SEK6FcBXEfrxGWxLNe0oVCKdlxKbFDdg6wDYzUpb+6Ht8yC1I3c80TXwAbahjkN3GWNMiKakES+9jXLUw==}
     peerDependencies:
       '@babel/core': ^7.0.1
       '@babel/preset-env': ^7.0.0
