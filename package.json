@@ -20,7 +20,7 @@
   "devDependencies": {
     "@babel/core": "7.24.1",
     "@babel/preset-env": "7.24.1",
-    "@cypress/code-coverage": "3.12.29",
+    "@cypress/code-coverage": "3.12.30",
     "@jest/globals": "29.7.0",
     "@jest/types": "29.6.3",
     "@rollup/rollup-linux-x64-gnu": "^4.9.4",
