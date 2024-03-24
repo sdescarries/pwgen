@@ -140,8 +140,8 @@ devDependencies:
     specifier: 8.4.38
     version: 8.4.38
   postcss-import:
-    specifier: 16.0.1
-    version: 16.0.1(postcss@8.4.38)
+    specifier: 16.1.0
+    version: 16.1.0(postcss@8.4.38)
   postcss-nesting:
     specifier: 12.1.0
     version: 12.1.0(postcss@8.4.38)
@@ -4391,7 +4391,7 @@ packages:
       has-property-descriptors: 1.0.1
       has-proto: 1.0.1
       has-symbols: 1.0.3
-      hasown: 2.0.0
+      hasown: 2.0.1
       internal-slot: 1.0.6
       is-array-buffer: 3.0.2
       is-callable: 1.2.7
@@ -4546,7 +4546,7 @@ packages:
     dependencies:
       get-intrinsic: 1.2.2
       has-tostringtag: 1.0.0
-      hasown: 2.0.0
+      hasown: 2.0.1
     dev: true
 
   /es-set-tostringtag@2.0.3:
@@ -5741,7 +5741,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       get-intrinsic: 1.2.2
-      hasown: 2.0.0
+      hasown: 2.0.1
       side-channel: 1.0.4
     dev: true
 
@@ -5831,7 +5831,7 @@ packages:
   /is-core-module@2.13.1:
     resolution: {integrity: sha512-hHrIjvZsftOsvKSn2TRYl63zvxsgE0K+0mYMoH6gD4omR5IWB2KynivBQczo3+wF1cCkjzvptnI9Q0sPU66ilw==}
     dependencies:
-      hasown: 2.0.0
+      hasown: 2.0.1
     dev: true
 
   /is-date-object@1.0.5:
@@ -7510,8 +7510,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /postcss-import@16.0.1(postcss@8.4.38):
-    resolution: {integrity: sha512-i2Pci0310NaLHr/5JUFSw1j/8hf1CzwMY13g6ZDxgOavmRHQi2ba3PmUHoihO+sjaum+KmCNzskNsw7JDrg03g==}
+  /postcss-import@16.1.0(postcss@8.4.38):
+    resolution: {integrity: sha512-7hsAZ4xGXl4MW+OKEWCnF6T5jqBw80/EE9aXg1r2yyn1RsVEU8EtKXbijEODa+rg7iih4bKf7vlvTGYR4CnPNg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       postcss: ^8.0.0
