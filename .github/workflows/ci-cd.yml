@@ -73,7 +73,7 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: /home/runner/.cache/Cypress
           key: cypress-12.14.0
