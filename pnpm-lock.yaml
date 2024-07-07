@@ -134,8 +134,8 @@ devDependencies:
     specifier: 17.0.0
     version: 17.0.0
   p-limit:
-    specifier: 5.0.0
-    version: 5.0.0
+    specifier: 6.0.0
+    version: 6.0.0
   postcss:
     specifier: 8.4.39
     version: 8.4.39
@@ -7225,11 +7225,11 @@ packages:
       yocto-queue: 1.0.0
     dev: true
 
-  /p-limit@5.0.0:
-    resolution: {integrity: sha512-/Eaoq+QyLSiXQ4lyYV23f14mZRQcXnxfHrN0vCai+ak9G0pp9iEQukIIZq5NccEvwRB8PUnZT0KsOoDCINS1qQ==}
+  /p-limit@6.0.0:
+    resolution: {integrity: sha512-Dx+NzOuILWwjJE9OYtEKuQRy0i3c5QVAmDsVrvvRSgyNnPuB27D2DyEjl6QTNyeePaAHjaPk+ya0yA0Frld8RA==}
     engines: {node: '>=18'}
     dependencies:
-      yocto-queue: 1.0.0
+      yocto-queue: 1.1.1
     dev: true
 
   /p-locate@4.1.0:
@@ -9218,5 +9218,10 @@ packages:
 
   /yocto-queue@1.0.0:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
+    engines: {node: '>=12.20'}
+    dev: true
+
+  /yocto-queue@1.1.1:
+    resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
     engines: {node: '>=12.20'}
     dev: true
