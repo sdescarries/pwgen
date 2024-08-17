@@ -23,8 +23,8 @@ devDependencies:
     specifier: 7.25.3
     version: 7.25.3(@babel/core@7.25.2)
   '@cypress/code-coverage':
-    specifier: 3.12.44
-    version: 3.12.44(@babel/core@7.25.2)(@babel/preset-env@7.25.3)(babel-loader@9.1.3)(cypress@13.13.2)(webpack@5.93.0)
+    specifier: 3.12.45
+    version: 3.12.45(@babel/core@7.25.2)(@babel/preset-env@7.25.3)(babel-loader@9.1.3)(cypress@13.13.2)(webpack@5.93.0)
   '@jest/globals':
     specifier: 29.7.0
     version: 29.7.0
@@ -1717,8 +1717,8 @@ packages:
       postcss-selector-parser: 6.1.0
     dev: true
 
-  /@cypress/code-coverage@3.12.44(@babel/core@7.25.2)(@babel/preset-env@7.25.3)(babel-loader@9.1.3)(cypress@13.13.2)(webpack@5.93.0):
-    resolution: {integrity: sha512-5Eau3tnJqZJo1OddOOEMyWs1HCwlAOgDs1rFPaCXJ4a5Y2BR4PH4fAzCdMvIqpBnCiVSL8gOYv6JfND3aUuJJQ==}
+  /@cypress/code-coverage@3.12.45(@babel/core@7.25.2)(@babel/preset-env@7.25.3)(babel-loader@9.1.3)(cypress@13.13.2)(webpack@5.93.0):
+    resolution: {integrity: sha512-QRvdc9Zmner/CxQ1F5jcNVZR8P8VrRTyE8THcisxnB6D3AMIKKSmjYUGH6OnWBDF/vi3CqimuMSbrUfzmPzmhw==}
     peerDependencies:
       '@babel/core': ^7.0.1
       '@babel/preset-env': ^7.0.0
@@ -1733,7 +1733,7 @@ packages:
       chalk: 4.1.2
       cypress: 13.13.2
       dayjs: 1.11.12
-      debug: 4.3.5
+      debug: 4.3.6(supports-color@8.1.1)
       execa: 4.1.0
       globby: 11.1.0
       istanbul-lib-coverage: 3.2.2
@@ -5541,6 +5541,7 @@ packages:
 
   /glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
@@ -5785,6 +5786,7 @@ packages:
 
   /inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
     dependencies:
       once: 1.4.0
       wrappy: 1.0.2
