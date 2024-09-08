@@ -170,8 +170,8 @@ devDependencies:
     specifier: 6.0.0
     version: 6.0.0(vite@5.1.7)
   vite-plugin-pwa:
-    specifier: 0.20.2
-    version: 0.20.2(vite@5.1.7)(workbox-build@7.1.1)(workbox-window@7.1.0)
+    specifier: 0.20.5
+    version: 0.20.5(vite@5.1.7)(workbox-build@7.1.1)(workbox-window@7.1.0)
   web-vitals:
     specifier: 3.5.2
     version: 3.5.2
@@ -8753,11 +8753,11 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-pwa@0.20.2(vite@5.1.7)(workbox-build@7.1.1)(workbox-window@7.1.0):
-    resolution: {integrity: sha512-9wLqHt/NjP7YKj6CCEKS5+Fhffo6tHGrAa+wvoqCG59oZkmpX5lBBl38MVjLaO4ELrLqjdtUhILJDwZu+q/hGQ==}
+  /vite-plugin-pwa@0.20.5(vite@5.1.7)(workbox-build@7.1.1)(workbox-window@7.1.0):
+    resolution: {integrity: sha512-aweuI/6G6n4C5Inn0vwHumElU/UEpNuO+9iZzwPZGTCH87TeZ6YFMrEY6ZUBQdIHHlhTsbMDryFARcSuOdsz9Q==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
-      '@vite-pwa/assets-generator': ^0.2.4
+      '@vite-pwa/assets-generator': ^0.2.6
       vite: ^3.1.0 || ^4.0.0 || ^5.0.0
       workbox-build: ^7.1.0
       workbox-window: ^7.1.0
