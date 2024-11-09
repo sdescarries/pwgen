@@ -24,7 +24,7 @@ devDependencies:
     version: 7.26.0(@babel/core@7.26.0)
   '@cypress/code-coverage':
     specifier: 3.13.6
-    version: 3.13.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0)(babel-loader@9.2.1)(cypress@13.14.2)(webpack@5.96.0)
+    version: 3.13.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0)(babel-loader@9.2.1)(cypress@13.14.2)(webpack@5.96.1)
   '@jest/globals':
     specifier: 29.7.0
     version: 29.7.0
@@ -78,7 +78,7 @@ devDependencies:
     version: 10.4.20(postcss@8.4.47)
   babel-loader:
     specifier: 9.2.1
-    version: 9.2.1(@babel/core@7.26.0)(webpack@5.96.0)
+    version: 9.2.1(@babel/core@7.26.0)(webpack@5.96.1)
   eslint:
     specifier: 8.57.1
     version: 8.57.1
@@ -176,8 +176,8 @@ devDependencies:
     specifier: 3.5.2
     version: 3.5.2
   webpack:
-    specifier: 5.96.0
-    version: 5.96.0
+    specifier: 5.96.1
+    version: 5.96.1
 
 packages:
 
@@ -1535,7 +1535,7 @@ packages:
       postcss-selector-parser: 7.0.0
     dev: true
 
-  /@cypress/code-coverage@3.13.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0)(babel-loader@9.2.1)(cypress@13.14.2)(webpack@5.96.0):
+  /@cypress/code-coverage@3.13.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0)(babel-loader@9.2.1)(cypress@13.14.2)(webpack@5.96.1):
     resolution: {integrity: sha512-nNVDYDK6r9zPqDIv9k7FibPP9/dATGRR3us9Ued/ldcxPz5x8WbVthjV5OIjqotRKEmS7wxiXFHSDhKJqaZNuw==}
     peerDependencies:
       '@babel/core': ^7.0.1
@@ -1546,8 +1546,8 @@ packages:
     dependencies:
       '@babel/core': 7.26.0
       '@babel/preset-env': 7.26.0(@babel/core@7.26.0)
-      '@cypress/webpack-preprocessor': 6.0.1(@babel/core@7.26.0)(@babel/preset-env@7.26.0)(babel-loader@9.2.1)(webpack@5.96.0)
-      babel-loader: 9.2.1(@babel/core@7.26.0)(webpack@5.96.0)
+      '@cypress/webpack-preprocessor': 6.0.1(@babel/core@7.26.0)(@babel/preset-env@7.26.0)(babel-loader@9.2.1)(webpack@5.96.1)
+      babel-loader: 9.2.1(@babel/core@7.26.0)(webpack@5.96.1)
       chalk: 4.1.2
       cypress: 13.14.2
       dayjs: 1.11.13
@@ -1557,7 +1557,7 @@ packages:
       istanbul-lib-coverage: 3.2.2
       js-yaml: 4.1.0
       nyc: 15.1.0
-      webpack: 5.96.0
+      webpack: 5.96.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1586,7 +1586,7 @@ packages:
       tunnel-agent: 0.6.0
       uuid: 8.3.2
 
-  /@cypress/webpack-preprocessor@6.0.1(@babel/core@7.26.0)(@babel/preset-env@7.26.0)(babel-loader@9.2.1)(webpack@5.96.0):
+  /@cypress/webpack-preprocessor@6.0.1(@babel/core@7.26.0)(@babel/preset-env@7.26.0)(babel-loader@9.2.1)(webpack@5.96.1):
     resolution: {integrity: sha512-WVNeFVSnFKxE3WZNRIriduTgqJRpevaiJIPlfqYTTzfXRD7X1Pv4woDE+G4caPV9bJqVKmVFiwzrXMRNeJxpxA==}
     peerDependencies:
       '@babel/core': ^7.0.1
@@ -1596,11 +1596,11 @@ packages:
     dependencies:
       '@babel/core': 7.26.0
       '@babel/preset-env': 7.26.0(@babel/core@7.26.0)
-      babel-loader: 9.2.1(@babel/core@7.26.0)(webpack@5.96.0)
+      babel-loader: 9.2.1(@babel/core@7.26.0)(webpack@5.96.1)
       bluebird: 3.7.1
       debug: 4.3.7(supports-color@8.1.1)
       lodash: 4.17.21
-      webpack: 5.96.0
+      webpack: 5.96.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2682,6 +2682,20 @@ packages:
       '@babel/types': 7.26.0
     dev: true
 
+  /@types/eslint-scope@3.7.7:
+    resolution: {integrity: sha512-MzMFlSLBqNF2gcHWO0G1vP/YQyfvrxZ0bF+u7mzUdZ1/xK4A4sru+nraZz5i3iEIk1l1uyicaDVTB4QbbEkAYg==}
+    dependencies:
+      '@types/eslint': 9.6.1
+      '@types/estree': 1.0.6
+    dev: true
+
+  /@types/eslint@9.6.1:
+    resolution: {integrity: sha512-FXx2pKgId/WyYo2jXw63kk7/+TY7u7AziEJxJAnSFzHlqTAS3Ync6SvgYAN/k4/PQpnnVuzoMuVnByKK2qp0ag==}
+    dependencies:
+      '@types/estree': 1.0.6
+      '@types/json-schema': 7.0.15
+    dev: true
+
   /@types/estree@0.0.39:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
     dev: true
@@ -3222,7 +3236,7 @@ packages:
   /acorn-globals@7.0.1:
     resolution: {integrity: sha512-umOSDSDrfHbTNPuNpC2NSnnA3LUrqpevPb4T9jRx4MagXNS0rs+gwiTcAvqCRmsD6utzsrzNt+ebm00SNWiC3Q==}
     dependencies:
-      acorn: 8.12.1
+      acorn: 8.14.0
       acorn-walk: 8.2.0
     dev: true
 
@@ -3232,6 +3246,14 @@ packages:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
       acorn: 8.12.1
+    dev: true
+
+  /acorn-jsx@5.3.2(acorn@8.14.0):
+    resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
+    peerDependencies:
+      acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
+    dependencies:
+      acorn: 8.14.0
     dev: true
 
   /acorn-walk@8.2.0:
@@ -3603,7 +3625,7 @@ packages:
       - supports-color
     dev: true
 
-  /babel-loader@9.2.1(@babel/core@7.26.0)(webpack@5.96.0):
+  /babel-loader@9.2.1(@babel/core@7.26.0)(webpack@5.96.1):
     resolution: {integrity: sha512-fqe8naHt46e0yIdkjUZYqddSXfej3AHajX+CSO5X7oy0EmPc6o5Xh+RClNoHjnieWz9AW4kZxW9yyFMhVB1QLA==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -3613,7 +3635,7 @@ packages:
       '@babel/core': 7.26.0
       find-cache-dir: 4.0.0
       schema-utils: 4.0.0
-      webpack: 5.96.0
+      webpack: 5.96.1
     dev: true
 
   /babel-plugin-istanbul@6.1.1:
@@ -4987,8 +5009,8 @@ packages:
     resolution: {integrity: sha512-MWkrWZbJsL2UwnjxTX3gG8FneachS/Mwg7tdGXce011sJd5b0JG54vat5KHnfSBODZ3Wvzd2WnjxyzsRoVv+ww==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     dependencies:
-      acorn: 8.12.1
-      acorn-jsx: 5.3.2(acorn@8.12.1)
+      acorn: 8.14.0
+      acorn-jsx: 5.3.2(acorn@8.14.0)
       eslint-visitor-keys: 4.0.0
     dev: true
 
@@ -8293,7 +8315,7 @@ packages:
       unique-string: 2.0.0
     dev: true
 
-  /terser-webpack-plugin@5.3.10(webpack@5.96.0):
+  /terser-webpack-plugin@5.3.10(webpack@5.96.1):
     resolution: {integrity: sha512-BKFPWlPDndPs+NGGCr1U59t0XScL5317Y0UReNrHaw9/FwhPENlq6bfgs+4yPfyP51vqC1bQ4rp1EfXW5ZSH9w==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -8314,7 +8336,7 @@ packages:
       schema-utils: 3.2.0
       serialize-javascript: 6.0.2
       terser: 5.33.0
-      webpack: 5.96.0
+      webpack: 5.96.1
     dev: true
 
   /terser@5.33.0:
@@ -8875,8 +8897,8 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /webpack@5.96.0:
-    resolution: {integrity: sha512-gvn84AfQ4f6vUeNWmFuRp3vGERyxK4epADKTaAo60K0EQbY/YBNQbXH3Ji/ZRK5M25O/XneAOuChF4xQZjQ4xA==}
+  /webpack@5.96.1:
+    resolution: {integrity: sha512-l2LlBSvVZGhL4ZrPwyr8+37AunkcYj5qh8o6u2/2rzoPc8gxFJkLj1WxNgooi9pnoc06jh0BjuXnamM4qlujZA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
@@ -8885,6 +8907,7 @@ packages:
       webpack-cli:
         optional: true
     dependencies:
+      '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.6
       '@webassemblyjs/ast': 1.12.1
       '@webassemblyjs/wasm-edit': 1.12.1
@@ -8904,7 +8927,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.2.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(webpack@5.96.0)
+      terser-webpack-plugin: 5.3.10(webpack@5.96.1)
       watchpack: 2.4.1
       webpack-sources: 3.2.3
     transitivePeerDependencies:
