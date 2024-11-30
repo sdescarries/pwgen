@@ -35,7 +35,7 @@
     "@types/testing-library__jest-dom": "6.0.0",
     "@typescript-eslint/eslint-plugin": "8.16.0",
     "@typescript-eslint/parser": "8.16.0",
-    "@vitejs/plugin-legacy": "5.4.3",
+    "@vitejs/plugin-legacy": "6.0.0",
     "@vitejs/plugin-react": "4.3.4",
     "autoprefixer": "10.4.20",
     "babel-loader": "9.2.1",
