@@ -9,7 +9,7 @@
     "build": "vite build",
     "cypress": "cypress",
     "e2e": "start-server-and-test start http-get://localhost:5173/pwgen/ 'cypress run'",
-    "format": "eslint --fix .",
+    "format": "eslint --fix src cypress",
     "instrument": "nyc instrument dist/assets/index.*.js ./",
     "jest": "jest",
     "lint": "eslint src",
