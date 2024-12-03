@@ -24,7 +24,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es2015",
+    "target": "ES2022",
     "types": [
       "jest",
       "node",
@@ -32,9 +32,9 @@
     ]
   },
   "include": [
-    ".eslintrc.js",
-    "postcss.config.js",
-    "vite.config.js",
-    "src"
+    "eslint.config.mjs",
+    "postcss.config.mjs",
+    "src",
+    "vite.config.mts",
   ]
 }

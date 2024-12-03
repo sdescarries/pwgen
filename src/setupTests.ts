@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/jest-globals';
-import '@/__mocks__/IntersectionObserver';
-import '@/__mocks__/ResizeObserver';
-import '@/__mocks__/crypto';
+import '@/mocks/IntersectionObserver';
+import '@/mocks/ResizeObserver';
+import '@/mocks/crypto';
 
 import { jest } from '@jest/globals';
 

@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
+ 
+ 
+ 
 
 /// <reference types="cypress" />
 // ***********************************************************
@@ -13,7 +13,7 @@
 // https://on.cypress.io/plugins-guide
 // ***********************************************************
 
-const registerCodeCoverageTasks = require('@cypress/code-coverage/task');
+import registerCodeCoverageTasks from '@cypress/code-coverage/task';
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)

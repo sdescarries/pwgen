@@ -1,6 +1,7 @@
 {
   "name": "@sdescarries/pwgen",
   "version": "0.0.0",
+  "type": "module",
   "author": {
     "name": "Simon Descarries"
   },
@@ -13,33 +14,35 @@
     "jest": "jest",
     "lint": "eslint src",
     "prebuild": "tsc",
-    "prepare": "husky install",
+    "prepare": "husky",
     "preview": "vite preview --port=3500",
     "start": "vite --host"
   },
   "devDependencies": {
     "@babel/core": "7.26.0",
     "@babel/preset-env": "7.26.0",
-    "@cypress/code-coverage": "3.13.7",
+    "@cypress/code-coverage": "3.13.8",
+    "@eslint/compat": "^1.2.3",
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.16.0",
     "@jest/globals": "29.7.0",
     "@jest/types": "29.6.3",
-    "@rollup/rollup-linux-x64-gnu": "^4.9.4",
+    "@rollup/rollup-linux-x64-gnu": "^4.28.0",
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.0.1",
     "@testing-library/user-event": "14.5.2",
     "@types/jest": "29.5.14",
-    "@types/node": "22.10.0",
+    "@types/node": "22.10.1",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
-    "@types/testing-library__jest-dom": "6.0.0",
-    "@typescript-eslint/eslint-plugin": "8.16.0",
-    "@typescript-eslint/parser": "8.16.0",
+    "@typescript-eslint/eslint-plugin": "8.17.0",
+    "@typescript-eslint/parser": "8.17.0",
     "@vitejs/plugin-legacy": "6.0.0",
     "@vitejs/plugin-react": "4.3.4",
     "autoprefixer": "10.4.20",
     "babel-loader": "9.2.1",
-    "eslint": "8.57.1",
+    "eslint": "9.16.0",
     "eslint-import-resolver-typescript": "3.6.3",
     "eslint-plugin-cypress": "4.1.0",
     "eslint-plugin-import": "2.31.0",
@@ -50,6 +53,7 @@
     "eslint-plugin-react-hooks": "5.0.0",
     "eslint-plugin-simple-import-sort": "12.1.1",
     "eslint-plugin-testing-library": "7.0.0",
+    "globals": "^15.13.0",
     "husky": "9.1.7",
     "identity-obj-proxy": "3.0.0",
     "istanbul-lib-coverage": "3.2.2",
@@ -67,19 +71,15 @@
     "ts-jest": "29.2.5",
     "ts-node": "10.9.2",
     "typescript": "5.7.2",
-    "vite": "5.1.8",
-    "vite-plugin-istanbul": "6.0.0",
-    "vite-plugin-pwa": "0.21.0",
-    "web-vitals": "3.5.2",
+    "typescript-eslint": "^8.17.0",
+    "vite": "6.0.2",
+    "vite-plugin-istanbul": "6.0.2",
+    "vite-plugin-pwa": "0.21.1",
+    "web-vitals": "4.2.4",
     "webpack": "5.96.1"
   },
   "optionalDependencies": {
-    "cypress": "^13.6.2",
+    "cypress": "^13.16.0",
     "start-server-and-test": "^2.0.3"
-  },
-  "pnpm": {
-    "overrides": {
-      "source-map": "^0.7.4"
-    }
   }
 }

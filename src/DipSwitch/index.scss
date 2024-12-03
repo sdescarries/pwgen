@@ -1,5 +1,7 @@
+@use "../theme";
+
 .DipSwitch {
-  margin: 0 calc($size/4);
+  margin: 0 calc(theme.$size/4);
 
   .checkbox {
     display: none;
@@ -15,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: $height;
+    width: theme.$height;
 
     @media screen and (min-width: 32rem) {
       display: none;
@@ -25,7 +27,7 @@
   .Large {
     display: none;
     align-items: center;
-    padding-right: calc($size/4);
+    padding-right: calc(theme.$size/4);
 
     @media screen and (min-width: 32rem) {
       display: flex;
@@ -44,26 +46,26 @@
       .toggle {
         background-color: transparent;
         border-radius: 50%;
-        border: $border solid $l3;
-        height: calc($border * 2);
-        width: calc($border * 2);
+        border: theme.$border solid theme.$l3;
+        height: calc(theme.$border * 2);
+        width: calc(theme.$border * 2);
       }
     }
   }
 
   .checkbox:checked {
     & + .Frame {
-      background-color: $l4;
+      background-color: theme.$l4;
 
       .toggle {
-        background-color: $l1;
+        background-color: theme.$l1;
         border-color: transparent;
         border-radius: 0.6rem;
         width: 0;
       }
 
       .label {
-        color: $l1;
+        color: theme.$l1;
       }
     }
   }

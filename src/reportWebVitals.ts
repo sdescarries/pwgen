@@ -1,5 +1,5 @@
 // https://bit.ly/CRA-vitals
-import type { ReportHandler } from 'web-vitals';
+type ReportHandler = (stat: unknown) => void;
 
 export function reportWebVitals(onPerfEntry?: ReportHandler): void {
   if (!(onPerfEntry instanceof Function)) {
@@ -7,12 +7,10 @@ export function reportWebVitals(onPerfEntry?: ReportHandler): void {
   }
 
   import('web-vitals')
-    .then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      getCLS(onPerfEntry);
-      getFID(onPerfEntry);
-      getFCP(onPerfEntry);
-      getLCP(onPerfEntry);
-      getTTFB(onPerfEntry);
+    .then(({ onLCP, onINP, onCLS }) => {
+      onLCP(onPerfEntry);
+      onINP(onPerfEntry);
+      onCLS(onPerfEntry);
     })
     .catch(({ stack }) => console.warn(stack));
 }
