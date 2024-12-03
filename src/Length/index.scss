@@ -1,8 +1,10 @@
+@use "../theme";
+
 .Length {
-  margin: 0 calc($size/4);
+  margin: 0 calc(theme.$size/4);
   display: block;
-  height: $size;
-  width: $size;
+  height: theme.$size;
+  width: theme.$size;
 
   cursor: pointer;
   transition: all 0.4s ease-in-out;
@@ -13,7 +15,7 @@
   text-align: center;
 
   &:active {
-    background-color: $l4;
-    color: $l1;
+    background-color: theme.$l4;
+    color: theme.$l1;
   }
 }

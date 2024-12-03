@@ -31,5 +31,3 @@ describe('Password Generator', () => {
   });
 
 });
-
-export { };

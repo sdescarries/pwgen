@@ -35,7 +35,6 @@ export function useDipSwitchStorage({ charset, update }: DipSwitchProps): [boole
 
   const [checked, setChecked] = useState<boolean>(() => loadDipSwitchStorage(charset));
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => update({ [charset]: checked }), []);
 
   const chainUpdate = (newState: boolean) => {

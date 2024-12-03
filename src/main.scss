@@ -1,6 +1,6 @@
-@import "./theme.scss";
+@use "theme.scss";
 
-@import "./App";
-@import "./DipSwitch";
-@import "./InfiniScroll";
-@import "./Length";
+@use "App";
+@use "DipSwitch";
+@use "InfiniScroll";
+@use "Length";

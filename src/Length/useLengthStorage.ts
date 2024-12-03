@@ -45,7 +45,6 @@ export function useLengthStorage({ update }: LengthProps): [number, Toggle] {
 
   const [length, setValue] = useState<number>(loadLengthStorage);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => update(length), []);
 
   const chainUpdate = (newState: number) => {

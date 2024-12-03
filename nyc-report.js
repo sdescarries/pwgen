@@ -4,16 +4,16 @@
  * This script merges the coverage reports from Cypress and Jest into a single one,
  * inside the 'coverage' folder
  */
-const cp = require('child_process');
-const fs = require('fs');
+import cp from 'child_process';
+import fs from 'fs';
 
 const REPORTS_FOLDER = 'reports';
 const FINAL_OUTPUT_FOLDER = 'coverage';
 
-const runOne = (command) => {
+function runOne(command) {
   try {
     cp.execSync(command, { stdio: 'inherit' });
-  } catch ({message}) {
+  } catch ({ message }) {
     console.error(message);
     // FIXME
     // process.exit(1);
@@ -40,12 +40,13 @@ const normalize = (obj, where = '') =>
         console.log(`${where}.${key}: ${value} => 0`);
         obj[key] = 0;
       }
+    } else if (value == null) {
     } else if (typeof value === "object") {
       normalize(value, `${where}.${key}`);
     }
   })
 
-const linkFile = ([id, path]) => {
+function linkFile([id, path]) {
   const target = `results/cleaned/coverage-${id}.json`;
 
   fs.mkdirSync('results/cleaned', { recursive: true });
@@ -56,7 +57,7 @@ const linkFile = ([id, path]) => {
   const fileData = JSON.parse(fs.readFileSync(path));
   normalize(fileData, id);
   fs.writeFileSync(target, JSON.stringify(fileData, null, 2));
-};
+}
 
 Object.entries(files).forEach(linkFile);
 
