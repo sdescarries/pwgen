@@ -13,7 +13,7 @@ importers:
         version: 13.16.1
       start-server-and-test:
         specifier: ^2.0.3
-        version: 2.0.8
+        version: 2.0.9
     devDependencies:
       '@babel/core':
         specifier: 7.26.0
@@ -1934,8 +1934,8 @@ packages:
     resolution: {integrity: sha512-Mr2ZakwQ7XUAjp7pAwQWRhhK8mQQ6JAaNWSjmjxil0R8BPioMtQsTLOolGYkji1rcL++3dCqZA3zWqpT+9Ew6g==}
     engines: {node: '>=4'}
 
-  axios@1.7.7:
-    resolution: {integrity: sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==}
+  axios@1.7.9:
+    resolution: {integrity: sha512-LhLcE7Hbiryz8oMDdDptSrWowmB4Bl6RCt6sIJKpRB4XtVf0iEgewX3au/pJqm+Py1kCASkb/FFKjxQaLtxJvw==}
 
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
@@ -4305,8 +4305,8 @@ packages:
     resolution: {integrity: sha512-XlkWvfIm6RmsWtNJx+uqtKLS8eqFbxUg0ZzLXqY0caEy9l7hruX8IpiDnjsLavoBgqCCR71TqWO8MaXYheJ3RQ==}
     engines: {node: '>=10'}
 
-  start-server-and-test@2.0.8:
-    resolution: {integrity: sha512-v2fV6NV2F7tL1ocwfI4Wpait+IKjRbT5l3ZZ+ZikXdMLmxYsS8ynGAsCQAUVXkVyGyS+UibsRnvgHkMvJIvCsw==}
+  start-server-and-test@2.0.9:
+    resolution: {integrity: sha512-DDceIvc4wdpr+z3Aqkot2QMho8TcUBh5qH0wEHDpEexBTzlheOcmh53d3dExABY4J5C7qS2UbSXqRWLtxpbWIQ==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -5819,7 +5819,7 @@ snapshots:
       '@babel/preset-env': 7.26.0(@babel/core@7.26.0)
       babel-loader: 9.2.1(@babel/core@7.26.0)(webpack@5.97.1)
       bluebird: 3.7.1
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.3.7
       lodash: 4.17.21
       webpack: 5.97.1
     transitivePeerDependencies:
@@ -5918,7 +5918,7 @@ snapshots:
   '@eslint/config-array@0.19.0':
     dependencies:
       '@eslint/object-schema': 2.1.4
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.3.7
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -6599,7 +6599,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.17.0
       '@typescript-eslint/visitor-keys': 8.17.0
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.3.7
       fast-glob: 3.3.2
       is-glob: 4.0.3
       minimatch: 9.0.5
@@ -6957,9 +6957,9 @@ snapshots:
 
   axe-core@4.10.0: {}
 
-  axios@1.7.7(debug@4.3.7):
+  axios@1.7.9(debug@4.4.0):
     dependencies:
-      follow-redirects: 1.15.9(debug@4.3.7)
+      follow-redirects: 1.15.9(debug@4.4.0)
       form-data: 4.0.1
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -7895,7 +7895,7 @@ snapshots:
 
   execa@5.1.1:
     dependencies:
-      cross-spawn: 7.0.3
+      cross-spawn: 7.0.6
       get-stream: 6.0.1
       human-signals: 2.1.0
       is-stream: 2.0.1
@@ -8014,9 +8014,9 @@ snapshots:
 
   flatted@3.3.2: {}
 
-  follow-redirects@1.15.9(debug@4.3.7):
+  follow-redirects@1.15.9(debug@4.4.0):
     optionalDependencies:
-      debug: 4.3.7
+      debug: 4.4.0(supports-color@8.1.1)
     optional: true
 
   for-each@0.3.3:
@@ -9807,16 +9807,16 @@ snapshots:
     dependencies:
       escape-string-regexp: 2.0.0
 
-  start-server-and-test@2.0.8:
+  start-server-and-test@2.0.9:
     dependencies:
       arg: 5.0.2
       bluebird: 3.7.2
       check-more-types: 2.24.0
-      debug: 4.3.7
+      debug: 4.4.0(supports-color@8.1.1)
       execa: 5.1.1
       lazy-ass: 1.6.0
       ps-tree: 1.2.0
-      wait-on: 8.0.1(debug@4.3.7)
+      wait-on: 8.0.1(debug@4.4.0)
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -10245,9 +10245,9 @@ snapshots:
     dependencies:
       xml-name-validator: 4.0.0
 
-  wait-on@8.0.1(debug@4.3.7):
+  wait-on@8.0.1(debug@4.4.0):
     dependencies:
-      axios: 1.7.7(debug@4.3.7)
+      axios: 1.7.9(debug@4.4.0)
       joi: 17.13.3
       lodash: 4.17.21
       minimist: 1.2.8
