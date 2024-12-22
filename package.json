@@ -61,7 +61,7 @@
     "jest-environment-jsdom": "29.7.0",
     "jest-html-reporters": "3.1.7",
     "nyc": "17.1.0",
-    "p-limit": "6.1.0",
+    "p-limit": "6.2.0",
     "postcss": "8.4.49",
     "postcss-import": "16.1.0",
     "postcss-nesting": "13.0.1",
