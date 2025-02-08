@@ -7,13 +7,6 @@ settings:
 importers:
 
   .:
-    optionalDependencies:
-      cypress:
-        specifier: ^13.16.0
-        version: 13.16.1
-      start-server-and-test:
-        specifier: ^2.0.3
-        version: 2.0.10
     devDependencies:
       '@babel/core':
         specifier: 7.26.7
@@ -26,7 +19,7 @@ importers:
         version: 3.13.11(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1))(cypress@13.16.1)(webpack@5.97.1)
       '@eslint/compat':
         specifier: ^1.2.3
-        version: 1.2.5(eslint@9.19.0)
+        version: 1.2.6(eslint@9.19.0)
       '@eslint/eslintrc':
         specifier: ^3.2.0
         version: 3.2.0
@@ -189,6 +182,13 @@ importers:
       webpack:
         specifier: 5.97.1
         version: 5.97.1
+    optionalDependencies:
+      cypress:
+        specifier: ^13.16.0
+        version: 13.16.1
+      start-server-and-test:
+        specifier: ^2.0.3
+        version: 2.0.10
 
 packages:
 
@@ -1027,8 +1027,8 @@ packages:
     resolution: {integrity: sha512-CCZCDJuduB9OUkFkY2IgppNZMi2lBQgD2qzwXkEia16cge2pijY/aXi96CJMquDMn3nJdlPV1A5KrJEXwfLNzQ==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
-  '@eslint/compat@1.2.5':
-    resolution: {integrity: sha512-5iuG/StT+7OfvhoBHPlmxkPA9om6aDUFgmD4+mWKAGsYt4vCe8rypneG03AuseyRHBmcCLXQtIH5S26tIoggLg==}
+  '@eslint/compat@1.2.6':
+    resolution: {integrity: sha512-k7HNCqApoDHM6XzT30zGoETj+D+uUcZUb+IVAJmar3u6bvHf7hhHJcWx09QHj4/a2qrKZMWU0E16tvkiAdv06Q==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^9.10.0
@@ -6119,7 +6119,7 @@ snapshots:
 
   '@eslint-community/regexpp@4.12.1': {}
 
-  '@eslint/compat@1.2.5(eslint@9.19.0)':
+  '@eslint/compat@1.2.6(eslint@9.19.0)':
     optionalDependencies:
       eslint: 9.19.0
 
