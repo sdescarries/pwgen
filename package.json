@@ -73,7 +73,7 @@
     "typescript": "5.7.3",
     "typescript-eslint": "^8.17.0",
     "vite": "6.0.11",
-    "vite-plugin-istanbul": "6.0.2",
+    "vite-plugin-istanbul": "7.0.0",
     "vite-plugin-pwa": "0.21.1",
     "web-vitals": "4.2.4",
     "webpack": "5.97.1"
