@@ -19,8 +19,8 @@
     "start": "vite --host"
   },
   "devDependencies": {
-    "@babel/core": "7.26.7",
-    "@babel/preset-env": "7.26.7",
+    "@babel/core": "7.26.8",
+    "@babel/preset-env": "7.26.8",
     "@cypress/code-coverage": "3.13.11",
     "@eslint/compat": "^1.2.3",
     "@eslint/eslintrc": "^3.2.0",
