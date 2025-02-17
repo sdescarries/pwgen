@@ -79,7 +79,7 @@
     "webpack": "5.98.0"
   },
   "optionalDependencies": {
-    "cypress": "^13.16.0",
+    "cypress": "^14.0.0",
     "start-server-and-test": "^2.0.3"
   }
 }
