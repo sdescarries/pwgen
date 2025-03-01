@@ -15,8 +15,8 @@ importers:
         specifier: 7.26.9
         version: 7.26.9(@babel/core@7.26.9)
       '@cypress/code-coverage':
-        specifier: 3.13.11
-        version: 3.13.11(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(babel-loader@9.2.1(@babel/core@7.26.9)(webpack@5.98.0))(cypress@13.16.1)(webpack@5.98.0)
+        specifier: 3.13.12
+        version: 3.13.12(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(babel-loader@9.2.1(@babel/core@7.26.9)(webpack@5.98.0))(cypress@13.16.1)(webpack@5.98.0)
       '@eslint/compat':
         specifier: ^1.2.3
         version: 1.2.6(eslint@9.20.1)
@@ -818,8 +818,8 @@ packages:
     peerDependencies:
       postcss-selector-parser: ^7.0.0
 
-  '@cypress/code-coverage@3.13.11':
-    resolution: {integrity: sha512-mX5MLnfIGwtd4pAEzTBMfwnQYAT/z8sINq4DA10DNhj8ZkF4/foSxosToFbtNkchTtZiKGrhWS+6LZL2qsi+bw==}
+  '@cypress/code-coverage@3.13.12':
+    resolution: {integrity: sha512-JPNlzk9xgCXRIcFCGoSy0qx3FFcaJOGjGkRAPYewYWLukZbcFSjxfNuoK6IMkaJb+miWdzLV0tsAko9eQDNBiA==}
     peerDependencies:
       '@babel/core': ^7.0.1
       '@babel/preset-env': ^7.0.0
@@ -5995,7 +5995,7 @@ snapshots:
     dependencies:
       postcss-selector-parser: 7.0.0
 
-  '@cypress/code-coverage@3.13.11(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(babel-loader@9.2.1(@babel/core@7.26.9)(webpack@5.98.0))(cypress@13.16.1)(webpack@5.98.0)':
+  '@cypress/code-coverage@3.13.12(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(babel-loader@9.2.1(@babel/core@7.26.9)(webpack@5.98.0))(cypress@13.16.1)(webpack@5.98.0)':
     dependencies:
       '@babel/core': 7.26.9
       '@babel/preset-env': 7.26.9(@babel/core@7.26.9)
