@@ -21,7 +21,7 @@
   "devDependencies": {
     "@babel/core": "7.26.9",
     "@babel/preset-env": "7.26.9",
-    "@cypress/code-coverage": "3.13.11",
+    "@cypress/code-coverage": "4.0.0",
     "@eslint/compat": "^1.2.3",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.16.0",
@@ -76,7 +76,7 @@
     "vite-plugin-istanbul": "7.0.0",
     "vite-plugin-pwa": "0.21.1",
     "web-vitals": "4.2.4",
-    "webpack": "5.98.0"
+    "webpack": "5.104.1"
   },
   "optionalDependencies": {
     "cypress": "^13.16.0",
