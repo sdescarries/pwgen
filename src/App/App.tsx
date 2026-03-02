@@ -1,7 +1,8 @@
 import { DipSwitch } from '@/DipSwitch/';
 import { InfiniScroll } from '@/InfiniScroll/';
 import { Length } from '@/Length/';
-import { 
+import { ReactElement } from 'react';
+import {
   CharsetState,
   UpdatePasswordOptions,
   usePasswordContext,
@@ -11,12 +12,12 @@ export interface ControlProps {
   update: UpdatePasswordOptions;
 }
 
-export function Control({ update }: ControlProps): JSX.Element {
+export function Control({ update }: ControlProps): ReactElement {
   const updateCharset = (charset: CharsetState) => update({ charset });
-  const updateLength = (length: number) => update({length});
+  const updateLength = (length: number) => update({ length });
   return (
     <div className={'Controls'}>
-      <Length update={updateLength}/>
+      <Length update={updateLength} />
       <DipSwitch charset={'AZ'} update={updateCharset} />
       <DipSwitch charset={'09'} update={updateCharset} />
       <DipSwitch charset={'SM'} update={updateCharset} />
@@ -24,7 +25,7 @@ export function Control({ update }: ControlProps): JSX.Element {
   );
 }
 
-export function App(): JSX.Element {
+export function App(): ReactElement {
   const context = usePasswordContext();
   return (
     <div className="App">

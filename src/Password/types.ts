@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 export interface CharsetState {
   [key: string]: boolean,
 }
@@ -25,5 +27,5 @@ export interface PasswordOptions {
 }
 
 export type PasswordUserOptions = Partial<PasswordOptions>;
-export type PasswordRenderer = (key: number) => JSX.Element;
+export type PasswordRenderer = (key: number) => ReactElement;
 export type UpdatePasswordOptions = (options: PasswordUserOptions) => void;

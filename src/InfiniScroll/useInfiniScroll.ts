@@ -1,5 +1,4 @@
 import {
-  MutableRefObject,
   RefObject,
   useCallback,
   useEffect,
@@ -10,19 +9,22 @@ import {
 import { PasswordOptions, WordGenerator } from '@/Password';
 import { useDebounce } from '@/Password/useDebounce';
 
+export type RefElement = RefObject<HTMLElement | null>;
+export type RefDiv = RefObject<HTMLDivElement | null>;
+
 export interface InfiniScrollState {
 
   // container element for the infinite scroll
-  grid: RefObject<HTMLElement>;
+  grid: RefElement;
 
   // table data
   list: InfiniCell[],
 
   // infini scroll bottom of view observer
-  loader: RefObject<HTMLElement>;
+  loader: RefElement;
 
   // cell size observer
-  standard: RefObject<HTMLDivElement>;
+  standard: RefDiv;
 }
 
 export interface InfiniCell {
@@ -52,13 +54,13 @@ export interface ListModifiers {
   shred: (index: number) => void;
 
   // number of visible lines in table
-  rows: MutableRefObject<number>;
+  rows: RefObject<number>;
 
   // number of visible columns in table
-  cols: MutableRefObject<number>;
+  cols: RefObject<number>;
 
   // write cursor index in array
-  index: MutableRefObject<number>;
+  index: RefObject<number>;
 
   // word length for placeholder
   length: number;
@@ -73,11 +75,11 @@ export interface Refresh {
 export type Refresher = (options?: Refresh) => void;
 
 export interface ResizeHandlerProps {
-  cols: MutableRefObject<number>;
-  rows: MutableRefObject<number>;
+  cols: RefObject<number>;
+  rows: RefObject<number>;
 
-  grid: RefObject<HTMLElement>;
-  standard: RefObject<HTMLDivElement>;
+  grid: RefElement;
+  standard: RefDiv;
 
   refresh: Refresher;
 }
@@ -123,7 +125,7 @@ const makeIntersectionHandler = (callback: noop) =>
     }
   };
 
-export function observeLoaderEffect(loader: RefObject<HTMLElement>, callback: noop) {
+export function observeLoaderEffect(loader: RefElement, callback: noop) {
   if (!loader.current) {
     console.warn('useInfiniScroll IntersectionObserver not ready');
     return;
@@ -134,7 +136,7 @@ export function observeLoaderEffect(loader: RefObject<HTMLElement>, callback: no
   return () => intersectionObserver.disconnect();
 }
 
-export function loaderIntersectsViewport(loader: RefObject<HTMLElement>, callback: noop): void {
+export function loaderIntersectsViewport(loader: RefElement, callback: noop): void {
   const rect = loader.current?.getBoundingClientRect();
   if (!rect) return;
   if (rect.bottom > window.innerHeight) return;
@@ -142,13 +144,13 @@ export function loaderIntersectsViewport(loader: RefObject<HTMLElement>, callbac
   callback();
 }
 
-export function intersectionInterval(loader: RefObject<HTMLElement>, callback: noop): noop {
+export function intersectionInterval(loader: RefElement, callback: noop): noop {
   const interval = setInterval(() => loaderIntersectsViewport(loader, callback), 200);
   return () => clearInterval(interval);
 }
 
-export function useInfiniScrollLoader(refresh: Refresher): [RefObject<HTMLElement>] {
-  const loader = useRef<HTMLElement>(null);
+export function useInfiniScrollLoader(refresh: Refresher): [RefElement] {
+  const loader = useRef<HTMLElement | null>(null);
   const debounce = useDebounce(100);
   const callback = useCallback(() =>
     debounce(() =>
@@ -223,9 +225,9 @@ export function makeResizeHandler(props: ResizeHandlerProps) {
 
 export function useInfiniScrollSize(
   refresh: Refresher,
-  cols: MutableRefObject<number>,
-  rows: MutableRefObject<number>,
-): [RefObject<HTMLElement>, RefObject<HTMLDivElement>] {
+  cols: RefObject<number>,
+  rows: RefObject<number>,
+): [RefElement, RefDiv] {
   const grid = useRef<HTMLElement>(null);
   const standard = useRef<HTMLDivElement>(null);
 
@@ -248,7 +250,7 @@ export function useInfiniScrollSize(
 
 const promiseAnimationFrame = () => new Promise(resolve => requestAnimationFrame(resolve));
 
-const fillList = (index: MutableRefObject<number>, value: string) => (oldList: InfiniCell[]) => {
+const fillList = (index: RefObject<number>, value: string) => (oldList: InfiniCell[]) => {
   const cell = oldList[index.current];
 
   if (!cell) {
@@ -309,7 +311,7 @@ export function useInfiniScroll({ generator, length }: InfiniScrollProps): Infin
     if (needRefresh.done) return;
     if (!length) return;
 
-    listUpdate(refreshList({...needRefresh, cols, rows, index, length, shred }));
+    listUpdate(refreshList({ ...needRefresh, cols, rows, index, length, shred }));
     setRefresh({ done: true });
   }, [length, needRefresh, shred]);
 
@@ -321,7 +323,7 @@ export function useInfiniScroll({ generator, length }: InfiniScrollProps): Infin
       .resolve()
       .then(async () => {
         const size = rows.current * cols.current;
-        while(alive && index.current < size) {
+        while (alive && index.current < size) {
           const [value] = await Promise.all([
             generator(),
             promiseAnimationFrame(),

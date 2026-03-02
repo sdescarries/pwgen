@@ -1,14 +1,14 @@
-import { useCallback } from 'react';
+import { ReactElement, useCallback } from 'react';
 
 import { InfiniCell, InfiniScrollProps, useInfiniScroll } from './useInfiniScroll';
 
-export type renderInfiniScroll = (key: number) => JSX.Element;
+export type renderInfiniScroll = (key: number) => ReactElement;
 
 export interface CellProps extends InfiniCell {
   index: number;
 }
 
-export function Cell(props: CellProps): JSX.Element {
+export function Cell(props: CellProps): ReactElement {
 
   const { id, index, length, shred, value = '' } = props;
 
@@ -42,7 +42,7 @@ export function Cell(props: CellProps): JSX.Element {
   );
 }
 
-export function InfiniScroll(props: InfiniScrollProps): JSX.Element {
+export function InfiniScroll(props: InfiniScrollProps): ReactElement {
   const {
     grid,
     list,

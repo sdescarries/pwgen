@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { charsetLabels, charsetShorts } from '@/Password/';
+import { ReactElement } from 'react';
 
 import {
   DipSwitchProps,
@@ -12,7 +13,7 @@ export interface LabelProps {
   id: string,
 }
 
-export function Label({ id, charset, checked }: LabelProps): JSX.Element {
+export function Label({ id, charset, checked }: LabelProps): ReactElement {
   const label = charsetLabels[charset];
   const short = charsetShorts[charset];
   const hint = `${checked ? 'disable' : 'enable'} ${label} characters`.toLocaleLowerCase();
@@ -31,7 +32,7 @@ export function Label({ id, charset, checked }: LabelProps): JSX.Element {
   );
 }
 
-export function DipSwitch(props: DipSwitchProps): JSX.Element {
+export function DipSwitch(props: DipSwitchProps): ReactElement {
   const [checked, toggle] = useDipSwitchStorage(props);
   const id = `dipSwitch-${props.charset}`;
   return (

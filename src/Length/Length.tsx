@@ -1,6 +1,7 @@
 import { LengthProps, useLengthStorage } from './useLengthStorage';
+import { ReactElement } from 'react';
 
-export function Length(props: LengthProps): JSX.Element {
+export function Length(props: LengthProps): ReactElement {
 
   const [length, toggle] = useLengthStorage(props);
 
