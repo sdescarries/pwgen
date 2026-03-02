@@ -18,13 +18,13 @@ Browser based secure password generator built with <img alt='React' src='docs/re
 2. Install dependencies.
 
     ```sh
-    yarn
+    pnpm install
     ```
 
 3. Serve with hot reload at <http://localhost:3000/> .
 
     ```sh
-    yarn start
+    pnpm start
     ```
 
 ## License

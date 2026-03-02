@@ -29,6 +29,7 @@ jobs:
 
       - name: setup and test
         run: |
+          pnpm audit
           pnpm install --no-optional
           pnpm lint
           pnpm build
@@ -60,6 +61,7 @@ jobs:
 
       - name: setup and test
         run: |
+          pnpm audit
           pnpm install --no-optional
           pnpm jest --coverage
 
@@ -95,6 +97,7 @@ jobs:
 
       - name: setup and test
         run: |
+          pnpm audit
           pnpm install
           pnpm cypress install
           pnpm e2e
@@ -140,14 +143,14 @@ jobs:
           name: cypress
           path: results/cypress
 
-      - name: Code Climate Coverage Action
-        uses: paambaati/codeclimate-action@f429536ee076d758a24705203199548125a28ca7 # v9.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      - name: Qlty Coverage Action
+        uses: qltysh/qlty-action/coverage@a19242102d17e497f437d7466aa01b528537e899 # v2.2.0
         with:
-          coverageLocations: |
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: |
             results/cypress/lcov.info:lcov
             results/jest/lcov.info:lcov
+
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@6c2d9db40f9296374acc17b90404b6e8864128c8 # v4.7.3

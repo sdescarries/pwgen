@@ -1,0 +1,6 @@
+minimumReleaseAge: 1440
+
+sideEffectCache: false
+
+onlyBuiltDependencies:
+  - cypress
