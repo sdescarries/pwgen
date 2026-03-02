@@ -61,9 +61,9 @@ function linkFile([id, path]) {
 
 Object.entries(files).forEach(linkFile);
 
-const nycMerge = `nyc merge results/cleaned .nyc_output/coverage.json`;
+const nycMerge = `npx nyc merge results/cleaned .nyc_output/coverage.json`;
 const nycReport = [
-  'nyc report',
+  'npx nyc report',
   '--skip-empty',
   '--check-coverage',
   '--reporter text',
