@@ -22,4 +22,5 @@ export default defineConfig({
     setupNodeEvents: pluginConfig,
     baseUrl: 'http://localhost:5173/pwgen/',
   },
+  allowCypressEnv: false,
 })
