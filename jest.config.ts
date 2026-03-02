@@ -1,4 +1,6 @@
 // Jest on steroids 🤹 💊
+import path from 'path';
+import { fileURLToPath } from 'url';
 import type { Config } from '@jest/types';
 import {
   accessSync,
@@ -7,7 +9,10 @@ import {
   statSync,
   writeFileSync,
 } from 'fs';
-import { resolve } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 const uncover = [
   '!**/*.{spec,unit,test,jest}.{js,jsx,ts,tsx}',
@@ -30,7 +35,7 @@ const template: Config.InitialOptions = ({
     },
   },
 
-  coverageDirectory: resolve(`${__dirname}/results/jest/`),
+  coverageDirectory: path.resolve(`${__dirname}/results/jest/`),
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'v8',
@@ -51,7 +56,7 @@ const template: Config.InitialOptions = ({
     [
       'jest-html-reporters',
       {
-        publicPath: resolve(`${__dirname}/results/jest`),
+        publicPath: path.resolve(`${__dirname}/results/jest`),
         expand: true,
       },
     ],
@@ -85,7 +90,7 @@ const template: Config.InitialOptions = ({
 
 function accessible(entry: string): boolean {
   try {
-    accessSync(resolve(`${process.cwd()}/${entry}`), constants.R_OK);
+    accessSync(path.resolve(`${process.cwd()}/${entry}`), constants.R_OK);
     return true;
   } catch {
     return false;
@@ -119,9 +124,9 @@ export function config(): Config.InitialOptions {
     }
   }
 
-  mkdirSync(resolve(`${__dirname}/results/jest/`), { recursive: true });
+  mkdirSync(path.resolve(`${__dirname}/results/jest/`), { recursive: true });
   writeFileSync(
-    resolve(`${__dirname}/results/jest/jest.config.json`),
+    path.resolve(`${__dirname}/results/jest/jest.config.json`),
     JSON.stringify(result, null, 2)
   );
 
