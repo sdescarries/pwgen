@@ -6,9 +6,16 @@ minimumReleaseAge: 1440
 onlyBuiltDependencies:
   - cypress
   - esbuild
+  - unrs-resolver
 
 overrides:
-  js-yaml@>=4.0.0 <4.1.1: '>=4.1.1'
+  html-encoding-sniffer@<6.0.0: '>=6.0.0'
+  magic-string: '>=0.30.21'
+  nyc@<18.0.0: '>=18.0.0'
   serialize-javascript@<=7.0.2: '>=7.0.3'
+  source-map: '^0.7'
+  test-exclude@<8.0.0: '>=8.0.0'
+  workbox-build@<7.4.0: '>=7.4.0'
+  workbox-window@<7.4.0: '>=7.4.0'
 
 sideEffectCache: false
