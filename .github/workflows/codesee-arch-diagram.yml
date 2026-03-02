@@ -15,6 +15,11 @@ jobs:
     continue-on-error: true
     name: Analyze the repo with CodeSee
     steps:
-      - uses: Codesee-io/codesee-action@v2
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@a90bcbc6539c36a85cdfeb73f7e2f433735f215b # v2.15.0
+        with:
+          egress-policy: audit
+
+      - uses: Codesee-io/codesee-action@db076ce4b205a08da4d95bbefb3e278a958a4799 # v2
         with:
           codesee-token: ${{ secrets.CODESEE_ARCH_DIAG_API_TOKEN }}
