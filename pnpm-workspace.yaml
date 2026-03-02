@@ -1,6 +1,10 @@
-minimumReleaseAge: 1440
+ignoredBuiltDependencies:
+  - '@parcel/watcher'
 
-sideEffectCache: false
+minimumReleaseAge: 1440
 
 onlyBuiltDependencies:
   - cypress
+  - esbuild
+
+sideEffectCache: false

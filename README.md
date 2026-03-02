@@ -1,8 +1,8 @@
 # [Secure Password Generator](https://sdescarries.github.io/pwgen/)
 
 [![ci/cd](https://github.com/sdescarries/pwgen/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/sdescarries/pwgen/actions/workflows/ci-cd.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/c30aa75a30fddffba7c5/maintainability)](https://codeclimate.com/github/sdescarries/pwgen/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/c30aa75a30fddffba7c5/test_coverage)](https://codeclimate.com/github/sdescarries/pwgen/test_coverage)
+[![Maintainability](https://qlty.sh/gh/sdescarries/projects/pwgen/maintainability.svg)](https://qlty.sh/gh/sdescarries/projects/pwgen)
+[![Code Coverage](https://qlty.sh/gh/sdescarries/projects/pwgen/coverage.svg)](https://qlty.sh/gh/sdescarries/projects/pwgen)
 
 Browser based secure password generator built with <img alt='React' src='docs/react.svg' height=16/> and <img alt='Vite' src='docs/vite.svg' height=16 />
 
