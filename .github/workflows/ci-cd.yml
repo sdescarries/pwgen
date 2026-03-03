@@ -62,7 +62,7 @@ jobs:
       - name: setup and test
         run: |
           pnpm audit
-          pnpm install --no-optional
+          pnpm install
           pnpm jest --coverage
 
       - name: upload jest artifacts
