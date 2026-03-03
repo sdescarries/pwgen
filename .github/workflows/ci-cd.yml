@@ -146,7 +146,7 @@ jobs:
       - name: Qlty Coverage Action
         uses: qltysh/qlty-action/coverage@a19242102d17e497f437d7466aa01b528537e899 # v2.2.0
         with:
-          oidc: true
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
           files: results/*/lcov.info
 
       - name: Deploy to GitHub Pages
