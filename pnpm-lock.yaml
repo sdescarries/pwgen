@@ -26,7 +26,7 @@ importers:
         version: 7.29.0(@babel/core@7.29.0)
       '@cypress/code-coverage':
         specifier: 4.0.1
-        version: 4.0.1(@babel/core@7.29.0)(@babel/preset-env@7.29.0(@babel/core@7.29.0))(babel-loader@10.0.0(@babel/core@7.29.0)(webpack@5.105.3))(cypress@15.11.0)(webpack@5.105.3)
+        version: 4.0.1(@babel/core@7.29.0)(@babel/preset-env@7.29.0(@babel/core@7.29.0))(babel-loader@10.0.0(@babel/core@7.29.0)(webpack@5.105.4))(cypress@15.11.0)(webpack@5.105.4)
       '@eslint/compat':
         specifier: ^2.0.2
         version: 2.0.2(eslint@10.0.2)
@@ -83,7 +83,7 @@ importers:
         version: 10.4.27(postcss@8.5.6)
       babel-loader:
         specifier: 10.0.0
-        version: 10.0.0(@babel/core@7.29.0)(webpack@5.105.3)
+        version: 10.0.0(@babel/core@7.29.0)(webpack@5.105.4)
       eslint:
         specifier: 10.0.2
         version: 10.0.2
@@ -187,8 +187,8 @@ importers:
         specifier: 5.1.0
         version: 5.1.0
       webpack:
-        specifier: 5.105.3
-        version: 5.105.3
+        specifier: 5.105.4
+        version: 5.105.4
     optionalDependencies:
       cypress:
         specifier: ^15.11.0
@@ -1518,6 +1518,7 @@ packages:
     resolution: {integrity: sha512-3AHmtQq/ppNuUspKAlvA8HtLybkDflkMuLK4DPo77DfthRb71V84/c4MlWJXixZz4uruIH4uaa07IqoAkG64fg==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.59.0':
     resolution: {integrity: sha512-2UdiwS/9cTAx7qIUZB/fWtToJwvt0Vbo0zmnYt7ED35KPg13Q0ym1g442THLC7VyI6JfYTP4PiSOWyoMdV2/xg==}
@@ -4675,8 +4676,8 @@ packages:
     resolution: {integrity: sha512-G13vtMYPT/J8A4X2SjdtBTphZlrp1gKv6hZiOjw14RCWg6GbHuQBGtjlx75xLbYV/wEc0D7G5K4rxKP/cXk8Bw==}
     engines: {node: '>=10'}
 
-  terser-webpack-plugin@5.3.16:
-    resolution: {integrity: sha512-h9oBFCWrq78NyWWVcSwZarJkZ01c2AyGrzs1crmHZO3QUg9D61Wu4NPjBy69n7JqylFF5y+CsUZYmYEIZ3mR+Q==}
+  terser-webpack-plugin@5.3.17:
+    resolution: {integrity: sha512-YR7PtUp6GMU91BgSJmlaX/rS2lGDbAF7D+Wtq7hRO+MiljNmodYvqslzCFiYVAgW+Qoaaia/QUIP4lGXufjdZw==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       '@swc/core': '*'
@@ -5038,8 +5039,8 @@ packages:
     resolution: {integrity: sha512-7tP1PdV4vF+lYPnkMR0jMY5/la2ub5Fc/8VQrrU+lXkiM6C4TjVfGw7iKfyhnTQOsD+6Q/iKw0eFciziRgD58Q==}
     engines: {node: '>=10.13.0'}
 
-  webpack@5.105.3:
-    resolution: {integrity: sha512-LLBBA4oLmT7sZdHiYE/PeVuifOxYyE2uL/V+9VQP7YSYdJU7bSf7H8bZRRxW8kEPMkmVjnrXmoR3oejIdX0xbg==}
+  webpack@5.105.4:
+    resolution: {integrity: sha512-jTywjboN9aHxFlToqb0K0Zs9SbBoW4zRUlGzI2tYNxVYcEi/IPpn+Xi4ye5jTLvX2YeLuic/IvxNot+Q1jMoOw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
@@ -6039,12 +6040,12 @@ snapshots:
     dependencies:
       postcss-selector-parser: 7.1.1
 
-  '@cypress/code-coverage@4.0.1(@babel/core@7.29.0)(@babel/preset-env@7.29.0(@babel/core@7.29.0))(babel-loader@10.0.0(@babel/core@7.29.0)(webpack@5.105.3))(cypress@15.11.0)(webpack@5.105.3)':
+  '@cypress/code-coverage@4.0.1(@babel/core@7.29.0)(@babel/preset-env@7.29.0(@babel/core@7.29.0))(babel-loader@10.0.0(@babel/core@7.29.0)(webpack@5.105.4))(cypress@15.11.0)(webpack@5.105.4)':
     dependencies:
       '@babel/core': 7.29.0
       '@babel/preset-env': 7.29.0(@babel/core@7.29.0)
-      '@cypress/webpack-preprocessor': 6.0.4(@babel/core@7.29.0)(@babel/preset-env@7.29.0(@babel/core@7.29.0))(babel-loader@10.0.0(@babel/core@7.29.0)(webpack@5.105.3))(webpack@5.105.3)
-      babel-loader: 10.0.0(@babel/core@7.29.0)(webpack@5.105.3)
+      '@cypress/webpack-preprocessor': 6.0.4(@babel/core@7.29.0)(@babel/preset-env@7.29.0(@babel/core@7.29.0))(babel-loader@10.0.0(@babel/core@7.29.0)(webpack@5.105.4))(webpack@5.105.4)
+      babel-loader: 10.0.0(@babel/core@7.29.0)(webpack@5.105.4)
       chalk: 4.1.2
       cypress: 15.11.0
       dayjs: 1.11.19
@@ -6054,7 +6055,7 @@ snapshots:
       js-yaml: 4.1.1
       nyc: 18.0.0
       tinyglobby: 0.2.15
-      webpack: 5.105.3
+      webpack: 5.105.4
     transitivePeerDependencies:
       - supports-color
 
@@ -6079,16 +6080,16 @@ snapshots:
       tunnel-agent: 0.6.0
       uuid: 8.3.2
 
-  '@cypress/webpack-preprocessor@6.0.4(@babel/core@7.29.0)(@babel/preset-env@7.29.0(@babel/core@7.29.0))(babel-loader@10.0.0(@babel/core@7.29.0)(webpack@5.105.3))(webpack@5.105.3)':
+  '@cypress/webpack-preprocessor@6.0.4(@babel/core@7.29.0)(@babel/preset-env@7.29.0(@babel/core@7.29.0))(babel-loader@10.0.0(@babel/core@7.29.0)(webpack@5.105.4))(webpack@5.105.4)':
     dependencies:
       '@babel/core': 7.29.0
       '@babel/preset-env': 7.29.0(@babel/core@7.29.0)
-      babel-loader: 10.0.0(@babel/core@7.29.0)(webpack@5.105.3)
+      babel-loader: 10.0.0(@babel/core@7.29.0)(webpack@5.105.4)
       bluebird: 3.7.1
       debug: 4.4.0
       lodash: 4.17.23
       semver: 7.7.4
-      webpack: 5.105.3
+      webpack: 5.105.4
     transitivePeerDependencies:
       - supports-color
 
@@ -7391,11 +7392,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  babel-loader@10.0.0(@babel/core@7.29.0)(webpack@5.105.3):
+  babel-loader@10.0.0(@babel/core@7.29.0)(webpack@5.105.4):
     dependencies:
       '@babel/core': 7.29.0
       find-up: 5.0.0
-      webpack: 5.105.3
+      webpack: 5.105.4
 
   babel-plugin-istanbul@7.0.1:
     dependencies:
@@ -10509,14 +10510,13 @@ snapshots:
       type-fest: 0.16.0
       unique-string: 2.0.0
 
-  terser-webpack-plugin@5.3.16(webpack@5.105.3):
+  terser-webpack-plugin@5.3.17(webpack@5.105.4):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       jest-worker: 27.5.1
       schema-utils: 4.3.3
-      serialize-javascript: 7.0.3
       terser: 5.46.0
-      webpack: 5.105.3
+      webpack: 5.105.4
 
   terser@5.46.0:
     dependencies:
@@ -10882,7 +10882,7 @@ snapshots:
 
   webpack-sources@3.3.4: {}
 
-  webpack@5.105.3:
+  webpack@5.105.4:
     dependencies:
       '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.8
@@ -10906,7 +10906,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.3
       tapable: 2.3.0
-      terser-webpack-plugin: 5.3.16(webpack@5.105.3)
+      terser-webpack-plugin: 5.3.17(webpack@5.105.4)
       watchpack: 2.5.1
       webpack-sources: 3.3.4
     transitivePeerDependencies:
