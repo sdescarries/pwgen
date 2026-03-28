@@ -9,13 +9,7 @@ onlyBuiltDependencies:
   - unrs-resolver
 
 overrides:
-  html-encoding-sniffer@<6.0.0: '>=6.0.0'
-  magic-string: '>=0.30.21'
-  nyc@<18.0.0: '>=18.0.0'
-  serialize-javascript@<=7.0.2: '>=7.0.3'
-  source-map: '^0.7'
-  test-exclude@<8.0.0: '>=8.0.0'
-  workbox-build@<7.4.0: '>=7.4.0'
-  workbox-window@<7.4.0: '>=7.4.0'
+  brace-expansion@<1.1.13: '>=1.1.13'
+  serialize-javascript@<7.0.5: '>=7.0.5'
 
 sideEffectCache: false
