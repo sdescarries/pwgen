@@ -1,8 +1,10 @@
-import '@testing-library/jest-dom/jest-globals';
 import '@/mocks/IntersectionObserver';
 import '@/mocks/ResizeObserver';
 import '@/mocks/crypto';
+import '@testing-library/jest-dom/jest-globals';
+import * as matchers from "@testing-library/jest-dom/matchers";
+import { expect, mock } from "bun:test";
 
-import { jest } from '@jest/globals';
-
-jest.mock('p-limit', () => () => (cb: () => void) => cb());
+// FIXME pas sur
+export const pLimit = mock(() => () => (cb: () => void) => cb());
+expect.extend(matchers);

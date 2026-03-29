@@ -1,6 +1,6 @@
-import { ReactElement, useCallback } from 'react';
+import { type ReactElement, useCallback } from 'react';
 
-import { InfiniCell, InfiniScrollProps, useInfiniScroll } from './useInfiniScroll';
+import { type InfiniCell, type InfiniScrollProps, useInfiniScroll } from './useInfiniScroll';
 
 export type renderInfiniScroll = (key: number) => ReactElement;
 

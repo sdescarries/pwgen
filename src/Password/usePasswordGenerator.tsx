@@ -1,20 +1,20 @@
 import { useRef, useState } from 'react';
 
-import { 
-  alphaLower, 
+import {
+  alphaLower,
   toRealSet,
 } from './charset';
 import { pwgenFactory } from './pwgenFactory';
-import { 
-  PasswordOptions, 
-  PasswordUserOptions, 
-  UpdatePasswordOptions, 
+import type {
+  PasswordOptions,
+  PasswordUserOptions,
+  UpdatePasswordOptions,
   WordGenerator,
 } from './types';
 import { useDebounce } from './useDebounce';
 
 export const combinePasswordOptions = (
-  oldOptions?: PasswordUserOptions, 
+  oldOptions?: PasswordUserOptions,
   newOptions?: PasswordUserOptions
 ): PasswordOptions => ({
   charset: {
@@ -42,7 +42,7 @@ interface PasswordContext extends PasswordOptions {
 
 export function usePasswordContext(): PasswordContext {
   const pending = useRef<PasswordOptions>({ charset: {}, length: 0 });
-  const [current, setOptions] = useState<PasswordOptions>(pending.current);
+  const [current, setOptions] = useState<PasswordOptions>({ charset: {}, length: 0 });
   const debounce = useDebounce(200);
   const generator = usePasswordGenerator(current);
 

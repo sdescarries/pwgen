@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { charsetLabels, charsetShorts } from '@/Password/';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import {
-  DipSwitchProps,
+  type DipSwitchProps,
   useDipSwitchStorage,
 } from './useDipSwitchStorage';
 

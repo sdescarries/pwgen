@@ -1,7 +1,7 @@
 import { getCharset } from './charset';
 import { pwgenImpl } from './pwgenImpl';
 import { Random } from './Random';
-import { WordGenerator } from './types';
+import type { WordGenerator } from './types';
 
 
 export function pwgenFactory(length: number, ...args: string[]): WordGenerator {

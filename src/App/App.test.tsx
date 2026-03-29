@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
+import { describe, expect,it } from 'bun:test';
 
 import { charsetLabels } from '@/Password/';
 
@@ -9,7 +10,7 @@ import { App } from './App';
 describe('App', () => {
 
   for (const [key, label] of Object.entries(charsetLabels)) {
-    it(`should have dipSwith for ${key}:${label}`, () => {
+    it(`should have dipSwitch for ${key}:${label}`, () => {
       // arrange
       render(<App />);
 
