@@ -13,7 +13,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/bun": "^1.3.11",
-    "@types/node": "^24.12.0",
+    "@types/node": "^24.12.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
@@ -22,10 +22,12 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
     "happy-dom": "^20.8.9",
-    "sass-embedded": "^1.98.0",
+    "sass-embedded": "^1.99.0",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.57.0",
-    "vite": "^8.0.1"
+    "typescript-eslint": "^8.58.0",
+    "vite": "^8.0.1",
+    "vite-plugin-istanbul": "^8.0.0",
+    "vite-plugin-pwa": "^1.2.0"
   },
   "name": "@sdescarries/pwgen",
   "optionalDependencies": {
@@ -43,7 +45,6 @@
     "jest": "jest",
     "lint": "eslint src",
     "prebuild": "tsc",
-    "prepare": "husky",
     "preview": "vite preview --port=3500",
     "start": "vite --host",
     "test": "bun test --preload ./src/setupTests.ts"

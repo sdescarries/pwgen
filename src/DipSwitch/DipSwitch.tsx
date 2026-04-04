@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { charsetLabels, charsetShorts } from '@/Password/';
 import type { ReactElement } from 'react';
 
