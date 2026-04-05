@@ -1,6 +1,6 @@
-import { Dispatch, useEffect, useState } from 'react';
+import { type Dispatch, useEffect, useState } from 'react';
 
-import { CharsetState } from '@/Password/';
+import type { CharsetState } from '@/Password/';
 
 export type UpdateCharsetState = (state: CharsetState) => void;
 export interface DipSwitchProps {
@@ -10,7 +10,6 @@ export interface DipSwitchProps {
 
 export const charsetStoragePath = (charset: string): string =>
   `pwgen-charset-${charset}`;
-
 
 export function loadDipSwitchStorage(charset: string): boolean {
   try {

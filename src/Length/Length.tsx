@@ -1,5 +1,5 @@
-import { LengthProps, useLengthStorage } from './useLengthStorage';
-import { ReactElement } from 'react';
+import { type LengthProps, useLengthStorage } from './useLengthStorage';
+import { type ReactElement } from 'react';
 
 export function Length(props: LengthProps): ReactElement {
 

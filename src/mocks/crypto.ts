@@ -1,7 +1,7 @@
 
-import { jest } from '@jest/globals';
+import { mock } from 'bun:test';
 
-export const getRandomValues = jest.fn();
+export const getRandomValues = mock();
 
 export const cryptoMock = {
   getRandomValues,

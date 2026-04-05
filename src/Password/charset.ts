@@ -1,4 +1,4 @@
-import { CharsetLabels } from './types';
+import type { CharsetLabels } from './types';
 
 export const charsetLabels: CharsetLabels = {
   ['09']: 'Number',
@@ -24,7 +24,7 @@ export const charsetMapping: CharsetLabels = {
   ['az']: alphaLower,
 };
 
-export const toRealSet = ([key, value]: [string, boolean]): string => 
+export const toRealSet = ([key, value]: [string, boolean]): string =>
   (value ? charsetMapping[key] : '');
 
 export const getCharset = (...args: string[]): string[] =>

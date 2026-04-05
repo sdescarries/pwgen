@@ -1,40 +1,38 @@
 {
   "compilerOptions": {
-    "allowJs": false,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
     "jsx": "react-jsx",
     "lib": [
+      "ES2023",
       "DOM",
-      "DOM.Iterable",
-      "ESNext"
+      "DOM.Iterable"
     ],
     "module": "ESNext",
+    "moduleDetection": "force",
     "moduleResolution": "bundler",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ]
     },
-    "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES2022",
+    "target": "ES2023",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "types": [
-      "jest",
-      "node",
-      "vite/client",
-    ]
+      "bun",
+      "vite/client"
+    ],
+    "useDefineForClassFields": true,
+    "verbatimModuleSyntax": true
   },
   "include": [
-    "eslint.config.mjs",
-    "postcss.config.mjs",
-    "src",
-    "vite.config.mts",
+    "src"
   ]
 }

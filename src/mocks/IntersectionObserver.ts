@@ -1,10 +1,10 @@
-import { jest } from '@jest/globals';
+import { mock } from 'bun:test';
 
-export const disconnect = jest.fn();
-export const observe = jest.fn();
-export const unobserve = jest.fn();
+export const disconnect = mock();
+export const observe = mock();
+export const unobserve = mock();
 
-export const IntersectionObserverMock = jest.fn(() => ({
+export const IntersectionObserverMock = mock(() => ({
   disconnect,
   observe,
   unobserve,

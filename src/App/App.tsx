@@ -1,10 +1,10 @@
 import { DipSwitch } from '@/DipSwitch/';
 import { InfiniScroll } from '@/InfiniScroll/';
 import { Length } from '@/Length/';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import {
-  CharsetState,
-  UpdatePasswordOptions,
+  type CharsetState,
+  type UpdatePasswordOptions,
   usePasswordContext,
 } from '@/Password/';
 

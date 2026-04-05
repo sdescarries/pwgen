@@ -1,12 +1,12 @@
 import {
-  RefObject,
+  type RefObject,
   useCallback,
   useEffect,
   useRef,
   useState,
 } from 'react';
 
-import { PasswordOptions, WordGenerator } from '@/Password';
+import type { PasswordOptions, WordGenerator } from '@/Password';
 import { useDebounce } from '@/Password/useDebounce';
 
 export type RefElement = RefObject<HTMLElement | null>;
@@ -302,6 +302,7 @@ export function useInfiniScroll({ generator, length }: InfiniScrollProps): Infin
   const [loader] = useInfiniScrollLoader(refresh);
   const [grid, standard] = useInfiniScrollSize(refresh, cols, rows);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => refresh({ full: true }), [generator, length, refresh]);
 
   const shred = useCallback((index: number) => listUpdate(shredder(index)), []);
