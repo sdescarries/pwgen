@@ -31,6 +31,7 @@
   },
   "name": "@sdescarries/pwgen",
   "optionalDependencies": {
+    "@cypress/code-coverage": "^4.0.3",
     "cypress": "^15.13.0",
     "start-server-and-test": "^3.0.0"
   },
@@ -42,7 +43,7 @@
     "e2e": "start-server-and-test start http-get://localhost:5173/pwgen/ 'cypress run'",
     "format": "eslint --fix src cypress",
     "instrument": "nyc instrument dist/assets/index.*.js ./",
-    "jest": "jest",
+    "jest": "bun test --preload ./src/setupTests.ts --coverage-reporter=lcov --coverage-reporter=text --coverage-dir=coverage/jest",
     "lint": "eslint src",
     "prebuild": "tsc",
     "preview": "vite preview --port=3500",

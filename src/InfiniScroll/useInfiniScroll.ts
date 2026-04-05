@@ -302,11 +302,8 @@ export function useInfiniScroll({ generator, length }: InfiniScrollProps): Infin
   const [loader] = useInfiniScrollLoader(refresh);
   const [grid, standard] = useInfiniScrollSize(refresh, cols, rows);
 
-  useEffect(() => {
-    Promise
-      .resolve()
-      .then(() => refresh({ full: true }));
-  }, [generator, length, refresh]);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => refresh({ full: true }), [generator, length, refresh]);
 
   const shred = useCallback((index: number) => listUpdate(shredder(index)), []);
 
