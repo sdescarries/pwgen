@@ -5,7 +5,7 @@
   "devDependencies": {
     "@babel/core": "7.29.0",
     "@babel/preset-env": "7.29.0",
-    "@cypress/code-coverage": "4.0.1",
+    "@cypress/code-coverage": "4.0.3",
     "@eslint/compat": "^2.0.2",
     "@eslint/eslintrc": "^3.3.4",
     "@eslint/js": "^10.0.1",
