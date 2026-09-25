@@ -19,3 +19,6 @@ overrides:
   workbox-window@<7.4.0: '>=7.4.0'
 
 sideEffectCache: false
+minimumReleaseAgeExclude:
+  # Renovate security update: @babel/core@7.29.6
+  - "@babel/core@7.29.6"
