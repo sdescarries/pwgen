@@ -19,3 +19,6 @@ overrides:
   workbox-window@<7.4.0: '>=7.4.0'
 
 sideEffectCache: false
+minimumReleaseAgeExclude:
+  # Renovate security update: postcss@8.5.23
+  - postcss@8.5.23
